@@ -7,27 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC122A4127399EB000AC356F /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC122A4027399EB000AC356F /* AddBlockViewController.swift */; };
+		BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */; };
+		BC5247C4272C1BBE00A100EA /* HomeTripBlockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */; };
+		BC59FF2E27465D4D001DCA06 /* TripsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59FF2D27465D4D001DCA06 /* TripsListView.swift */; };
+		BC59FF3027467F87001DCA06 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */; };
+		BC7BA970271750C100EBB697 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7BA96F271750C100EBB697 /* HomeViewController.swift */; };
+		BCA7248F274AA5D60051C545 /* TripListSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA7248E274AA5D60051C545 /* TripListSegue.swift */; };
+		BCA72491274AAC210051C545 /* StatisticSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA72490274AAC210051C545 /* StatisticSegue.swift */; };
+		BCCE383427300D380007402D /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE383327300D380007402D /* StatisticViewController.swift */; };
+		BCD03600272D9C990033DCF1 /* CornerExtentionUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD035FF272D9C990033DCF1 /* CornerExtentionUIVIew.swift */; };
+		BCD1F86F2743D23F00FBBF78 /* TripListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */; };
 		BCD23B0427123BB3007C6B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD23B0327123BB3007C6B47 /* AppDelegate.swift */; };
 		BCD23B0627123BB3007C6B47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD23B0527123BB3007C6B47 /* SceneDelegate.swift */; };
-		BCD23B0827123BB3007C6B47 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD23B0727123BB3007C6B47 /* HomeViewController.swift */; };
 		BCD23B0B27123BB3007C6B47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0927123BB3007C6B47 /* Main.storyboard */; };
 		BCD23B0D27123BBB007C6B47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0C27123BBB007C6B47 /* Assets.xcassets */; };
 		BCD23B1027123BBB007C6B47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */; };
-		BCD78FC927147B9900B20715 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD78FC827147B9900B20715 /* CustomTabBar.swift */; };
-		BCE314BF2714669E005AA8FE /* HomeTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE314BE2714669E005AA8FE /* HomeTripCell.swift */; };
+		BCE314BF2714669E005AA8FE /* HomeTripBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE314BE2714669E005AA8FE /* HomeTripBlockView.swift */; };
+		BCEA25A9272C8F0700EE9557 /* LocalSavingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC122A4027399EB000AC356F /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
+		BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
+		BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTripBlockModel.swift; sourceTree = "<group>"; };
+		BC59FF2D27465D4D001DCA06 /* TripsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListView.swift; sourceTree = "<group>"; };
+		BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
+		BC7BA96F271750C100EBB697 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BCA7248E274AA5D60051C545 /* TripListSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListSegue.swift; sourceTree = "<group>"; };
+		BCA72490274AAC210051C545 /* StatisticSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSegue.swift; sourceTree = "<group>"; };
+		BCCE383327300D380007402D /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
+		BCD035FF272D9C990033DCF1 /* CornerExtentionUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerExtentionUIVIew.swift; sourceTree = "<group>"; };
+		BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListViewController.swift; sourceTree = "<group>"; };
 		BCD23B0027123BB3007C6B47 /* GoTripIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoTripIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD23B0327123BB3007C6B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD23B0527123BB3007C6B47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCD23B0727123BB3007C6B47 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BCD23B0A27123BB3007C6B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCD23B0C27123BBB007C6B47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD23B0F27123BBB007C6B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCD23B1127123BBB007C6B47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BCD78FC827147B9900B20715 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		BCE314BE2714669E005AA8FE /* HomeTripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTripCell.swift; sourceTree = "<group>"; };
+		BCE314BE2714669E005AA8FE /* HomeTripBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTripBlockView.swift; sourceTree = "<group>"; };
+		BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSavingSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +61,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC149CBB272D69B700C5F7D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */,
+				BCE314BE2714669E005AA8FE /* HomeTripBlockView.swift */,
+				BC59FF2D27465D4D001DCA06 /* TripsListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC149CBC272D69D800C5F7D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */,
+				BC7BA96F271750C100EBB697 /* HomeViewController.swift */,
+				BCCE383327300D380007402D /* StatisticViewController.swift */,
+				BC122A4027399EB000AC356F /* AddBlockViewController.swift */,
+				BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC149CBD272D69E500C5F7D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCA7248D274AA5A30051C545 /* Segue */ = {
+			isa = PBXGroup;
+			children = (
+				BCA7248E274AA5D60051C545 /* TripListSegue.swift */,
+				BCA72490274AAC210051C545 /* StatisticSegue.swift */,
+			);
+			path = Segue;
+			sourceTree = "<group>";
+		};
+		BCD035FE272D9C240033DCF1 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */,
+				BCD035FF272D9C990033DCF1 /* CornerExtentionUIVIew.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		BCD23AF727123BB3007C6B47 = {
 			isa = PBXGroup;
 			children = (
@@ -62,10 +130,12 @@
 			children = (
 				BCD23B0327123BB3007C6B47 /* AppDelegate.swift */,
 				BCD23B0527123BB3007C6B47 /* SceneDelegate.swift */,
-				BCD23B0727123BB3007C6B47 /* HomeViewController.swift */,
-				BCE314BE2714669E005AA8FE /* HomeTripCell.swift */,
+				BC149CBD272D69E500C5F7D5 /* Model */,
+				BC149CBB272D69B700C5F7D5 /* View */,
+				BC149CBC272D69D800C5F7D5 /* Controller */,
+				BCA7248D274AA5A30051C545 /* Segue */,
+				BCD035FE272D9C240033DCF1 /* Other */,
 				BCD23B0927123BB3007C6B47 /* Main.storyboard */,
-				BCD78FC827147B9900B20715 /* CustomTabBar.swift */,
 				BCD23B0C27123BBB007C6B47 /* Assets.xcassets */,
 				BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */,
 				BCD23B1127123BBB007C6B47 /* Info.plist */,
@@ -143,11 +213,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCD23B0827123BB3007C6B47 /* HomeViewController.swift in Sources */,
-				BCE314BF2714669E005AA8FE /* HomeTripCell.swift in Sources */,
-				BCD78FC927147B9900B20715 /* CustomTabBar.swift in Sources */,
+				BCD1F86F2743D23F00FBBF78 /* TripListViewController.swift in Sources */,
+				BC122A4127399EB000AC356F /* AddBlockViewController.swift in Sources */,
+				BCA7248F274AA5D60051C545 /* TripListSegue.swift in Sources */,
+				BC7BA970271750C100EBB697 /* HomeViewController.swift in Sources */,
+				BCE314BF2714669E005AA8FE /* HomeTripBlockView.swift in Sources */,
+				BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */,
 				BCD23B0427123BB3007C6B47 /* AppDelegate.swift in Sources */,
 				BCD23B0627123BB3007C6B47 /* SceneDelegate.swift in Sources */,
+				BCEA25A9272C8F0700EE9557 /* LocalSavingSystem.swift in Sources */,
+				BC59FF2E27465D4D001DCA06 /* TripsListView.swift in Sources */,
+				BC59FF3027467F87001DCA06 /* TripTableViewCell.swift in Sources */,
+				BCCE383427300D380007402D /* StatisticViewController.swift in Sources */,
+				BCA72491274AAC210051C545 /* StatisticSegue.swift in Sources */,
+				BCD03600272D9C990033DCF1 /* CornerExtentionUIVIew.swift in Sources */,
+				BC5247C4272C1BBE00A100EA /* HomeTripBlockModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,18 @@
+{
+  "images" : [
+    {
+      "compression-type" : "automatic",
+      "filename" : "Rectangle 13select.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "auto-scaling" : "auto",
+    "preserves-vector-representation" : true,
+    "template-rendering-intent" : "original"
+  }
+}
