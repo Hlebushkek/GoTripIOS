@@ -30,15 +30,17 @@ class HomeViewController: UIViewController {
     }
     
     
-    var blockInfos: [TripInfo] = [
-        /*TripInfo(placeFrom: "Kyiv", placeTo: "Lviv", price: 1920, type: .Airplane),
+    var blockInfos: [TripInfo] = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
+    /*[
+        TripInfo(placeFrom: "Kyiv", placeTo: "Lviv", price: 1920, type: .Airplane),
         TripInfo(placeFrom: "Kyiv", placeTo: "Uzhorod", price: 940.40, type: .Train),
         TripInfo(placeFrom: "Uzhorod", placeTo: "Poprad", price: 623.35, type: .Bus),
         TripInfo(placeFrom: "Kyiv", placeTo: "Odessa", price: 400, type: .Car),
-        TripInfo(placeFrom: "Katowice", placeTo: "Oslo", price: 1020.82, type: .Airplane)*/
-    ]
-    var filteredblockInfos: [TripInfo] = []
-    var tripBlockViews: [HomeTripBlockView] = []
+        TripInfo(placeFrom: "Katowice", placeTo: "Oslo", price: 1020.82, type: .Airplane)
+    ]*/
+    var filteredBlockInfosIndex: [Int] = []
+    var existingBlockCount = 0
+    var tripBlockViews: [HomeTripBlockView?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,42 +59,92 @@ class HomeViewController: UIViewController {
             ContentView.addSubview(blockview)
         }*/
         
-        blockInfos = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
-        filteredblockInfos = blockInfos
-        
-        let subview = self.view.subviews[2].subviews[0].subviews[0]
-        scrollViewContainerHeightConstraint = NSLayoutConstraint(item: subview, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: CGFloat(16 + 96 * filteredblockInfos.count))
-        NSLayoutConstraint.activate([scrollViewContainerHeightConstraint])
-        
-        replaceTripBlockViews()
-    }
-    func replaceTripBlockViews() {
-        var blocksToDelete = 0
-        if tripBlockViews.count > 0 {
-            var index = 0
-            for block in tripBlockViews {
-                UIView.animate(withDuration: 0.2, delay: Double(index) * 0.1, options: [.curveEaseIn], animations: {
-                    var transX = UIScreen.main.bounds.width
-                    if index % 2 == 0 {transX*=(-1)}
-                    
-                    block.transform = CGAffineTransform(translationX: transX, y: 0)
-                }, completion: {_ in block.removeFromSuperview()})
-                index+=1
-            }
-            blocksToDelete = tripBlockViews.count
-            tripBlockViews.removeAll()
+        tripBlockViews = [HomeTripBlockView?](repeating: nil, count: blockInfos.count)
+        existingBlockCount = blockInfos.count
+        for index in 0...blockInfos.count-1 {
+            let blockview = HomeTripBlockView(info: blockInfos[index], num: index);
+            ContentView.addSubview(blockview)
+            tripBlockViews[index] = blockview
+            filteredBlockInfosIndex.append(index)
         }
         
-        if filteredblockInfos.count < 1 { return }
+        scrollViewContainerHeightConstraint = NSLayoutConstraint(item: ContentView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: CGFloat(16 + 96 * blockInfos.count))
+        NSLayoutConstraint.activate([scrollViewContainerHeightConstraint])
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + Double(blocksToDelete) * 0.1) {
-            for index in 0...self.filteredblockInfos.count-1 {
-                let blockview = HomeTripBlockView(info: self.filteredblockInfos[self.filteredblockInfos.count-1 - index], num: index);
-                self.ContentView.addSubview(blockview)
-                self.tripBlockViews.append(blockview)
+        updateTripBlockViews()
+    }
+    func updateTripBlockViews() {
+        if (existingBlockCount > filteredBlockInfosIndex.count) {
+            //Swiping block
+            existingBlockCount = 0
+            for index in 0...tripBlockViews.count-1 {
+                if !filteredBlockInfosIndex.contains(index) && tripBlockViews[index] != nil {
+                    UIView.animate(withDuration: 0.2, delay: Double(existingBlockCount) * 0.05, options: [], animations: {
+                        var transX = UIScreen.main.bounds.width
+                        if self.existingBlockCount % 2 == 0 {transX*=(-1)}
+                        self.tripBlockViews[index]!.transform = CGAffineTransform(translationX: transX, y: 0)
+                    }, completion: nil)
+                    existingBlockCount+=1
+                }
+            }
+            //Collapse remaining and deleting removed blocks
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(existingBlockCount) * 0.1) {
+                self.existingBlockCount = 0
+                for index in 0...self.tripBlockViews.count-1 {
+                    if !self.filteredBlockInfosIndex.contains(index) && self.tripBlockViews[index] != nil {
+                        self.tripBlockViews[index]!.removeFromSuperview()
+                        self.tripBlockViews[index] = nil
+                    }
+                    else if self.filteredBlockInfosIndex.contains(index) {
+                        UIView.animate(withDuration: 0.2, delay: Double(self.existingBlockCount) * 0.1, options: [], animations: {
+                            self.tripBlockViews[index]!.frame.origin.y = CGFloat(16 + self.existingBlockCount * 96)
+                            self.existingBlockCount+=1
+                        }, completion: nil)
+                    }
+                }
+                self.recalcX()
+            }
+            //
+        } else if (existingBlockCount < filteredBlockInfosIndex.count) {
+            //From end to start push apart blocks and create new block
+            var addedBlockCount = filteredBlockInfosIndex.count - existingBlockCount
+            var slidingDelay = 0
+            existingBlockCount = 0
+            for index in stride(from: blockInfos.count-1, to: -1, by: -1) {
+                if filteredBlockInfosIndex.contains(index) && tripBlockViews[index] == nil {
+                    let blockview = HomeTripBlockView(info: self.blockInfos[index], num: filteredBlockInfosIndex.count-1-existingBlockCount);
+                    self.ContentView.addSubview(blockview)
+                    blockview.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+                    self.tripBlockViews[index] = blockview
+                    addedBlockCount-=1
+                    existingBlockCount+=1
+                } else if tripBlockViews[index] != nil {
+                    slidingDelay+=1
+                    existingBlockCount+=1
+                    UIView.animate(withDuration: 0.2, delay: Double(slidingDelay) * 0.05, options: [], animations: { self.tripBlockViews[index]!.frame.origin.y += CGFloat(96 * addedBlockCount)}, completion: nil)
+                }
             }
             
-            self.scrollViewContainerHeightConstraint.constant = CGFloat(16 + 96 * self.tripBlockViews.count)
+            //Place blocks on correct X
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(slidingDelay) * 0.05) {
+                for index in stride(from: self.filteredBlockInfosIndex.count-1, to: -1, by: -1) {
+                    UIView.animate(withDuration: 0.2, delay: Double(self.filteredBlockInfosIndex.count-1 - index) * 0.05, options: [], animations: {
+                        self.tripBlockViews[self.filteredBlockInfosIndex[index]]?.transform = .identity
+                    }, completion: nil)
+                }
+                self.existingBlockCount = self.filteredBlockInfosIndex.count
+                self.recalcX()
+            }
+            //
+        }
+    }
+    func recalcX() {
+        var index = 0
+        for view in tripBlockViews {
+            if view != nil {
+                UIView.animate(withDuration: 0.2, delay: CGFloat(index) * 0.1, options: [], animations: {view!.frame.origin.x = (index % 2 == 0) ? 16 : (UIScreen.main.bounds.width - 320 - 16)
+                    index+=1}, completion: nil)
+            }
         }
     }
 }
@@ -115,18 +167,20 @@ extension HomeViewController: UIScrollViewDelegate {
 
 extension HomeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredblockInfos = []
-        
+        filteredBlockInfosIndex = []
+
+        var index = 0
         for block in blockInfos {
             if (block.placeFrom.uppercased().contains(searchText.uppercased()) ||
                 block.placeTo.uppercased().contains(searchText.uppercased()) ||
                 "\(block.price)".uppercased().contains(searchText.uppercased()) ||
                 searchText.count == 0) {
-                filteredblockInfos.append(block)
+                filteredBlockInfosIndex.append(index)
             }
+            index+=1
         }
-        
-        replaceTripBlockViews()
+        //print("\(filteredBlockInfosIndex)")
+        updateTripBlockViews()
     }
 }
 
