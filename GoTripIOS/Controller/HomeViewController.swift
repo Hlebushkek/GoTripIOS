@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     private var scrollViewContainerHeightConstraint: NSLayoutConstraint = NSLayoutConstraint()
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
     @IBAction func airplaneButtonAction(_ sender: Any) {
         performSegue(withIdentifier: "ShowTableView", sender: TripType.Airplane)
     }
@@ -47,22 +46,11 @@ class HomeViewController: UIViewController {
         scrollView.delegate = self
         searchBar.delegate = self
         
-        /*for index in 0...blockInfos.count-1 {
-            let blockview = HomeTripBlockView(info: blockInfos[index], num: index);
-            ContentView.addSubview(blockview)
-        }
-        
-        for index in blockInfos.count...9 {
-            let block = TripInfo.example()
-            blockInfos.append(block)
-            let blockview = HomeTripBlockView(info: blockInfos[index], num: index);
-            ContentView.addSubview(blockview)
-        }*/
-        
         tripBlockViews = [HomeTripBlockView?](repeating: nil, count: blockInfos.count)
         existingBlockCount = blockInfos.count
         for index in 0...blockInfos.count-1 {
             let blockview = HomeTripBlockView(info: blockInfos[index], num: index);
+            addTapGesture(blockview, blockInfos[index])
             ContentView.addSubview(blockview)
             tripBlockViews[index] = blockview
             filteredBlockInfosIndex.append(index)
@@ -71,7 +59,7 @@ class HomeViewController: UIViewController {
         scrollViewContainerHeightConstraint = NSLayoutConstraint(item: ContentView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: CGFloat(16 + 96 * blockInfos.count))
         NSLayoutConstraint.activate([scrollViewContainerHeightConstraint])
         
-        updateTripBlockViews()
+        //updateTripBlockViews()
     }
     func updateTripBlockViews() {
         if (existingBlockCount > filteredBlockInfosIndex.count) {
@@ -80,9 +68,11 @@ class HomeViewController: UIViewController {
             for index in 0...tripBlockViews.count-1 {
                 if !filteredBlockInfosIndex.contains(index) && tripBlockViews[index] != nil {
                     UIView.animate(withDuration: 0.2, delay: Double(existingBlockCount) * 0.05, options: [], animations: {
-                        var transX = UIScreen.main.bounds.width
-                        if self.existingBlockCount % 2 == 0 {transX*=(-1)}
-                        self.tripBlockViews[index]!.transform = CGAffineTransform(translationX: transX, y: 0)
+                        if self.tripBlockViews[index]!.frame.origin.x > 0 && self.tripBlockViews[index]!.frame.origin.x < UIScreen.main.bounds.width {
+                            var transX = UIScreen.main.bounds.width
+                            if self.existingBlockCount % 2 == 0 {transX*=(-1)}
+                            self.tripBlockViews[index]!.transform = CGAffineTransform(translationX: transX, y: 0)
+                        }
                     }, completion: nil)
                     existingBlockCount+=1
                 }
@@ -103,6 +93,7 @@ class HomeViewController: UIViewController {
                     }
                 }
                 self.recalcX()
+                self.resizeView()
             }
             //
         } else if (existingBlockCount < filteredBlockInfosIndex.count) {
@@ -112,10 +103,11 @@ class HomeViewController: UIViewController {
             existingBlockCount = 0
             for index in stride(from: blockInfos.count-1, to: -1, by: -1) {
                 if filteredBlockInfosIndex.contains(index) && tripBlockViews[index] == nil {
-                    let blockview = HomeTripBlockView(info: self.blockInfos[index], num: filteredBlockInfosIndex.count-1-existingBlockCount);
-                    self.ContentView.addSubview(blockview)
-                    blockview.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
-                    self.tripBlockViews[index] = blockview
+                    let blockview = HomeTripBlockView(info: blockInfos[index], num: filteredBlockInfosIndex.count-1-existingBlockCount);
+                    addTapGesture(blockview, blockInfos[index])
+                    ContentView.addSubview(blockview)
+                    blockview.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width * pow(-1.0, CGFloat(index)), y: 0)
+                    tripBlockViews[index] = blockview
                     addedBlockCount-=1
                     existingBlockCount+=1
                 } else if tripBlockViews[index] != nil {
@@ -134,6 +126,7 @@ class HomeViewController: UIViewController {
                 }
                 self.existingBlockCount = self.filteredBlockInfosIndex.count
                 self.recalcX()
+                self.resizeView()
             }
             //
         }
@@ -146,6 +139,23 @@ class HomeViewController: UIViewController {
                     index+=1}, completion: nil)
             }
         }
+    }
+    func resizeView() {
+        self.scrollViewContainerHeightConstraint.constant = CGFloat(self.existingBlockCount * 96)
+        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: { self.view.layoutIfNeeded()}, completion: nil)
+    }
+    func addTapGesture(_ block: UIView, _ info: TripInfo) {
+        let tapGR = TripInfoGestureRecognizer(target: self, action: #selector(self.tapOnBlock))
+        tapGR.info = info
+        block.addGestureRecognizer(tapGR)
+        block.isUserInteractionEnabled = true
+    }
+    @objc func tapOnBlock(sender: TripInfoGestureRecognizer) {
+        print("Tapped on \(sender.info)")
+        let tripVC = self.storyboard?.instantiateViewController(withIdentifier: "tripdetailed") as! TripDetailedViewController
+
+        tripVC.modalPresentationStyle = .pageSheet
+        self.present(tripVC, animated: true, completion: nil)
     }
 }
 

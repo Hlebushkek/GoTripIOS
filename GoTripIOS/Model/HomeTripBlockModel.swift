@@ -12,6 +12,10 @@ public struct TripInfo: Codable {
     public let placeTo: String
     public let price: Decimal
     public let type: TripType
+    
+    public static func empty() -> TripInfo {
+        return TripInfo(placeFrom: "Undefined", placeTo: "Undefined", price: 0.0, type: .Airplane)
+    }
 }
 
 extension TripInfo {
