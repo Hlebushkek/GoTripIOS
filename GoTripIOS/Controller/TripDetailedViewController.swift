@@ -10,46 +10,64 @@ import UIKit
 class TripDetailedViewController: UIViewController {
     var info: TripInfo?
     
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bottomView: UIView!
+    private var bottomGradientLayer = CAGradientLayer()
+    
     @IBOutlet weak var placefrom: UILabel!
     @IBOutlet weak var placeTo: UILabel!
     @IBOutlet weak var price: UILabel!
-    
-    @IBOutlet weak var gradientView: UIView!
+        
+    @IBOutlet weak var pathView: TripDotsView!
     
     @IBAction func animateView(_ sender: Any) {
-        self.view.frame = CGRect(x: 0, y: 0, width: 360, height:560)
         
+    }
+    @IBAction func backButtonAction(_ sender: Any) {
+        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+            self.topView.alpha = 0
+            self.bottomView.alpha = 0
+        }, completion: {_ in self.dismiss(animated: true, completion: nil)})
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setInfo()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+            self.topView.alpha = 1
+            self.bottomView.alpha = 1
+        }, completion: {_ in self.pathView.animatePath()})
+    }
+        
+    func setInfo() {
         if let info = self.info {
+            self.view.backgroundColor = TripColors.getColor(num: info.type.rawValue)
+            setBackgroundGradient()
+            bottomView.alpha = 0
+            
+            topView.backgroundColor = TripColors.getStrongColor(num: info.type.rawValue)
+            topView.alpha = 0
+            
             placefrom.text = info.placeFrom
             placeTo.text = info.placeTo
             price.text = NSDecimalNumber(decimal: info.price).stringValue
-            
-            let newLayer = CAGradientLayer()
-            //newLayer.colors = [UIColor(named: "AirplaneColor")!.cgColor, UIColor(named: "AirplaneColorStrong")!.cgColor]
-            newLayer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
-            newLayer.frame = gradientView.frame
-            newLayer.frame.origin = CGPoint(x: 0, y: 0)
-            newLayer.cornerRadius = 16
-            newLayer.startPoint = CGPoint(x: 0, y: 0)
-            newLayer.endPoint = CGPoint(x: 1, y: 1)
-            
-            
-            let gradientAnimation = CABasicAnimation(keyPath: "locations")
-            gradientAnimation.fromValue = [0.0, 0.25]
-            gradientAnimation.toValue = [0.75, 1.0]
-            gradientAnimation.duration = 3.0
-            gradientAnimation.repeatCount = Float.infinity
-
-            newLayer.add(gradientAnimation, forKey: nil)
-            
-            gradientView.layer.addSublayer(newLayer)
-            
         }
+    }
+    
+    func setBackgroundGradient() {
+        bottomView.layer.addSublayer(bottomGradientLayer)
+        
+        bottomGradientLayer.colors = [TripColors.getStrongColor(num: info!.type.rawValue).cgColor, TripColors.getColor(num: info!.type.rawValue).cgColor]
+        bottomGradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        bottomGradientLayer.endPoint = CGPoint(x: 0.5, y: 0.25)
+        
+        bottomGradientLayer.frame = bottomView.frame
+        bottomGradientLayer.frame.origin = CGPoint(x: 0, y: 0)
     }
 }

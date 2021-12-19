@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "ShowTableView", sender: TripType.Car)
     }
     
+    let transitionToDetailedView = DetailedTripViewTransition()
     
     var blockInfos: [TripInfo] = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
     /*[
@@ -147,15 +148,24 @@ class HomeViewController: UIViewController {
     func addTapGesture(_ block: UIView, _ info: TripInfo) {
         let tapGR = TripInfoGestureRecognizer(target: self, action: #selector(self.tapOnBlock))
         tapGR.info = info
+        tapGR.centerPoint = block.center
         block.addGestureRecognizer(tapGR)
         block.isUserInteractionEnabled = true
     }
     @objc func tapOnBlock(sender: TripInfoGestureRecognizer) {
-        print("Tapped on \(sender.info)")
+        //print("Tapped on \(sender.info)")
+        
         let tripVC = self.storyboard?.instantiateViewController(withIdentifier: "tripdetailed") as! TripDetailedViewController
-
-        tripVC.modalPresentationStyle = .pageSheet
-        self.present(tripVC, animated: true, completion: nil)
+        tripVC.info = sender.info
+        
+        transitionToDetailedView.tripType = sender.info.type
+        transitionToDetailedView.startPoint = sender.centerPoint
+        transitionToDetailedView.startPoint.y += (174 - scrollView.contentOffset.y)
+        //print(transitionToDetailedView.startPoint)
+        tripVC.transitioningDelegate = self
+        tripVC.modalPresentationStyle = .custom
+        
+        present(tripVC, animated: true)
     }
 }
 
@@ -218,5 +228,18 @@ extension HomeViewController {
                 }
             }
         }
+    }
+}
+
+extension HomeViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transitionToDetailedView.transitionMode = .present
+        
+        return transitionToDetailedView
+    }
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transitionToDetailedView.transitionMode = .dismiss
+        
+        return transitionToDetailedView
     }
 }

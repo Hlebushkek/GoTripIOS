@@ -73,13 +73,13 @@ extension TripsListView: UITableViewDelegate {
             if lastInitialDisplayableCell {
                 finishedLoadingInitialTableCells = true
             }
-            delay = 0.2 * Double(indexPath.row)
+            delay = 0.1 * Double(indexPath.row)
         }
         
         cell1.contentView.subviews[0].transform = CGAffineTransform(translationX: tableView.bounds.width, y: 0)
         cell1.contentView.subviews[0].alpha = 0
         UIView.animate(withDuration: 0.5, delay: delay, options: [.curveEaseInOut], animations: {
-            cell1.contentView.subviews[0].transform = CGAffineTransform(translationX: 0, y: 0)
+            cell1.contentView.subviews[0].transform = .identity
             cell1.contentView.subviews[0].alpha = 1
         }, completion: nil)
     }

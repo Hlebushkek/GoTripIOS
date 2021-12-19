@@ -18,7 +18,7 @@ class TripTableViewCell: UITableViewCell {
     init(info: TripInfo, height: CGFloat, style: CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        //test value
+        //
         let screenToCell_K = 0.05
         let realCellWidth = UIScreen.main.bounds.width * (1-2*screenToCell_K)
         //
@@ -28,7 +28,7 @@ class TripTableViewCell: UITableViewCell {
         
         cellView.frame = CGRect(x: realCellWidth * (1-widthK)/2, y: height * (1-heightK)/2.0, width: realCellWidth * widthK, height: height * heightK)
         cellView.backgroundColor = .red
-        cellView.layer.cornerRadius = 8
+        cellView.layer.cornerRadius = 12
         self.selectionStyle = .none
         
         
