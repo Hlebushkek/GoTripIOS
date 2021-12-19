@@ -24,6 +24,7 @@ class TripDotsView: UIView {
     }
     
     func instantiatePath() {
+        self.frame.size = CGSize(width: UIScreen.main.bounds.width, height: self.frame.size.height)
         
         circle1 = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
         circle1.center = CGPoint(x: 16, y: self.bounds.height/2)
@@ -31,11 +32,13 @@ class TripDotsView: UIView {
         circle1.layer.cornerRadius = 8
         
         circle2 = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
-        circle2.center = CGPoint(x: self.frame.width - 16, y: self.bounds.height/2)
+        circle2.center = CGPoint(x: self.bounds.width - 16 - 16, y: self.bounds.height/2)
+        print("Width \(self.bounds.width)");
         circle2.backgroundColor = .blue
         circle2.layer.cornerRadius = 8
         
         connection = UIView(frame: CGRect(x: 0, y: 0, width: circle2.center.x - circle1.center.x, height: 8))
+        print("Path \(circle1.center.x) \(circle2.center.x) \(connection.frame.width)")
         connection.transform = CGAffineTransform(scaleX: 0.0001, y: 1)
         connection.frame.origin = CGPoint(x: circle1.center.x, y: circle1.center.y - connection.bounds.height/2)
         connection.backgroundColor = .blue
@@ -44,8 +47,8 @@ class TripDotsView: UIView {
         self.addSubview(circle2)
         self.addSubview(connection)
         
-        circle1.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        circle2.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        circle1.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        circle2.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
     }
     
     func animatePath() {

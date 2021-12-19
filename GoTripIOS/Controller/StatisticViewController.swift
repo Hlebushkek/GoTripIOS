@@ -17,6 +17,8 @@ class StatisticViewController: UIViewController {
     @IBOutlet weak var durationView: UIView!
     @IBOutlet weak var priceView: UIView!
     
+    @IBOutlet weak var MenuSelection: UIStackView!
+    
     let MaxStackHeight = 208
     
     var stackContainer: [[UIStackView]]!
@@ -46,6 +48,8 @@ class StatisticViewController: UIViewController {
         
         roundCorners()
         getHeightConstraint()
+        
+        MenuSelection.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 0.0275 , y: 0.0);
         
         typeView.alpha = 0
         durationView.alpha = 0
@@ -141,6 +145,7 @@ class StatisticViewController: UIViewController {
         
         hideAll()
         UIView.animate(withDuration: 0.25, delay: 0.5, animations: {
+            self.MenuSelection.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 0.0275 , y: 0.0);
             self.typeView.alpha = 1}, completion: {_ in self.calcHeight(num: 0)})
     }
     @IBAction func durationButtonAction(_ sender: Any?) {
@@ -148,6 +153,7 @@ class StatisticViewController: UIViewController {
         
         hideAll()
         UIView.animate(withDuration: 0.25, delay: 0.5, animations: {
+            self.MenuSelection.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 0.35 , y: 0.0);
             self.durationView.alpha = 1}, completion: {_ in self.calcHeight(num: 1)})
     }
     @IBAction func priceButtonAction(_ sender: Any?) {
@@ -155,6 +161,7 @@ class StatisticViewController: UIViewController {
         
         hideAll()
         UIView.animate(withDuration: 0.25, delay: 0.5, animations: {
+            self.MenuSelection.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 0.69 , y: 0.0);
             self.priceView.alpha = 1}, completion: {_ in self.calcHeight(num: 2)})
     }
     @IBAction func backButton(_ sender: Any) {

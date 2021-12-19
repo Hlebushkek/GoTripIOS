@@ -32,8 +32,11 @@ extension DetailedTripViewTransition: UIViewControllerAnimatedTransitioning {
                 let viewCenter = presentedView.center
                 let viewSize = presentedView.frame.size
                 
+                let indent = UIScreen.main.bounds.width * 0.03
+                let blockWidth = UIScreen.main.bounds.width * 0.85
+                
                 block = UIView()
-                block.frame = CGRect(x: 0, y: 0, width: 320, height: 64)
+                block.frame = CGRect(x: 0, y: 0, width: blockWidth, height: 64)
                 block.center = startPoint
                 print(block.center)
                 block.layer.cornerRadius = 16
@@ -48,7 +51,7 @@ extension DetailedTripViewTransition: UIViewControllerAnimatedTransitioning {
                 
                 
                 UIView.animate(withDuration: duration, delay: 0, options: [], animations: {
-                    self.block.transform = CGAffineTransform(scaleX: viewSize.width / 320, y: viewSize.height / 64)
+                    self.block.transform = CGAffineTransform(scaleX: viewSize.width / blockWidth, y: viewSize.height / 64)
                     self.block.center = viewCenter
                     self.block.layer.cornerRadius = 0
                     

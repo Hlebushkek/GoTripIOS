@@ -160,7 +160,7 @@ class HomeViewController: UIViewController {
         
         transitionToDetailedView.tripType = sender.info.type
         transitionToDetailedView.startPoint = sender.centerPoint
-        transitionToDetailedView.startPoint.y += (174 - scrollView.contentOffset.y)
+        transitionToDetailedView.startPoint.y += (view.subviews[2].frame.origin.y - scrollView.contentOffset.y)
         //print(transitionToDetailedView.startPoint)
         tripVC.transitioningDelegate = self
         tripVC.modalPresentationStyle = .custom
