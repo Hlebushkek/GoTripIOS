@@ -17,11 +17,8 @@ class HomeTripBlockView: UIView {
     
     var info: TripInfo
     
-    init(info: TripInfo, num: Int) {
+    init(info: TripInfo, num: Int, blockWidth: CGFloat, indent: CGFloat) {
         self.info = info
-        
-        let indent = UIScreen.main.bounds.width * 0.03
-        let blockWidth = UIScreen.main.bounds.width * 0.85
         
         var posX = indent
         if num % 2 == 1 {

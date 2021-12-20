@@ -42,6 +42,9 @@ class HomeViewController: UIViewController {
     var existingBlockCount = 0
     var tripBlockViews: [HomeTripBlockView?] = []
     
+    let tripBlockIndent = UIScreen.main.bounds.width * 0.03
+    let tripBlockWidth = UIScreen.main.bounds.width * 0.85
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
@@ -50,7 +53,7 @@ class HomeViewController: UIViewController {
         tripBlockViews = [HomeTripBlockView?](repeating: nil, count: blockInfos.count)
         existingBlockCount = blockInfos.count
         for index in 0...blockInfos.count-1 {
-            let blockview = HomeTripBlockView(info: blockInfos[index], num: index);
+            let blockview = HomeTripBlockView(info: blockInfos[index], num: index, blockWidth: tripBlockWidth, indent: tripBlockIndent);
             addTapGesture(blockview, blockInfos[index])
             ContentView.addSubview(blockview)
             tripBlockViews[index] = blockview
@@ -98,13 +101,14 @@ class HomeViewController: UIViewController {
             }
             //
         } else if (existingBlockCount < filteredBlockInfosIndex.count) {
-            //From end to start push apart blocks and create new block
+            //From end to start push apart blocks and then create new blocks
             var addedBlockCount = filteredBlockInfosIndex.count - existingBlockCount
             var slidingDelay = 0
             existingBlockCount = 0
+            
             for index in stride(from: blockInfos.count-1, to: -1, by: -1) {
                 if filteredBlockInfosIndex.contains(index) && tripBlockViews[index] == nil {
-                    let blockview = HomeTripBlockView(info: blockInfos[index], num: filteredBlockInfosIndex.count-1-existingBlockCount);
+                    let blockview = HomeTripBlockView(info: blockInfos[index], num: filteredBlockInfosIndex.count-1-existingBlockCount, blockWidth: tripBlockWidth, indent: tripBlockIndent);
                     addTapGesture(blockview, blockInfos[index])
                     ContentView.addSubview(blockview)
                     blockview.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width * pow(-1.0, CGFloat(index)), y: 0)
@@ -136,7 +140,7 @@ class HomeViewController: UIViewController {
         var index = 0
         for view in tripBlockViews {
             if view != nil {
-                UIView.animate(withDuration: 0.2, delay: CGFloat(index) * 0.1, options: [], animations: {view!.frame.origin.x = (index % 2 == 0) ? 16 : (UIScreen.main.bounds.width - 320 - 16)
+                UIView.animate(withDuration: 0.2, delay: CGFloat(index) * 0.1, options: [], animations: {view!.frame.origin.x = (index % 2 == 0) ? 16 : (UIScreen.main.bounds.width - self.tripBlockWidth - self.tripBlockIndent)
                     index+=1}, completion: nil)
             }
         }
