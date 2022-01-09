@@ -53,7 +53,8 @@ extension LocationSearchTable {
         
         let currentCell = tableView.cellForRow(at: indexPath)
         handleMapSearchDelegate?.setAddressText(address: (currentCell?.detailTextLabel?.text) ?? "Undefined")
-
+        
+        handleMapSearchDelegate = nil
         self.dismiss(animated: true)
     }
 }

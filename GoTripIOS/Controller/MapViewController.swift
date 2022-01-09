@@ -21,8 +21,6 @@ class MapViewController: UIViewController {
     var selectedPin: MKPlacemark? = nil
     
     @IBAction func backButton(_ sender: Any) {
-        
-        
         self.dismiss(animated: true)
     }
     
