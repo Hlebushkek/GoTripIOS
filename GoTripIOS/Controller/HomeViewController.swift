@@ -32,12 +32,13 @@ class HomeViewController: UIViewController {
     
     var blockInfos: [TripInfo] = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
     /*[
-        TripInfo(placeFrom: "Kyiv", placeTo: "Lviv", price: 1920, type: .Airplane),
-        TripInfo(placeFrom: "Kyiv", placeTo: "Uzhorod", price: 940.40, type: .Train),
-        TripInfo(placeFrom: "Uzhorod", placeTo: "Poprad", price: 623.35, type: .Bus),
-        TripInfo(placeFrom: "Kyiv", placeTo: "Odessa", price: 400, type: .Car),
-        TripInfo(placeFrom: "Katowice", placeTo: "Oslo", price: 1020.82, type: .Airplane)
+        TripInfo(placeFrom: "Kyiv", placeTo: "Lviv", price: TripPrice(1940), type: .Airplane),
+        TripInfo(placeFrom: "Kyiv", placeTo: "Uzhorod", price: TripPrice(940.40), type: .Train),
+        TripInfo(placeFrom: "Uzhorod", placeTo: "Poprad", price: TripPrice(623.35), type: .Bus),
+        TripInfo(placeFrom: "Kyiv", placeTo: "Odessa", price: TripPrice(400), type: .Car),
+        TripInfo(placeFrom: "Katowice", placeTo: "Oslo", price: TripPrice(1020.82), type: .Airplane)
     ]*/
+    var gestureRecoginers: [TripInfoGestureRecognizer?] = []
     var filteredBlockInfosIndex: [Int] = []
     var existingBlockCount = 0
     var tripBlockViews: [HomeTripBlockView?] = []
@@ -51,10 +52,12 @@ class HomeViewController: UIViewController {
         searchBar.delegate = self
         
         tripBlockViews = [HomeTripBlockView?](repeating: nil, count: blockInfos.count)
+        gestureRecoginers = [TripInfoGestureRecognizer?](repeating: nil, count: blockInfos.count)
+        
         existingBlockCount = blockInfos.count
         for index in 0...blockInfos.count-1 {
             let blockview = HomeTripBlockView(info: blockInfos[index], num: index, blockWidth: tripBlockWidth, indent: tripBlockIndent);
-            addTapGesture(blockview, blockInfos[index])
+            addTapGesture(blockview, index)
             ContentView.addSubview(blockview)
             tripBlockViews[index] = blockview
             filteredBlockInfosIndex.append(index)
@@ -65,6 +68,7 @@ class HomeViewController: UIViewController {
         
         //updateTripBlockViews()
     }
+    
     func updateTripBlockViews() {
         if (existingBlockCount > filteredBlockInfosIndex.count) {
             //Swiping block
@@ -86,6 +90,7 @@ class HomeViewController: UIViewController {
                 self.existingBlockCount = 0
                 for index in 0...self.tripBlockViews.count-1 {
                     if !self.filteredBlockInfosIndex.contains(index) && self.tripBlockViews[index] != nil {
+                        self.gestureRecoginers[index]!.block = nil
                         self.tripBlockViews[index]!.removeFromSuperview()
                         self.tripBlockViews[index] = nil
                     }
@@ -109,7 +114,7 @@ class HomeViewController: UIViewController {
             for index in stride(from: blockInfos.count-1, to: -1, by: -1) {
                 if filteredBlockInfosIndex.contains(index) && tripBlockViews[index] == nil {
                     let blockview = HomeTripBlockView(info: blockInfos[index], num: filteredBlockInfosIndex.count-1-existingBlockCount, blockWidth: tripBlockWidth, indent: tripBlockIndent);
-                    addTapGesture(blockview, blockInfos[index])
+                    addTapGesture(blockview, index)
                     ContentView.addSubview(blockview)
                     blockview.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width * pow(-1.0, CGFloat(index)), y: 0)
                     tripBlockViews[index] = blockview
@@ -122,7 +127,6 @@ class HomeViewController: UIViewController {
                 }
             }
             
-            //Place blocks on correct X
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(slidingDelay) * 0.05) {
                 for index in stride(from: self.filteredBlockInfosIndex.count-1, to: -1, by: -1) {
                     UIView.animate(withDuration: 0.2, delay: Double(self.filteredBlockInfosIndex.count-1 - index) * 0.05, options: [], animations: {
@@ -136,6 +140,7 @@ class HomeViewController: UIViewController {
             //
         }
     }
+    
     func recalcX() {
         var index = 0
         for view in tripBlockViews {
@@ -149,27 +154,21 @@ class HomeViewController: UIViewController {
         self.scrollViewContainerHeightConstraint.constant = CGFloat(self.existingBlockCount * 96)
         UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: { self.view.layoutIfNeeded()}, completion: nil)
     }
-    func addTapGesture(_ block: UIView, _ info: TripInfo) {
-        let tapGR = TripInfoGestureRecognizer(target: self, action: #selector(self.tapOnBlock))
-        tapGR.info = info
-        tapGR.centerPoint = block.center
-        block.addGestureRecognizer(tapGR)
-        block.isUserInteractionEnabled = true
-    }
-    @objc func tapOnBlock(sender: TripInfoGestureRecognizer) {
-        //print("Tapped on \(sender.info)")
+    func insertBlockInfo(info: TripInfo) {
+        searchBar.text = ""
         
-        let tripVC = self.storyboard?.instantiateViewController(withIdentifier: "tripdetailed") as! TripDetailedViewController
-        tripVC.info = sender.info
+        blockInfos.insert(info, at: 0)
+        tripBlockViews.insert(nil, at: 0)
         
-        transitionToDetailedView.tripType = sender.info.type
-        transitionToDetailedView.startPoint = sender.centerPoint
-        transitionToDetailedView.startPoint.y += (view.subviews[2].frame.origin.y - scrollView.contentOffset.y)
-        //print(transitionToDetailedView.startPoint)
-        tripVC.transitioningDelegate = self
-        tripVC.modalPresentationStyle = .custom
+        filteredBlockInfosIndex = []
+
+        var index = 0
+        for _ in blockInfos {
+            filteredBlockInfosIndex.append(index)
+            index+=1
+        }
         
-        present(tripVC, animated: true)
+        updateTripBlockViews()
     }
 }
 
@@ -232,6 +231,32 @@ extension HomeViewController {
                 }
             }
         }
+    }
+}
+
+extension HomeViewController {
+    func addTapGesture(_ block: HomeTripBlockView, _ index: Int) {
+        let tapGR = TripInfoGestureRecognizer(target: self, action: #selector(self.tapOnBlock))
+        tapGR.block = block
+        block.addGestureRecognizer(tapGR)
+        block.isUserInteractionEnabled = true
+        
+        gestureRecoginers[index] = tapGR
+    }
+    @objc func tapOnBlock(sender: TripInfoGestureRecognizer) {
+        print("Tapped on \(sender.block!.info)")
+        
+        let tripVC = self.storyboard?.instantiateViewController(withIdentifier: "tripdetailed") as! TripDetailedViewController
+        tripVC.info = sender.block!.info
+        
+        transitionToDetailedView.tripType = sender.block!.info.type
+        transitionToDetailedView.startPoint.x = sender.block!.center.x
+        transitionToDetailedView.startPoint.y = sender.block!.center.y + view.subviews[2].frame.origin.y - scrollView.contentOffset.y
+        
+        tripVC.transitioningDelegate = self
+        tripVC.modalPresentationStyle = .custom
+        
+        present(tripVC, animated: true)
     }
 }
 

@@ -33,12 +33,10 @@ class TripDotsView: UIView {
         
         circle2 = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
         circle2.center = CGPoint(x: self.bounds.width - 16 - 16, y: self.bounds.height/2)
-        print("Width \(self.bounds.width)");
         circle2.backgroundColor = .blue
         circle2.layer.cornerRadius = 8
         
         connection = UIView(frame: CGRect(x: 0, y: 0, width: circle2.center.x - circle1.center.x, height: 8))
-        print("Path \(circle1.center.x) \(circle2.center.x) \(connection.frame.width)")
         connection.transform = CGAffineTransform(scaleX: 0.0001, y: 1)
         connection.frame.origin = CGPoint(x: circle1.center.x, y: circle1.center.y - connection.bounds.height/2)
         connection.backgroundColor = .blue

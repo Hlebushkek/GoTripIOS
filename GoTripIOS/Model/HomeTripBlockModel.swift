@@ -10,17 +10,17 @@ import Foundation
 public struct TripInfo: Codable {
     public let placeFrom: String
     public let placeTo: String
-    public let price: Decimal
+    public let price: TripPrice
     public let type: TripType
     
     public static func empty() -> TripInfo {
-        return TripInfo(placeFrom: "Undefined", placeTo: "Undefined", price: 0.0, type: .Airplane)
+        return TripInfo(placeFrom: "Undefined", placeTo: "Undefined", price: TripPrice(), type: .Airplane)
     }
 }
 
 extension TripInfo {
     public static func example() -> TripInfo{
-        return TripInfo(placeFrom: "place1", placeTo: "place2", price: 192.2, type: .Bus)
+        return TripInfo(placeFrom: "place1", placeTo: "place2", price: TripPrice(), type: .Bus)
     }
 }
 
@@ -29,11 +29,4 @@ public enum TripType: Int, Codable {
     case Train
     case Bus
     case Car
-}
-
-public enum CurrencyType {
-    case UAH
-    case USD
-    case EUR
-    case RUB
 }

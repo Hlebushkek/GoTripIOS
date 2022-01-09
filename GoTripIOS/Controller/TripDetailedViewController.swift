@@ -48,7 +48,7 @@ class TripDetailedViewController: UIViewController {
     func setInfo() {
         if let info = self.info {
             self.view.backgroundColor = TripColors.getColor(num: info.type.rawValue)
-            setBackgroundGradient()
+            //setBackgroundGradient()
             bottomView.alpha = 0
             
             topView.backgroundColor = TripColors.getStrongColor(num: info.type.rawValue)
@@ -56,7 +56,7 @@ class TripDetailedViewController: UIViewController {
             
             placefrom.text = info.placeFrom
             placeTo.text = info.placeTo
-            price.text = NSDecimalNumber(decimal: info.price).stringValue
+            price.text = info.price.description
         }
     }
     

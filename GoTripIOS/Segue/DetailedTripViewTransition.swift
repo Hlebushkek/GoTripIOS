@@ -32,13 +32,12 @@ extension DetailedTripViewTransition: UIViewControllerAnimatedTransitioning {
                 let viewCenter = presentedView.center
                 let viewSize = presentedView.frame.size
                 
-                let indent = UIScreen.main.bounds.width * 0.03
+                //let indent = UIScreen.main.bounds.width * 0.03
                 let blockWidth = UIScreen.main.bounds.width * 0.85
                 
                 block = UIView()
                 block.frame = CGRect(x: 0, y: 0, width: blockWidth, height: 64)
                 block.center = startPoint
-                print(block.center)
                 block.layer.cornerRadius = 16
                 block.backgroundColor = TripColors.getColor(num: tripType.rawValue)
                 

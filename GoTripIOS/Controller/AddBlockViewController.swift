@@ -16,6 +16,14 @@ class AddBlockViewController: UIViewController {
     @IBOutlet weak var placeTo: UITextField!
     @IBOutlet weak var price: UITextField!
     
+    @IBAction func placeFromMapButton(_ sender: Any) {
+        performSegue(withIdentifier: "SelectOnMap", sender: placeFrom)
+    }
+    @IBAction func placeToMapButton(_ sender: Any) {
+        performSegue(withIdentifier: "SelectOnMap", sender: placeTo)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,25 +35,20 @@ class AddBlockViewController: UIViewController {
         
         if !checkInput() {return}
         
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.minimumFractionDigits = 1
-        formatter.maximumFractionDigits = 2
-
-        guard let number = formatter.number(from: price.text!) else {
+        guard let number = Float(price.text!) else {
             print("Can't create number")
             return
         }
-        
-        let decimal = number.decimalValue
-        print(price.text!)
         print(number)
-        print("Final : \(decimal)")
+        
+        let newBlockInfo = TripInfo(placeFrom: placeFrom.text!, placeTo: placeTo.text!, price: TripPrice(number), type: TripType(rawValue: pickerView.selectedRow(inComponent: 0))!)
         var arr = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
-        arr.append(TripInfo(placeFrom: placeFrom.text!, placeTo: placeTo.text!, price: decimal, type: TripType(rawValue: pickerView.selectedRow(inComponent: 0))!))
+        arr.insert(newBlockInfo, at: 0)
         LocalSavingSystem.SaveTripInfo(path: defaultsSavingKeys.tripInfoKey, info: arr)
         
-        self.dismiss(animated: true)
+        let parentVC = self.presentingViewController as! HomeViewController
+        
+        self.dismiss(animated: true, completion: { parentVC.insertBlockInfo(info: newBlockInfo) })
     }
     
     func checkInput() -> Bool {
@@ -121,5 +124,16 @@ extension AddBlockViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
 
         return label
+    }
+}
+
+extension AddBlockViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "SelectOnMap") {
+            if let navigationController = segue.destination as? UINavigationController {
+                let toVC = navigationController.viewControllers[0] as? MapViewController
+                toVC?.outputAddressLabel = (sender as? UITextField)
+            }
+        }
     }
 }

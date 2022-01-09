@@ -35,26 +35,5 @@ class TripListViewController: UIViewController {
         super.viewDidLoad()
         
         tripTypeNameLabel.text = tripTypeName
-        //To fix stupid Decimal
-        /*let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "en_US")
-        formatter.numberStyle = .decimal
-        var index = 0
-        for block in blockInfos {
-            let price = block.price
-            let doublePrice = Double(truncating: NSDecimalNumber(decimal: price))
-            var formatteddouble = round(doublePrice * 100) / 100
-            if formatteddouble == 9.96 {
-                formatteddouble = 9
-            }
-            print(formatteddouble)
-            let priceStr = "\(formatteddouble)"
-            let number = formatter.number(from: priceStr)
-            let decimal = number!.decimalValue
-            print(decimal)
-            blockInfos[index] = TripInfo(placeFrom: block.placeFrom, placeTo: block.placeTo, price: decimal, type: block.type)
-            index+=1
-        }
-        LocalSavingSystem.SaveTripInfo(path: defaultsSavingKeys.tripInfoKey, info: blockInfos)*/
     }
 }

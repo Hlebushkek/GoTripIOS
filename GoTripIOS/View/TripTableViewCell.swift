@@ -9,10 +9,10 @@ import UIKit
 class TripTableViewCell: UITableViewCell {
     
     var cellView    = UIView()
-    var tripTypeImg = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 24));
-    var cityFrom    = UILabel(frame: CGRect(x: 48, y: 0, width: 80, height: 64));
-    var cityTo      = UILabel(frame: CGRect(x: 144, y: 0, width: 80, height: 64));
-    var price       = UILabel(frame: CGRect(x: 240, y: 0, width: 64, height: 64));
+    var tripTypeImg = UIImageView();
+    var cityFrom    = UILabel();
+    var cityTo      = UILabel();
+    var price       = UILabel();
 
 
     init(info: TripInfo, height: CGFloat, style: CellStyle, reuseIdentifier: String?) {
@@ -31,52 +31,45 @@ class TripTableViewCell: UITableViewCell {
         cellView.layer.cornerRadius = 12
         self.selectionStyle = .none
         
+        self.backgroundColor = TripColors.getStrongColor(num: info.type.rawValue)
+        cellView.backgroundColor = TripColors.getColor(num: info.type.rawValue)
+        tripTypeImg.tintColor = TripColors.getStrongColor(num: info.type.rawValue)
         
         switch info.type {
         case .Airplane:
-            self.backgroundColor = UIColor(named: "AirplaneColorStrong")
-            cellView.backgroundColor = UIColor(named: "AirplaneColor")
             tripTypeImg.image = UIImage(systemName: "airplane")
-            tripTypeImg.tintColor = UIColor(named: "AirplaneColorStrong")
             break
         case .Train:
-            self.backgroundColor = UIColor(named: "TrainColorStrong")
-            cellView.backgroundColor = UIColor(named: "TrainColor")
             tripTypeImg.image = UIImage(systemName: "train.side.front.car")
-            tripTypeImg.tintColor = UIColor(named: "TrainColorStrong")
             break
         case .Bus:
-            self.backgroundColor = UIColor(named: "BusColorStrong")
-            cellView.backgroundColor = UIColor(named: "BusColor")
             tripTypeImg.image = UIImage(systemName: "bus")
-            tripTypeImg.tintColor = UIColor(named: "BusColorStrong")
             break
         case .Car:
-            self.backgroundColor = UIColor(named: "CarColorStrong")
-            cellView.backgroundColor = UIColor(named: "CarColor")
             tripTypeImg.image = UIImage(systemName: "car")
-            tripTypeImg.tintColor = UIColor(named: "CarColorStrong")
             break
         }
         
-        tripTypeImg.center = CGPoint(x: tripTypeImg.frame.width / 2.0, y: heightCenter)
+        tripTypeImg.frame = CGRect(x: 0, y: 0, width: 48, height: 48)
         
+        cityFrom.frame = CGRect(x: 56, y: 0, width: 32, height: 32)
         cityFrom.text = info.placeFrom
         cityFrom.numberOfLines = 0
         cityFrom.lineBreakMode = .byWordWrapping
         cityFrom.center.y = heightCenter
         cityFrom.textAlignment = .center
         
+        cityTo.frame = CGRect(x: 96, y: 0, width: 32, height: 32)
         cityTo.text = info.placeTo
         cityTo.numberOfLines = 0
         cityTo.lineBreakMode = .byWordWrapping
         cityTo.center.y = heightCenter
         cityTo.textAlignment = .center
         
-        price.text = "\(info.price)"
-        price.numberOfLines = 0
-        price.lineBreakMode = .byWordWrapping
+        price.frame = CGRect(x: cellView.frame.width - 64 - 8, y: 0, width: 64, height: 32)
         price.center.y = heightCenter
+        price.text = info.price.description
+        price.adjustsFontSizeToFitWidth = true
         price.textAlignment = .center
 
         contentView.addSubview(cellView)

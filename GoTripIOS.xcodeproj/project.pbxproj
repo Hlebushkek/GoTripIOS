@@ -11,7 +11,9 @@
 		BC122A4127399EB000AC356F /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC122A4027399EB000AC356F /* AddBlockViewController.swift */; };
 		BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */; };
 		BC29BECF274E9FB8008888DE /* TripInfoGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC29BECE274E9FB8008888DE /* TripInfoGestureRecognizer.swift */; };
+		BC4B8A472775FFCE00F3632C /* TripPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B8A462775FFCD00F3632C /* TripPriceModel.swift */; };
 		BC5247C4272C1BBE00A100EA /* HomeTripBlockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */; };
+		BC52B6512778B697009E7682 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52B6502778B697009E7682 /* MapViewController.swift */; };
 		BC59FF2E27465D4D001DCA06 /* TripsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59FF2D27465D4D001DCA06 /* TripsListView.swift */; };
 		BC59FF3027467F87001DCA06 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */; };
 		BC7AE22D2752605B005936B8 /* DetailedTripViewTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AE22C2752605B005936B8 /* DetailedTripViewTransition.swift */; };
@@ -21,6 +23,7 @@
 		BCA45AB9275A3B5C00152FAB /* GradientBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */; };
 		BCA7248F274AA5D60051C545 /* TripListSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA7248E274AA5D60051C545 /* TripListSegue.swift */; };
 		BCA72491274AAC210051C545 /* StatisticSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA72490274AAC210051C545 /* StatisticSegue.swift */; };
+		BCC278A52782718D002D3EB9 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */; };
 		BCCE383427300D380007402D /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE383327300D380007402D /* StatisticViewController.swift */; };
 		BCD03600272D9C990033DCF1 /* CornerExtentionUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD035FF272D9C990033DCF1 /* CornerExtentionUIVIew.swift */; };
 		BCD1F86F2743D23F00FBBF78 /* TripListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */; };
@@ -38,7 +41,9 @@
 		BC122A4027399EB000AC356F /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
 		BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
 		BC29BECE274E9FB8008888DE /* TripInfoGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoGestureRecognizer.swift; sourceTree = "<group>"; };
+		BC4B8A462775FFCD00F3632C /* TripPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPriceModel.swift; sourceTree = "<group>"; };
 		BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTripBlockModel.swift; sourceTree = "<group>"; };
+		BC52B6502778B697009E7682 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BC59FF2D27465D4D001DCA06 /* TripsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListView.swift; sourceTree = "<group>"; };
 		BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		BC7AE22C2752605B005936B8 /* DetailedTripViewTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailedTripViewTransition.swift; path = GoTripIOS/Segue/DetailedTripViewTransition.swift; sourceTree = SOURCE_ROOT; };
@@ -48,6 +53,7 @@
 		BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBlock.swift; sourceTree = "<group>"; };
 		BCA7248E274AA5D60051C545 /* TripListSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListSegue.swift; sourceTree = "<group>"; };
 		BCA72490274AAC210051C545 /* StatisticSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSegue.swift; sourceTree = "<group>"; };
+		BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		BCCE383327300D380007402D /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		BCD035FF272D9C990033DCF1 /* CornerExtentionUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerExtentionUIVIew.swift; sourceTree = "<group>"; };
 		BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +100,8 @@
 				BC122A4027399EB000AC356F /* AddBlockViewController.swift */,
 				BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */,
 				BC08E768274D58C000D00387 /* TripDetailedViewController.swift */,
+				BC52B6502778B697009E7682 /* MapViewController.swift */,
+				BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -102,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */,
+				BC4B8A462775FFCD00F3632C /* TripPriceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,12 +243,14 @@
 				BCD1F86F2743D23F00FBBF78 /* TripListViewController.swift in Sources */,
 				BC122A4127399EB000AC356F /* AddBlockViewController.swift in Sources */,
 				BCA7248F274AA5D60051C545 /* TripListSegue.swift in Sources */,
+				BCC278A52782718D002D3EB9 /* LocationSearchTable.swift in Sources */,
 				BC7BA970271750C100EBB697 /* HomeViewController.swift in Sources */,
 				BCE314BF2714669E005AA8FE /* HomeTripBlockView.swift in Sources */,
 				BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */,
 				BC7AE22D2752605B005936B8 /* DetailedTripViewTransition.swift in Sources */,
 				BC29BECF274E9FB8008888DE /* TripInfoGestureRecognizer.swift in Sources */,
 				BC9EA128275287E000D96321 /* TripColors.swift in Sources */,
+				BC52B6512778B697009E7682 /* MapViewController.swift in Sources */,
 				BCD23B0427123BB3007C6B47 /* AppDelegate.swift in Sources */,
 				BCD23B0627123BB3007C6B47 /* SceneDelegate.swift in Sources */,
 				BCEA25A9272C8F0700EE9557 /* LocalSavingSystem.swift in Sources */,
@@ -249,6 +260,7 @@
 				BC7EDD5A27510ADD0029B0FA /* TripDotsView.swift in Sources */,
 				BCA45AB9275A3B5C00152FAB /* GradientBlock.swift in Sources */,
 				BCCE383427300D380007402D /* StatisticViewController.swift in Sources */,
+				BC4B8A472775FFCE00F3632C /* TripPriceModel.swift in Sources */,
 				BCA72491274AAC210051C545 /* StatisticSegue.swift in Sources */,
 				BCD03600272D9C990033DCF1 /* CornerExtentionUIVIew.swift in Sources */,
 				BC5247C4272C1BBE00A100EA /* HomeTripBlockModel.swift in Sources */,
