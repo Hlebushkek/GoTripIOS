@@ -14,10 +14,18 @@ class TripDetailedViewController: UIViewController {
     @IBOutlet weak var bottomView: UIView!
     private var bottomGradientLayer = CAGradientLayer()
     
-    @IBOutlet weak var placefrom: UILabel!
-    @IBOutlet weak var placeTo: UILabel!
-    @IBOutlet weak var price: UILabel!
-        
+    @IBOutlet weak var citiesStackView: UIStackView!
+    
+    @IBOutlet weak var placeFromLabel: UILabel!
+    @IBOutlet weak var placeToLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var urlLabel: UILabel!
+    
+    var placeFromField: UITextField?
+    var placeToField: UITextField?
+    var priceField: UITextField?
+    var urlFieldField: UITextField?
+    
     @IBOutlet weak var pathView: TripDotsView!
     
     @IBAction func animateView(_ sender: Any) {
@@ -29,10 +37,45 @@ class TripDetailedViewController: UIViewController {
             self.bottomView.alpha = 0
         }, completion: {_ in self.dismiss(animated: true, completion: nil)})
     }
+    @IBAction func editButton(_ sender: Any) {
+        placeFromField = UITextField()
+        placeFromField?.text = placeFromLabel.text
+        placeFromField?.alpha = 0
+        
+        placeToField = UITextField()
+        placeToField?.text = placeToLabel.text
+        placeToField?.alpha = 0
+        
+        priceField = UITextField()
+        priceField?.text = priceLabel.text
+        priceField?.alpha = 0
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+            self.placeFromLabel.alpha = 0
+            self.placeToLabel.alpha = 0
+            self.priceLabel.alpha = 0
+        }, completion: {_ in
+            self.citiesStackView.addSubview(self.placeFromField!)
+            self.placeFromField?.frame = self.placeFromLabel.frame
+            
+            self.citiesStackView.addSubview(self.placeToField!)
+            self.placeToField?.frame = self.placeToLabel.frame
+            
+            self.bottomView.addSubview(self.priceField!)
+            self.priceField!.frame = self.priceLabel.frame
+            
+            UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+                self.placeFromField?.alpha = 1
+                self.placeToField?.alpha = 1
+                self.priceField?.alpha = 1
+            }, completion: nil)
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
         setInfo()
     }
     
@@ -54,9 +97,9 @@ class TripDetailedViewController: UIViewController {
             topView.backgroundColor = TripColors.getStrongColor(num: info.type.rawValue)
             topView.alpha = 0
             
-            placefrom.text = info.placeFrom
-            placeTo.text = info.placeTo
-            price.text = info.price.description
+            placeFromLabel.text = info.placeFrom
+            placeToLabel.text = info.placeTo
+            priceLabel.text = info.price.description
         }
     }
     

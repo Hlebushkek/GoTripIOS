@@ -51,6 +51,8 @@ class HomeViewController: UIViewController {
         scrollView.delegate = self
         searchBar.delegate = self
         
+        hideKeyboardWhenTappedAround()
+        
         tripBlockViews = [HomeTripBlockView?](repeating: nil, count: blockInfos.count)
         gestureRecoginers = [TripInfoGestureRecognizer?](repeating: nil, count: blockInfos.count)
         

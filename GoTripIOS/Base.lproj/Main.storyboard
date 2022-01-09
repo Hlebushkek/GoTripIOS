@@ -1392,6 +1392,9 @@
                                         <rect key="frame" x="333" y="54.666666666666657" width="49" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                                        <connections>
+                                            <action selector="editButton:" destination="u5t-4I-mjz" eventType="touchUpInside" id="MFc-XM-cVF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hf0-5d-nYh">
                                         <rect key="frame" x="8" y="54.666666666666657" width="56" height="31"/>
@@ -1457,23 +1460,28 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lL5-WO-lkT">
-                                        <rect key="frame" x="161.66666666666666" y="32" width="67" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="ZFF-ro-h7n"/>
-                                        </constraints>
+                                        <rect key="frame" x="161.66666666666666" y="621" width="67" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         <connections>
                                             <action selector="animateView:" destination="u5t-4I-mjz" eventType="touchUpInside" id="fgs-rc-OIJ"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7y-fg-eVK">
+                                        <rect key="frame" x="182" y="8" width="26.333333333333343" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lL5-WO-lkT" secondAttribute="bottom" constant="32" id="ILi-5j-bGY"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sNp-94-WBP" secondAttribute="trailing" constant="20" symbolic="YES" id="LHg-WX-MZx"/>
-                                    <constraint firstItem="lL5-WO-lkT" firstAttribute="centerX" secondItem="fPa-Ok-Rjv" secondAttribute="centerX" id="Oyd-MK-oOZ"/>
+                                    <constraint firstItem="O7y-fg-eVK" firstAttribute="centerX" secondItem="fPa-Ok-Rjv" secondAttribute="centerX" id="SjW-Tj-edc"/>
+                                    <constraint firstItem="O7y-fg-eVK" firstAttribute="top" secondItem="fPa-Ok-Rjv" secondAttribute="top" constant="8" id="Sjc-C6-abN"/>
+                                    <constraint firstItem="lL5-WO-lkT" firstAttribute="centerX" secondItem="fPa-Ok-Rjv" secondAttribute="centerX" id="TZx-VG-RKy"/>
                                     <constraint firstItem="sNp-94-WBP" firstAttribute="leading" secondItem="fPa-Ok-Rjv" secondAttribute="leading" constant="8" id="xar-Ah-tzC"/>
                                     <constraint firstItem="sNp-94-WBP" firstAttribute="top" secondItem="fPa-Ok-Rjv" secondAttribute="top" constant="32" id="yGx-rE-zP4"/>
-                                    <constraint firstItem="lL5-WO-lkT" firstAttribute="top" secondItem="fPa-Ok-Rjv" secondAttribute="top" constant="32" id="zmf-qg-tac"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1490,16 +1498,18 @@
                     </view>
                     <connections>
                         <outlet property="bottomView" destination="fPa-Ok-Rjv" id="wP2-Og-AUj"/>
+                        <outlet property="citiesStackView" destination="eQN-cu-9J8" id="AWi-11-aLu"/>
                         <outlet property="pathView" destination="8Kz-E3-ki3" id="mz1-VJ-Xcb"/>
-                        <outlet property="placeTo" destination="xcQ-ty-wkD" id="NL9-Hi-ith"/>
-                        <outlet property="placefrom" destination="RCX-7B-Nrn" id="9xq-go-LGA"/>
-                        <outlet property="price" destination="sNp-94-WBP" id="Wuy-eN-EDT"/>
+                        <outlet property="placeFromLabel" destination="RCX-7B-Nrn" id="IyL-ea-gxk"/>
+                        <outlet property="placeToLabel" destination="xcQ-ty-wkD" id="UoI-Yr-2I7"/>
+                        <outlet property="priceLabel" destination="sNp-94-WBP" id="lXJ-Zs-hHh"/>
                         <outlet property="topView" destination="E2Y-hI-kee" id="gk8-GR-HbS"/>
+                        <outlet property="urlLabel" destination="O7y-fg-eVK" id="7Pk-Rg-kDD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9x-LN-8nv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="551.65876777251185"/>
+            <point key="canvasLocation" x="282" y="552"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YIi-s4-2F4">

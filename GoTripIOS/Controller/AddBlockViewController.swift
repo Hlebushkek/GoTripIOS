@@ -29,6 +29,8 @@ class AddBlockViewController: UIViewController {
         
         pickerView.delegate = self
         pickerView.dataSource = self
+        
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func submitButtonAction(_ sender: Any) {
