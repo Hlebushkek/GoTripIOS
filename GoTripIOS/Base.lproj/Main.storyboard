@@ -1500,11 +1500,11 @@
                         <outlet property="bottomView" destination="fPa-Ok-Rjv" id="wP2-Og-AUj"/>
                         <outlet property="citiesStackView" destination="eQN-cu-9J8" id="AWi-11-aLu"/>
                         <outlet property="pathView" destination="8Kz-E3-ki3" id="mz1-VJ-Xcb"/>
-                        <outlet property="placeFromLabel" destination="RCX-7B-Nrn" id="IyL-ea-gxk"/>
-                        <outlet property="placeToLabel" destination="xcQ-ty-wkD" id="UoI-Yr-2I7"/>
-                        <outlet property="priceLabel" destination="sNp-94-WBP" id="lXJ-Zs-hHh"/>
                         <outlet property="topView" destination="E2Y-hI-kee" id="gk8-GR-HbS"/>
-                        <outlet property="urlLabel" destination="O7y-fg-eVK" id="7Pk-Rg-kDD"/>
+                        <outletCollection property="editableLabels" destination="RCX-7B-Nrn" collectionClass="NSMutableArray" id="7eN-SL-MwB"/>
+                        <outletCollection property="editableLabels" destination="xcQ-ty-wkD" collectionClass="NSMutableArray" id="uci-gi-PG1"/>
+                        <outletCollection property="editableLabels" destination="sNp-94-WBP" collectionClass="NSMutableArray" id="Eqp-s6-1dw"/>
+                        <outletCollection property="editableLabels" destination="O7y-fg-eVK" collectionClass="NSMutableArray" id="ODc-v1-BER"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9x-LN-8nv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -16,10 +16,8 @@ class TripDetailedViewController: UIViewController {
     
     @IBOutlet weak var citiesStackView: UIStackView!
     
-    @IBOutlet weak var placeFromLabel: UILabel!
-    @IBOutlet weak var placeToLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var urlLabel: UILabel!
+    @IBOutlet var editableLabels: [UILabel]!
+    var editableFields: [UITextField] = []
     
     var placeFromField: UITextField?
     var placeToField: UITextField?
@@ -38,45 +36,44 @@ class TripDetailedViewController: UIViewController {
         }, completion: {_ in self.dismiss(animated: true, completion: nil)})
     }
     @IBAction func editButton(_ sender: Any) {
-        placeFromField = UITextField()
-        placeFromField?.text = placeFromLabel.text
-        placeFromField?.alpha = 0
-        
-        placeToField = UITextField()
-        placeToField?.text = placeToLabel.text
-        placeToField?.alpha = 0
-        
-        priceField = UITextField()
-        priceField?.text = priceLabel.text
-        priceField?.alpha = 0
-        
-        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-            self.placeFromLabel.alpha = 0
-            self.placeToLabel.alpha = 0
-            self.priceLabel.alpha = 0
-        }, completion: {_ in
-            self.citiesStackView.addSubview(self.placeFromField!)
-            self.placeFromField?.frame = self.placeFromLabel.frame
-            
-            self.citiesStackView.addSubview(self.placeToField!)
-            self.placeToField?.frame = self.placeToLabel.frame
-            
-            self.bottomView.addSubview(self.priceField!)
-            self.priceField!.frame = self.priceLabel.frame
-            
-            UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-                self.placeFromField?.alpha = 1
-                self.placeToField?.alpha = 1
-                self.priceField?.alpha = 1
-            }, completion: nil)
-        })
+
+        if (editableFields.isEmpty)
+        {
+            for label in editableLabels {
+                let field = UITextField()
+                editableFields.append(field)
+                label.superview!.addSubview(field)
+                
+                UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+                    label.alpha = 0
+                }, completion: {_ in
+                    field.alpha = 0
+                    field.frame = label.frame
+                    field.text = label.text
+                    UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+                        field.alpha = 1
+                    }, completion: nil)
+                })
+            }
+        }
+        else
+        {
+            for index in 0..<editableLabels.count-1 {
+                editableLabels[index].text = editableFields[index].text
+                editableFields[index].removeFromSuperview()
+                
+                editableLabels[index].alpha = 1
+            }
+            editableFields.removeAll()
+        }
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        hideKeyboardWhenTappedAround()
         setInfo()
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -97,9 +94,10 @@ class TripDetailedViewController: UIViewController {
             topView.backgroundColor = TripColors.getStrongColor(num: info.type.rawValue)
             topView.alpha = 0
             
-            placeFromLabel.text = info.placeFrom
-            placeToLabel.text = info.placeTo
-            priceLabel.text = info.price.description
+            editableLabels[0].text = info.placeFrom
+            editableLabels[1].text = info.placeTo
+            editableLabels[2].text = info.price.description
+            editableLabels[3].text = "www.orderticket.com/abc/cba"
         }
     }
     
