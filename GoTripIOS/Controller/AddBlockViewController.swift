@@ -43,10 +43,16 @@ class AddBlockViewController: UIViewController {
         }
         print(number)
         
-        let newBlockInfo = TripInfo(placeFrom: placeFrom.text!, placeTo: placeTo.text!, price: TripPrice(number), type: TripType(rawValue: pickerView.selectedRow(inComponent: 0))!)
-        var arr = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
-        arr.insert(newBlockInfo, at: 0)
-        LocalSavingSystem.SaveTripInfo(path: defaultsSavingKeys.tripInfoKey, info: arr)
+        let newBlockInfo = TripInfoModel()
+        
+        newBlockInfo.ownerID = "61fb1dd69ecc2e0558774fe4"
+        newBlockInfo.placeFrom = placeFrom.text!
+        newBlockInfo.placeTo = placeTo.text!
+        newBlockInfo.price = TripPriceModel(number)
+        newBlockInfo.type = TripType(rawValue: pickerView.selectedRow(inComponent: 0))!
+        
+        let dbManager = DBManager()
+        dbManager.addTripToUser(trip: newBlockInfo, userID: "61fb1dd69ecc2e0558774fe4")
         
         let parentVC = self.presentingViewController as! HomeViewController
         

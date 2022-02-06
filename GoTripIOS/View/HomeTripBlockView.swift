@@ -15,9 +15,9 @@ class HomeTripBlockView: UIView {
     var city2L: UILabel = UILabel()
     var priceL: UILabel = UILabel()
     
-    var info: TripInfo
+    var info: TripInfoModel
     
-    init(info: TripInfo, num: Int, blockWidth: CGFloat, indent: CGFloat) {
+    init(info: TripInfoModel, num: Int, blockWidth: CGFloat, indent: CGFloat) {
         self.info = info
         
         var posX = indent
@@ -70,7 +70,7 @@ class HomeTripBlockView: UIView {
         priceL.frame = CGRect(x: UIScreen.main.bounds.width*0.85-48.0-16.0, y: 16.0, width: 48.0, height: 32.0)
         priceL.textAlignment = .center
         priceL.adjustsFontSizeToFitWidth = true
-        priceL.text = info.price.description
+        priceL.text = info.price!.description
         
         self.addSubview(city1L)
         self.addSubview(city2L)

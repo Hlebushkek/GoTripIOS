@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 public class TripPrice: CustomStringConvertible, Codable {
     
@@ -31,9 +32,13 @@ public class TripPrice: CustomStringConvertible, Codable {
     func getAsFloat() -> Float {
         return Float(integerPart) + Float(fractionalPart) / 100
     }
+    
+    public static func free() -> TripPrice {
+        return TripPrice(0)
+    }
 }
 
-enum CurrencyType: String, Codable {
+enum CurrencyType: String, PersistableEnum, Codable {
     case EUR = "€"
     case USD = "$"
     case UAH = "₴"

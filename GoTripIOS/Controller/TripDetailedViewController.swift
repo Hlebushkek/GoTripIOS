@@ -8,7 +8,7 @@
 import UIKit
 
 class TripDetailedViewController: UIViewController {
-    var info: TripInfo?
+    var info: TripInfoModel?
     
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -74,6 +74,15 @@ class TripDetailedViewController: UIViewController {
         
         setInfo()
         hideKeyboardWhenTappedAround()
+        
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.openUrl))
+        let longtapGR = UILongPressGestureRecognizer(target: self, action: #selector(self.copyUrl))
+        
+        editableLabels[3].addGestureRecognizer(tapGR)
+        editableLabels[3].addGestureRecognizer(longtapGR)
+        
+        editableLabels[3].isUserInteractionEnabled = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,8 +105,8 @@ class TripDetailedViewController: UIViewController {
             
             editableLabels[0].text = info.placeFrom
             editableLabels[1].text = info.placeTo
-            editableLabels[2].text = info.price.description
-            editableLabels[3].text = "www.orderticket.com/abc/cba"
+            editableLabels[2].text = info.price!.description
+            editableLabels[3].text = "https://stackoverflow.com"
         }
     }
     
@@ -110,5 +119,15 @@ class TripDetailedViewController: UIViewController {
         
         bottomGradientLayer.frame = bottomView.frame
         bottomGradientLayer.frame.origin = CGPoint(x: 0, y: 0)
+    }
+    
+    @objc func openUrl() {
+        print("Tap on link")
+        guard let url = URL(string: editableLabels[3].text ?? "https://stackoverflow.com") else { return }
+        UIApplication.shared.open(url)
+    }
+    @objc func copyUrl() {
+        print("Tap on link")
+        UIPasteboard.general.string = editableLabels[3].text
     }
 }

@@ -13,7 +13,8 @@ class TripListSegue: UIStoryboardSegue {
     }
     
     func swipe() {
-        let toVC = self.destination as! TripListViewController
+        guard let toVC = self.destination as? TripListViewController else { return }
+        
         let fromVC = self.source
         
         let containerView = fromVC.view.superview

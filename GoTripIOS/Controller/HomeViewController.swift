@@ -28,9 +28,11 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "ShowTableView", sender: TripType.Car)
     }
     
+    let dbManager = DBManager()
+    
     let transitionToDetailedView = DetailedTripViewTransition()
     
-    var blockInfos: [TripInfo] = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
+    //var blockInfos1: [TripInfo] = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
     /*[
         TripInfo(placeFrom: "Kyiv", placeTo: "Lviv", price: TripPrice(1940), type: .Airplane),
         TripInfo(placeFrom: "Kyiv", placeTo: "Uzhorod", price: TripPrice(940.40), type: .Train),
@@ -38,6 +40,9 @@ class HomeViewController: UIViewController {
         TripInfo(placeFrom: "Kyiv", placeTo: "Odessa", price: TripPrice(400), type: .Car),
         TripInfo(placeFrom: "Katowice", placeTo: "Oslo", price: TripPrice(1020.82), type: .Airplane)
     ]*/
+    
+    var blockInfos: [TripInfoModel] = []
+    
     var gestureRecoginers: [TripInfoGestureRecognizer?] = []
     var filteredBlockInfosIndex: [Int] = []
     var existingBlockCount = 0
@@ -46,12 +51,42 @@ class HomeViewController: UIViewController {
     let tripBlockIndent = UIScreen.main.bounds.width * 0.03
     let tripBlockWidth = UIScreen.main.bounds.width * 0.85
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
         searchBar.delegate = self
         
         hideKeyboardWhenTappedAround()
+        
+        
+        ///In progress
+        //dbManager.deleteRealmFile()
+
+        /*let user = UserModel()
+        user.login = "bulka"
+        user.password = "123"
+        user.name = "hlib"
+        user.email = "bulka@gmail.com"
+        dbManager.addUser(user: user)*/
+
+        /*for block in blockInfos1 {
+            let trip = TripInfoModel()
+            trip.placeFrom = block.placeFrom
+            trip.placeTo = block.placeTo
+            trip.price = TripPriceModel(block.price.getAsFloat())
+            trip.type = block.type
+            trip.ownerID = "61fb1dd69ecc2e0558774fe4"
+            
+            dbManager.addTripToUser(trip: trip, userID: "61fb1dd69ecc2e0558774fe4")
+        }*/
+
+        //dbManager.deleteRealmFile()
+        //dbManager.addPrice(price: TripPriceModel(15.51))
+        //dbManager.signIn()
+        
+        //dbManager.signIn()
+        return
         
         tripBlockViews = [HomeTripBlockView?](repeating: nil, count: blockInfos.count)
         gestureRecoginers = [TripInfoGestureRecognizer?](repeating: nil, count: blockInfos.count)
@@ -156,7 +191,7 @@ class HomeViewController: UIViewController {
         self.scrollViewContainerHeightConstraint.constant = CGFloat(self.existingBlockCount * 96)
         UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: { self.view.layoutIfNeeded()}, completion: nil)
     }
-    func insertBlockInfo(info: TripInfo) {
+    func insertBlockInfo(info: TripInfoModel) {
         searchBar.text = ""
         
         blockInfos.insert(info, at: 0)

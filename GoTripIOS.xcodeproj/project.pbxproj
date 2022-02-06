@@ -3,14 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		BC08E769274D58C000D00387 /* TripDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08E768274D58C000D00387 /* TripDetailedViewController.swift */; };
 		BC122A4127399EB000AC356F /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC122A4027399EB000AC356F /* AddBlockViewController.swift */; };
 		BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */; };
+		BC1F121727ADE97B00AFCE2A /* ProfileTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */; };
 		BC29BECF274E9FB8008888DE /* TripInfoGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC29BECE274E9FB8008888DE /* TripInfoGestureRecognizer.swift */; };
+		BC3693A127A6A4F700F11470 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BC3693A027A6A4F700F11470 /* Realm */; };
+		BC3693A327A6A4F700F11470 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC3693A227A6A4F700F11470 /* RealmSwift */; };
+		BC3693A527A6A63700F11470 /* TripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A427A6A63700F11470 /* TripInfoModel.swift */; };
+		BC3693A727A6A9E600F11470 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A627A6A9E600F11470 /* DBManager.swift */; };
 		BC4B8A472775FFCE00F3632C /* TripPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B8A462775FFCD00F3632C /* TripPriceModel.swift */; };
 		BC5247C4272C1BBE00A100EA /* HomeTripBlockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */; };
 		BC52B6512778B697009E7682 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52B6502778B697009E7682 /* MapViewController.swift */; };
@@ -22,7 +27,7 @@
 		BC9EA128275287E000D96321 /* TripColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9EA127275287E000D96321 /* TripColors.swift */; };
 		BCA45AB9275A3B5C00152FAB /* GradientBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */; };
 		BCA7248F274AA5D60051C545 /* TripListSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA7248E274AA5D60051C545 /* TripListSegue.swift */; };
-		BCA72491274AAC210051C545 /* StatisticSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA72490274AAC210051C545 /* StatisticSegue.swift */; };
+		BCA72491274AAC210051C545 /* ProfileSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA72490274AAC210051C545 /* ProfileSegue.swift */; };
 		BCBE3C34278B0E0600479BD3 /* KeyboardDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE3C33278B0E0600479BD3 /* KeyboardDismissExtension.swift */; };
 		BCC278A52782718D002D3EB9 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */; };
 		BCCE383427300D380007402D /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE383327300D380007402D /* StatisticViewController.swift */; };
@@ -41,7 +46,10 @@
 		BC08E768274D58C000D00387 /* TripDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailedViewController.swift; sourceTree = "<group>"; };
 		BC122A4027399EB000AC356F /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
 		BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
+		BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarController.swift; sourceTree = "<group>"; };
 		BC29BECE274E9FB8008888DE /* TripInfoGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoGestureRecognizer.swift; sourceTree = "<group>"; };
+		BC3693A427A6A63700F11470 /* TripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoModel.swift; sourceTree = "<group>"; };
+		BC3693A627A6A9E600F11470 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		BC4B8A462775FFCD00F3632C /* TripPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPriceModel.swift; sourceTree = "<group>"; };
 		BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTripBlockModel.swift; sourceTree = "<group>"; };
 		BC52B6502778B697009E7682 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -53,7 +61,7 @@
 		BC9EA127275287E000D96321 /* TripColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripColors.swift; sourceTree = "<group>"; };
 		BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBlock.swift; sourceTree = "<group>"; };
 		BCA7248E274AA5D60051C545 /* TripListSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListSegue.swift; sourceTree = "<group>"; };
-		BCA72490274AAC210051C545 /* StatisticSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSegue.swift; sourceTree = "<group>"; };
+		BCA72490274AAC210051C545 /* ProfileSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSegue.swift; sourceTree = "<group>"; };
 		BCBE3C33278B0E0600479BD3 /* KeyboardDismissExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissExtension.swift; sourceTree = "<group>"; };
 		BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		BCCE383327300D380007402D /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3693A327A6A4F700F11470 /* RealmSwift in Frameworks */,
+				BC3693A127A6A4F700F11470 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +114,7 @@
 				BC08E768274D58C000D00387 /* TripDetailedViewController.swift */,
 				BC52B6502778B697009E7682 /* MapViewController.swift */,
 				BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */,
+				BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -117,12 +128,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BC3693A827A6BF1300F11470 /* RealmFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BC3693A627A6A9E600F11470 /* DBManager.swift */,
+				BC3693A427A6A63700F11470 /* TripInfoModel.swift */,
+			);
+			path = RealmFiles;
+			sourceTree = "<group>";
+		};
 		BCA7248D274AA5A30051C545 /* Segue */ = {
 			isa = PBXGroup;
 			children = (
 				BC7AE22C2752605B005936B8 /* DetailedTripViewTransition.swift */,
 				BCA7248E274AA5D60051C545 /* TripListSegue.swift */,
-				BCA72490274AAC210051C545 /* StatisticSegue.swift */,
+				BCA72490274AAC210051C545 /* ProfileSegue.swift */,
 			);
 			path = Segue;
 			sourceTree = "<group>";
@@ -165,6 +185,7 @@
 				BC149CBC272D69D800C5F7D5 /* Controller */,
 				BCA7248D274AA5A30051C545 /* Segue */,
 				BCD035FE272D9C240033DCF1 /* Other */,
+				BC3693A827A6BF1300F11470 /* RealmFiles */,
 				BCD23B0927123BB3007C6B47 /* Main.storyboard */,
 				BCD23B0C27123BBB007C6B47 /* Assets.xcassets */,
 				BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */,
@@ -189,6 +210,10 @@
 			dependencies = (
 			);
 			name = GoTripIOS;
+			packageProductDependencies = (
+				BC3693A027A6A4F700F11470 /* Realm */,
+				BC3693A227A6A4F700F11470 /* RealmSwift */,
+			);
 			productName = GoTripIOS;
 			productReference = BCD23B0027123BB3007C6B47 /* GoTripIOS.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +241,9 @@
 				Base,
 			);
 			mainGroup = BCD23AF727123BB3007C6B47;
+			packageReferences = (
+				BC36939F27A6A4F700F11470 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = BCD23B0127123BB3007C6B47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -263,9 +291,12 @@
 				BC7EDD5A27510ADD0029B0FA /* TripDotsView.swift in Sources */,
 				BCA45AB9275A3B5C00152FAB /* GradientBlock.swift in Sources */,
 				BCBE3C34278B0E0600479BD3 /* KeyboardDismissExtension.swift in Sources */,
+				BC3693A527A6A63700F11470 /* TripInfoModel.swift in Sources */,
 				BCCE383427300D380007402D /* StatisticViewController.swift in Sources */,
+				BC3693A727A6A9E600F11470 /* DBManager.swift in Sources */,
 				BC4B8A472775FFCE00F3632C /* TripPriceModel.swift in Sources */,
-				BCA72491274AAC210051C545 /* StatisticSegue.swift in Sources */,
+				BCA72491274AAC210051C545 /* ProfileSegue.swift in Sources */,
+				BC1F121727ADE97B00AFCE2A /* ProfileTabBarController.swift in Sources */,
 				BCD03600272D9C990033DCF1 /* CornerExtentionUIVIew.swift in Sources */,
 				BC5247C4272C1BBE00A100EA /* HomeTripBlockModel.swift in Sources */,
 			);
@@ -471,6 +502,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC36939F27A6A4F700F11470 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC3693A027A6A4F700F11470 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC36939F27A6A4F700F11470 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		BC3693A227A6A4F700F11470 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC36939F27A6A4F700F11470 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BCD23AF827123BB3007C6B47 /* Project object */;
 }

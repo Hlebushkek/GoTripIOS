@@ -55,6 +55,13 @@ class StatisticViewController: UIViewController {
         durationView.alpha = 0
         priceView.alpha = 0
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        typeButtonAction(self)
+    }
+    
     func presentStatistic() {
         UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
             self.typeView.alpha = 1}, completion: { _ in self.calcHeight(num: 0) })
@@ -163,8 +170,5 @@ class StatisticViewController: UIViewController {
         UIView.animate(withDuration: 0.25, delay: 0.5, animations: {
             self.MenuSelection.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 0.69 , y: 0.0);
             self.priceView.alpha = 1}, completion: {_ in self.calcHeight(num: 2)})
-    }
-    @IBAction func backButton(_ sender: Any) {
-        self.dismiss(animated: true)
     }
 }

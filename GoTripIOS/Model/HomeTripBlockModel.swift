@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 public struct TripInfo: Codable {
     public let placeFrom: String
@@ -24,7 +25,7 @@ extension TripInfo {
     }
 }
 
-public enum TripType: Int, Codable {
+public enum TripType: Int, PersistableEnum, Codable {
     case Airplane
     case Train
     case Bus

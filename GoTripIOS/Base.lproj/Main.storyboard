@@ -33,14 +33,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6we-dZ-dJK">
-                                        <rect key="frame" x="335.66666666666669" y="54" width="70.333333333333314" height="32"/>
+                                        <rect key="frame" x="362.33333333333331" y="54" width="43.666666666666686" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="05q-zq-JBu"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Setting"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="person.fill" catalog="system"/>
                                         <connections>
-                                            <segue destination="YRg-CR-e5L" kind="presentation" customClass="StatisticSegue" customModule="GoTripIOS" customModuleProvider="target" modalPresentationStyle="fullScreen" id="efd-7N-vZO"/>
+                                            <segue destination="fhZ-ca-kgY" kind="custom" customClass="ProfileSegue" customModule="GoTripIOS" customModuleProvider="target" id="4Pw-9Y-nND"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -332,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXG-aX-P8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281.53846153846155" y="-186.25592417061611"/>
+            <point key="canvasLocation" x="31" y="21"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="82e-4I-qIX">
@@ -379,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8y-dD-vHd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1990.7692307692307" y="-186.25592417061611"/>
+            <point key="canvasLocation" x="1651" y="21"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="4o7-3o-ruQ">
@@ -397,9 +397,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Lm-Tc-fnk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984.6153846153845" y="473.45971563981038"/>
+            <point key="canvasLocation" x="2485" y="21"/>
         </scene>
-        <!--Statistic View Controller-->
+        <!--Profile-->
+        <scene sceneID="XOi-Hq-qqr">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EbE-XG-9ph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="Urc-Mt-dnj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FFe-eV-2Fl"/>
+                        <viewControllerLayoutGuide type="bottom" id="o4R-ff-4pN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j0c-bi-DIw">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="2ne-47-ej0">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="811" y="-692"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="uTN-fy-1Vx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bFc-bx-WzO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="DmS-Al-vXp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ozj-ko-NwF"/>
+                        <viewControllerLayoutGuide type="bottom" id="gJm-xt-JdB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j74-8C-M8t">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Setting" image="gear" catalog="system" id="QFN-xJ-VhZ"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2485" y="-692"/>
+        </scene>
+        <!--Profile Tab Bar Controller-->
+        <scene sceneID="NG0-tV-Ye0">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RTQ-p0-BRw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tabBarController id="fhZ-ca-kgY" customClass="ProfileTabBarController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vax-4z-8gM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Urc-Mt-dnj" kind="relationship" relationship="viewControllers" id="yF2-Bf-Cgk"/>
+                        <segue destination="YRg-CR-e5L" kind="relationship" relationship="viewControllers" id="dJQ-os-f5E"/>
+                        <segue destination="DmS-Al-vXp" kind="relationship" relationship="viewControllers" id="qwo-Ic-WrM"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="31" y="-692"/>
+        </scene>
+        <!--Statistic-->
         <scene sceneID="0Ke-BQ-nLI">
             <objects>
                 <viewController id="YRg-CR-e5L" customClass="StatisticViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -507,13 +565,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQ1-sv-VKj" userLabel="View Container">
-                                <rect key="frame" x="16" y="264" width="358" height="482"/>
+                                <rect key="frame" x="16" y="264" width="358" height="433"/>
                                 <subviews>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6L-oc-axk">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="482"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="433"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="rmo-Mv-UYy" userLabel="TypeStack">
-                                                <rect key="frame" x="35" y="130" width="288" height="304"/>
+                                                <rect key="frame" x="35" y="81" width="288" height="304"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q7n-EA-aqm" userLabel="Airplane">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="304"/>
@@ -740,10 +798,10 @@
                                         </constraints>
                                     </view>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDw-IF-M3m">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="482"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="433"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="y0P-zO-oOF" userLabel="DurationStack">
-                                                <rect key="frame" x="0.0" y="130" width="358" height="304"/>
+                                                <rect key="frame" x="0.0" y="81" width="358" height="304"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l1K-w4-2Dr" userLabel="Hour &lt; 1">
                                                         <rect key="frame" x="0.0" y="0.0" width="52.333333333333336" height="304"/>
@@ -966,10 +1024,10 @@
                                         </constraints>
                                     </view>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45X-VZ-mZT">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="482"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="433"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="1QC-2l-9Ye" userLabel="PriceStack">
-                                                <rect key="frame" x="35" y="130" width="288" height="304"/>
+                                                <rect key="frame" x="35" y="81" width="288" height="304"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H0y-ao-LYp" userLabel="UAH &lt; 1000">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="304"/>
@@ -1187,6 +1245,7 @@
                             <constraint firstItem="2tJ-Kl-usj" firstAttribute="centerY" secondItem="NTd-c4-frd" secondAttribute="centerY" id="hON-mY-LSD"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Statistic" image="info.circle" catalog="system" id="rkR-7y-PEG"/>
                     <connections>
                         <outlet property="MenuSelection" destination="faJ-x0-kBJ" id="h0n-GC-BbP"/>
                         <outlet property="durationButton" destination="ZVL-Hd-yMX" id="xVb-zg-BEU"/>
@@ -1212,7 +1271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5l-fM-Av3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281.53846153846155" y="-848.10426540284357"/>
+            <point key="canvasLocation" x="1651" y="-692"/>
         </scene>
         <!--Flight View Controller-->
         <scene sceneID="jPs-ff-YTw">
@@ -1509,7 +1568,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9x-LN-8nv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="552"/>
+            <point key="canvasLocation" x="31" y="788"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YIi-s4-2F4">
@@ -1527,7 +1586,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBk-QO-Ymj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061.5384615384614" y="-186.25592417061611"/>
+            <point key="canvasLocation" x="811" y="21"/>
         </scene>
     </scenes>
     <resources>
@@ -1540,8 +1599,12 @@
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="bus" catalog="system" width="128" height="122"/>
         <image name="car" catalog="system" width="128" height="93"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="map" catalog="system" width="128" height="110"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="train.side.front.car" catalog="system" width="128" height="73"/>
         <namedColor name="AirplaneColor">
