@@ -57,8 +57,7 @@ extension ProfileTabBarController {
         let duration = (animated ? 0.5 : 0.0)
 
         let frame = CGRect(origin: CGPoint(x: tabBar.frame.minX, y: offsetY), size: tabBar.frame.size)
-        
-        print("\(isHidden)   \(duration)   \(frame)")
+
         UIView.animate(withDuration: duration, animations: {
             self.tabBar.frame = frame
         }) { _ in

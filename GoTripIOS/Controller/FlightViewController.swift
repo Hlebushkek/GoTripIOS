@@ -10,7 +10,7 @@ import UIKit
 class FlightViewController: UIViewController {
     
     let cellId = "tripCell"
-    var blockInfos = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
+    var blockInfos = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey.rawValue)!
     
     @IBOutlet weak var tableView: UITableView!
     

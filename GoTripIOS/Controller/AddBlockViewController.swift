@@ -11,6 +11,8 @@ class AddBlockViewController: UIViewController {
  
     var pickerData: [String] = ["Airplane", "Train", "Bus", "Car"]
     
+    let dbManager = DBManager.shared
+    
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var placeFrom: UITextField!
     @IBOutlet weak var placeTo: UITextField!
@@ -35,31 +37,34 @@ class AddBlockViewController: UIViewController {
     
     @IBAction func submitButtonAction(_ sender: Any) {
         
-        if !checkInput() {return}
+        guard isCorrectInput() && dbManager.isSignIn() else { return }
         
         guard let number = Float(price.text!) else {
             print("Can't create number")
             return
         }
-        print(number)
         
-        let newBlockInfo = TripInfoModel()
-        
-        newBlockInfo.ownerID = "61fb1dd69ecc2e0558774fe4"
-        newBlockInfo.placeFrom = placeFrom.text!
-        newBlockInfo.placeTo = placeTo.text!
-        newBlockInfo.price = TripPriceModel(number)
-        newBlockInfo.type = TripType(rawValue: pickerView.selectedRow(inComponent: 0))!
-        
-        let dbManager = DBManager()
-        dbManager.addTripToUser(trip: newBlockInfo, userID: "61fb1dd69ecc2e0558774fe4")
-        
-        let parentVC = self.presentingViewController as! HomeViewController
-        
-        self.dismiss(animated: true, completion: { parentVC.insertBlockInfo(info: newBlockInfo) })
+        DispatchQueue.main.async {
+            guard let user = self.dbManager.getUser() else { return }
+            
+            let newBlockInfo = TripInfoModel()
+            
+            newBlockInfo.ownerID = user.id
+            newBlockInfo.placeFrom = self.placeFrom.text!
+            newBlockInfo.placeTo = self.placeTo.text!
+            newBlockInfo.price = TripPriceModel(number)
+            newBlockInfo.type = TripType(rawValue: self.pickerView.selectedRow(inComponent: 0)) ?? .Airplane
+            newBlockInfo.dateAdded = DBManager.dateToString(Date())
+            
+            self.dbManager.cloudAddTrip(newBlockInfo)
+            
+            let parentVC = self.presentingViewController as! HomeViewController
+            
+            self.dismiss(animated: true, completion: { parentVC.insertBlockInfo(info: newBlockInfo) })
+        }
     }
     
-    func checkInput() -> Bool {
+    func isCorrectInput() -> Bool {
         
         var alertsList = ""
         

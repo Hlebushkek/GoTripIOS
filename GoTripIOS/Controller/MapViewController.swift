@@ -73,12 +73,12 @@ extension MapViewController : CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
-        if let location = locations.first {
+//        if let location = locations.first {
 //            print("location:: (location)")
 //            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
 //            let region = MKCoordinateRegion(center: location.coordinate, span: span)
 //                mapView.setRegion(region, animated: true)
-        }
+//        }
     }
 }
 
@@ -93,7 +93,7 @@ extension MapViewController: HandleMapSearch {
         annotation.title = placemark.name
         if let city = placemark.locality,
         let state = placemark.administrativeArea {
-            annotation.subtitle = "(city) (state)"
+            annotation.subtitle = "\(city) \(state)"
         }
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)

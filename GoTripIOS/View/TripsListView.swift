@@ -14,7 +14,7 @@ class TripsListView: UIView {
     let tableCellHeight: CGFloat = 80
     let tableView: UITableView = UITableView(frame: CGRect(), style: .insetGrouped)
     
-    var blockInfos = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
+    var blockInfos = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey.rawValue)!
     
     
     init(_ type: TripType) {

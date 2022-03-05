@@ -34,6 +34,8 @@ class StatisticViewController: UIViewController {
     
     var stacksHeightConstraint: [[NSLayoutConstraint]]!
     
+    let dbManager = DBManager.shared
+    
     //temp
     var counts: [[Int]] = []
     
@@ -42,10 +44,7 @@ class StatisticViewController: UIViewController {
         stackContainer = [typeStacks, durationStacks, priceStacks]
         stacksHeightConstraint = [typeStacksHeightConstraint, durationStacksHeightConstraint, priceStacksHeightConstraint]
         
-        counts.append(getCountByType())
-        counts.append([3, 12, 4, 3, 1])
-        counts.append([6, 7, 2, 11])
-        
+        recalcHeight()
         roundCorners()
         getHeightConstraint()
         
@@ -58,7 +57,9 @@ class StatisticViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+        typeView.alpha = 0
+        recalcHeight()
         typeButtonAction(self)
     }
     
@@ -78,14 +79,13 @@ class StatisticViewController: UIViewController {
         }
     }
     func getCountByType() -> [Int] {
-        var typeCount = [0, 0, 0, 0]
-        
-        let blockInfo = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey)!
-        
-        for info in blockInfo {
-            typeCount[info.type.rawValue] += 1
-        }   
-        return typeCount
+        return dbManager.getTripCountByTrip()
+    }
+    func recalcHeight() {
+        counts.removeAll()
+        counts.append(getCountByType())
+        counts.append([3, 12, 4, 3, 1])
+        counts.append([6, 7, 2, 11])
     }
     func getHeightConstraint() {
         for i in 0...stacksHeightConstraint.count - 1 {
@@ -99,7 +99,7 @@ class StatisticViewController: UIViewController {
     }
     
     func calcHeight(num: Int) {
-        var curMax = 0
+        var curMax = 1
     
         for i in 0...stackContainer[num].count-1 {
             if counts[num][i] > curMax {
@@ -149,7 +149,7 @@ class StatisticViewController: UIViewController {
     }
     @IBAction func typeButtonAction(_ sender: Any?) {
         if typeView.alpha == 1 {return}
-        
+        print("hideall")
         hideAll()
         UIView.animate(withDuration: 0.25, delay: 0.5, animations: {
             self.MenuSelection.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 0.0275 , y: 0.0);
@@ -170,5 +170,8 @@ class StatisticViewController: UIViewController {
         UIView.animate(withDuration: 0.25, delay: 0.5, animations: {
             self.MenuSelection.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 0.69 , y: 0.0);
             self.priceView.alpha = 1}, completion: {_ in self.calcHeight(num: 2)})
+    }
+    @IBAction func backButtonAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

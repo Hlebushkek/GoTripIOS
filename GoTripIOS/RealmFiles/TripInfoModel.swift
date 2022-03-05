@@ -23,7 +23,7 @@ class TripInfoModel: Object {
     @Persisted var placeTo: String = ""
     @Persisted var price: TripPriceModel? = TripPriceModel.free()
     @Persisted var type: TripType = TripType.Airplane
-    var dateAdded = NSDate()
+    @Persisted var dateAdded: String = ""
 }
 
 class TripPriceModel: Object {

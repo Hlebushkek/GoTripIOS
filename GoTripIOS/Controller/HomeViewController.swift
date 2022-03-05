@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HomeViewController: UIViewController {
     
@@ -28,7 +29,7 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "ShowTableView", sender: TripType.Car)
     }
     
-    let dbManager = DBManager()
+    let dbManager = DBManager.shared
     
     let transitionToDetailedView = DetailedTripViewTransition()
     
@@ -59,51 +60,62 @@ class HomeViewController: UIViewController {
         
         hideKeyboardWhenTappedAround()
         
-        
-        ///In progress
-        //dbManager.deleteRealmFile()
-
-        /*let user = UserModel()
-        user.login = "bulka"
-        user.password = "123"
-        user.name = "hlib"
-        user.email = "bulka@gmail.com"
-        dbManager.addUser(user: user)*/
-
-        /*for block in blockInfos1 {
-            let trip = TripInfoModel()
-            trip.placeFrom = block.placeFrom
-            trip.placeTo = block.placeTo
-            trip.price = TripPriceModel(block.price.getAsFloat())
-            trip.type = block.type
-            trip.ownerID = "61fb1dd69ecc2e0558774fe4"
+        DispatchQueue.main.async {
+            if let user = LocalSavingSystem.getUserInfo() {
+                self.dbManager.signIn(email: user.email, password: user.password)
+            }
             
-            dbManager.addTripToUser(trip: trip, userID: "61fb1dd69ecc2e0558774fe4")
-        }*/
-
-        //dbManager.deleteRealmFile()
-        //dbManager.addPrice(price: TripPriceModel(15.51))
-        //dbManager.signIn()
+            guard let user = self.dbManager.getUser() else { return }
+            let userRealm = try! Realm(configuration: user.configuration(partitionValue: "123"))
+            let models = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
+            self.blockInfos = Array(models).sorted {
+                DBManager.stringToDate($0.dateAdded) > DBManager.stringToDate($1.dateAdded)
+            }
         
-        //dbManager.signIn()
-        return
+            self.tripBlockViews = [HomeTripBlockView?](repeating: nil, count: self.blockInfos.count)
+            self.gestureRecoginers = [TripInfoGestureRecognizer?](repeating: nil, count: self.blockInfos.count)
+            
+            self.existingBlockCount = self.blockInfos.count
+            for index in 0...self.blockInfos.count-1 {
+                let blockview = HomeTripBlockView(info: self.blockInfos[index], num: index, blockWidth: self.tripBlockWidth, indent: self.tripBlockIndent);
+                self.addTapGesture(blockview, index)
+                self.ContentView.addSubview(blockview)
+                self.tripBlockViews[index] = blockview
+                self.filteredBlockInfosIndex.append(index)
+                
+                blockview.alpha = 0
+                UIView.animate(withDuration: 0.25, delay: Double(index)*0.1, options: [], animations: {
+                    blockview.alpha = 1
+                }, completion: nil)
+            }
+            
+            self.scrollViewContainerHeightConstraint = NSLayoutConstraint(item: self.ContentView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: CGFloat(16 + 96 * self.blockInfos.count))
+            NSLayoutConstraint.activate([self.scrollViewContainerHeightConstraint])
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        tripBlockViews = [HomeTripBlockView?](repeating: nil, count: blockInfos.count)
-        gestureRecoginers = [TripInfoGestureRecognizer?](repeating: nil, count: blockInfos.count)
-        
-        existingBlockCount = blockInfos.count
-        for index in 0...blockInfos.count-1 {
-            let blockview = HomeTripBlockView(info: blockInfos[index], num: index, blockWidth: tripBlockWidth, indent: tripBlockIndent);
-            addTapGesture(blockview, index)
-            ContentView.addSubview(blockview)
-            tripBlockViews[index] = blockview
-            filteredBlockInfosIndex.append(index)
+        if blockInfos.count < 1 {
+            self.viewDidLoad()
         }
         
-        scrollViewContainerHeightConstraint = NSLayoutConstraint(item: ContentView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: CGFloat(16 + 96 * blockInfos.count))
-        NSLayoutConstraint.activate([scrollViewContainerHeightConstraint])
-        
-        //updateTripBlockViews()
+        if !dbManager.isSignIn() {
+            for i in 0..<tripBlockViews.count {
+                if let rec = gestureRecoginers[i] {
+                    tripBlockViews[i]?.removeGestureRecognizer(rec)
+                }
+                tripBlockViews[i]?.removeFromSuperview()
+                tripBlockViews[i] = nil
+            }
+            for i in 0..<gestureRecoginers.count {
+                gestureRecoginers[i] = nil
+            }
+            blockInfos.removeAll()
+            
+            resizeView()
+        }
     }
     
     func updateTripBlockViews() {
@@ -233,7 +245,7 @@ extension HomeViewController: UISearchBarDelegate {
         for block in blockInfos {
             if (block.placeFrom.uppercased().contains(searchText.uppercased()) ||
                 block.placeTo.uppercased().contains(searchText.uppercased()) ||
-                "\(block.price)".uppercased().contains(searchText.uppercased()) ||
+                String(describing: block.price).uppercased().contains(searchText.uppercased()) ||
                 searchText.count == 0) {
                 filteredBlockInfosIndex.append(index)
             }

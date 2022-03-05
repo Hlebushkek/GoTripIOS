@@ -29,8 +29,36 @@ public class LocalSavingSystem {
         }
         return nil
     }
+    
+    static func saveUserInfo(info: UserInfo) {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(info)
+            UserDefaults.standard.set(data, forKey: defaultsSavingKeys.userInfoKey.rawValue)
+        } catch {
+            print("Unable to Encode TripInfo (\(error))")
+        }
+    }
+    static func getUserInfo() -> UserInfo? {
+        if let data = UserDefaults.standard.data(forKey: defaultsSavingKeys.userInfoKey.rawValue) {
+            do {
+                let decoder = JSONDecoder()
+                let info = try decoder.decode(UserInfo.self, from: data)
+                return info
+            } catch {
+                print("Unable to Decode UserInfo (\(error))")
+            }
+        }
+        return nil
+    }
 }
 
-public struct defaultsSavingKeys {
-    static let tripInfoKey = "tripinfokey"
+public enum defaultsSavingKeys: String {
+    case tripInfoKey = "tripinfokey"
+    case userInfoKey = "userinfokey"
+}
+
+public struct UserInfo: Codable {
+    var email: String = ""
+    var password: String = ""
 }

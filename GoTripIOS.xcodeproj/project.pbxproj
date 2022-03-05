@@ -12,6 +12,7 @@
 		BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */; };
 		BC1F121727ADE97B00AFCE2A /* ProfileTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */; };
 		BC29BECF274E9FB8008888DE /* TripInfoGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC29BECE274E9FB8008888DE /* TripInfoGestureRecognizer.swift */; };
+		BC33C09627AFF5940040719B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C09527AFF5940040719B /* ProfileViewController.swift */; };
 		BC3693A127A6A4F700F11470 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BC3693A027A6A4F700F11470 /* Realm */; };
 		BC3693A327A6A4F700F11470 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC3693A227A6A4F700F11470 /* RealmSwift */; };
 		BC3693A527A6A63700F11470 /* TripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A427A6A63700F11470 /* TripInfoModel.swift */; };
@@ -48,6 +49,7 @@
 		BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
 		BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarController.swift; sourceTree = "<group>"; };
 		BC29BECE274E9FB8008888DE /* TripInfoGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoGestureRecognizer.swift; sourceTree = "<group>"; };
+		BC33C09527AFF5940040719B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BC3693A427A6A63700F11470 /* TripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoModel.swift; sourceTree = "<group>"; };
 		BC3693A627A6A9E600F11470 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		BC4B8A462775FFCD00F3632C /* TripPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPriceModel.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				BC52B6502778B697009E7682 /* MapViewController.swift */,
 				BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */,
 				BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */,
+				BC33C09527AFF5940040719B /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				BC52B6512778B697009E7682 /* MapViewController.swift in Sources */,
 				BCD23B0427123BB3007C6B47 /* AppDelegate.swift in Sources */,
 				BCD23B0627123BB3007C6B47 /* SceneDelegate.swift in Sources */,
+				BC33C09627AFF5940040719B /* ProfileViewController.swift in Sources */,
 				BCEA25A9272C8F0700EE9557 /* LocalSavingSystem.swift in Sources */,
 				BC59FF2E27465D4D001DCA06 /* TripsListView.swift in Sources */,
 				BC08E769274D58C000D00387 /* TripDetailedViewController.swift in Sources */,
