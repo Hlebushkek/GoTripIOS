@@ -19,7 +19,8 @@ class StatisticViewController: UIViewController {
     
     @IBOutlet weak var MenuSelection: UIStackView!
     
-    let MaxStackHeight = 208
+    private let MaxStackHeight = 208
+    private var currentlySelectedWindow = ActiveWindow.None
     
     var stackContainer: [[UIStackView]]!
     
@@ -39,6 +40,10 @@ class StatisticViewController: UIViewController {
     //temp
     var counts: [[Int]] = []
     
+    @IBAction func backButtonAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         stackContainer = [typeStacks, durationStacks, priceStacks]
@@ -53,19 +58,17 @@ class StatisticViewController: UIViewController {
         typeView.alpha = 0
         durationView.alpha = 0
         priceView.alpha = 0
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        typeView.alpha = 0
-        recalcHeight()
         typeButtonAction(self)
     }
     
-    func presentStatistic() {
-        UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
-            self.typeView.alpha = 1}, completion: { _ in self.calcHeight(num: 0) })
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if currentlySelectedWindow != .None {
+            recalcHeight()
+            calcHeight()
+        }
     }
     
     func roundCorners() {
@@ -98,7 +101,8 @@ class StatisticViewController: UIViewController {
         }
     }
     
-    func calcHeight(num: Int) {
+    func calcHeight() {
+        let num = currentlySelectedWindow.rawValue
         var curMax = 1
     
         for i in 0...stackContainer[num].count-1 {
@@ -148,30 +152,43 @@ class StatisticViewController: UIViewController {
         })
     }
     @IBAction func typeButtonAction(_ sender: Any?) {
-        if typeView.alpha == 1 {return}
-        print("hideall")
+        if currentlySelectedWindow == .TripType {return}
+        
         hideAll()
         UIView.animate(withDuration: 0.25, delay: 0.5, animations: {
             self.MenuSelection.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 0.0275 , y: 0.0);
-            self.typeView.alpha = 1}, completion: {_ in self.calcHeight(num: 0)})
+            self.typeView.alpha = 1}, completion: {_ in
+                self.currentlySelectedWindow = .TripType
+                self.calcHeight()
+            })
     }
     @IBAction func durationButtonAction(_ sender: Any?) {
-        if durationView.alpha == 1 {return}
+        if currentlySelectedWindow == .Duration {return}
         
         hideAll()
         UIView.animate(withDuration: 0.25, delay: 0.5, animations: {
             self.MenuSelection.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 0.35 , y: 0.0);
-            self.durationView.alpha = 1}, completion: {_ in self.calcHeight(num: 1)})
+            self.durationView.alpha = 1}, completion: {_ in
+                self.currentlySelectedWindow = .Duration
+                self.calcHeight()
+            })
     }
     @IBAction func priceButtonAction(_ sender: Any?) {
-        if priceView.alpha == 1 {return}
+        if currentlySelectedWindow == .Price {return}
         
         hideAll()
         UIView.animate(withDuration: 0.25, delay: 0.5, animations: {
             self.MenuSelection.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 0.69 , y: 0.0);
-            self.priceView.alpha = 1}, completion: {_ in self.calcHeight(num: 2)})
+            self.priceView.alpha = 1}, completion: {_ in
+                self.currentlySelectedWindow = .Price
+                self.calcHeight()
+            })
     }
-    @IBAction func backButtonAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+}
+
+fileprivate enum ActiveWindow: Int {
+    case TripType
+    case Duration
+    case Price
+    case None
 }

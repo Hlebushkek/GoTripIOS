@@ -41,6 +41,7 @@
 		BCD23B1027123BBB007C6B47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */; };
 		BCE314BF2714669E005AA8FE /* HomeTripBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE314BE2714669E005AA8FE /* HomeTripBlockView.swift */; };
 		BCEA25A9272C8F0700EE9557 /* LocalSavingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */; };
+		BCEE4F7427D3C4E4000A8F61 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE4F7327D3C4E4000A8F61 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		BCD23B1127123BBB007C6B47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCE314BE2714669E005AA8FE /* HomeTripBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTripBlockView.swift; sourceTree = "<group>"; };
 		BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSavingSystem.swift; sourceTree = "<group>"; };
+		BCEE4F7327D3C4E4000A8F61 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */,
 				BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */,
 				BC33C09527AFF5940040719B /* ProfileViewController.swift */,
+				BCEE4F7327D3C4E4000A8F61 /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				BCA7248F274AA5D60051C545 /* TripListSegue.swift in Sources */,
 				BCC278A52782718D002D3EB9 /* LocationSearchTable.swift in Sources */,
 				BC7BA970271750C100EBB697 /* HomeViewController.swift in Sources */,
+				BCEE4F7427D3C4E4000A8F61 /* SettingViewController.swift in Sources */,
 				BCE314BF2714669E005AA8FE /* HomeTripBlockView.swift in Sources */,
 				BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */,
 				BC7AE22D2752605B005936B8 /* DetailedTripViewTransition.swift in Sources */,

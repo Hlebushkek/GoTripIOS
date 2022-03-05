@@ -21,6 +21,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var loginField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    @IBAction func backButtonAction(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     @IBAction func SignOutButtonAction(_ sender: Any) {
         let userDef = UserDefaults.standard
         userDef.removeObject(forKey: defaultsSavingKeys.userInfoKey.rawValue)
@@ -41,7 +44,7 @@ class ProfileViewController: UIViewController {
             guard let user = self.dbManager.getUser() else { return }
             
             let userRealm = try! Realm(configuration: user.configuration(partitionValue: "123"))
-            let models = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
+            let _ = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
             //print(Array(models))
             
             LocalSavingSystem.saveUserInfo(info: UserInfo(email: login, password: password))
