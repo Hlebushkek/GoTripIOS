@@ -44,24 +44,17 @@ class AddBlockViewController: UIViewController {
             return
         }
         
-        DispatchQueue.main.async {
-            guard let user = self.dbManager.getUser() else { return }
-            
-            let newBlockInfo = TripInfoModel()
-            
-            newBlockInfo.ownerID = user.id
-            newBlockInfo.placeFrom = self.placeFrom.text!
-            newBlockInfo.placeTo = self.placeTo.text!
-            newBlockInfo.price = TripPriceModel(number)
-            newBlockInfo.type = TripType(rawValue: self.pickerView.selectedRow(inComponent: 0)) ?? .Airplane
-            newBlockInfo.dateAdded = DBManager.dateToString(Date())
-            
-            self.dbManager.cloudAddTrip(newBlockInfo)
-            
-            let parentVC = self.presentingViewController as! HomeViewController
-            
-            self.dismiss(animated: true, completion: { parentVC.insertBlockInfo(info: newBlockInfo) })
-        }
+        let newBlockInfo = TripInfoModel()
+        newBlockInfo.placeFrom = self.placeFrom.text!
+        newBlockInfo.placeTo = self.placeTo.text!
+        newBlockInfo.price = TripPriceModel(number)
+        newBlockInfo.type = TripType(rawValue: self.pickerView.selectedRow(inComponent: 0)) ?? .Airplane
+        newBlockInfo.dateAdded = DBManager.dateToString(Date())
+        
+        self.dbManager.cloudAddTrip(newBlockInfo)
+        
+        let parentVC = self.presentingViewController as? HomeViewController
+        self.dismiss(animated: true, completion: { parentVC?.insertBlockInfo(info: newBlockInfo) })
     }
     
     func isCorrectInput() -> Bool {
@@ -94,13 +87,10 @@ class AddBlockViewController: UIViewController {
 extension AddBlockViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
            return 1
-       }
+    }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
             return pickerData.count
-        }
-    /*func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 96
-    }*/
+    }
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 40
     }

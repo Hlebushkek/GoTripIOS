@@ -3,18 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35F09CE0C3230424AB515B07 /* Pods_GoTripIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8236EE583EE69AAEDB67F2D3 /* Pods_GoTripIOS.framework */; };
 		BC08E769274D58C000D00387 /* TripDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08E768274D58C000D00387 /* TripDetailedViewController.swift */; };
 		BC122A4127399EB000AC356F /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC122A4027399EB000AC356F /* AddBlockViewController.swift */; };
 		BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */; };
 		BC1F121727ADE97B00AFCE2A /* ProfileTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */; };
 		BC29BECF274E9FB8008888DE /* TripInfoGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC29BECE274E9FB8008888DE /* TripInfoGestureRecognizer.swift */; };
 		BC33C09627AFF5940040719B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C09527AFF5940040719B /* ProfileViewController.swift */; };
-		BC3693A127A6A4F700F11470 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BC3693A027A6A4F700F11470 /* Realm */; };
-		BC3693A327A6A4F700F11470 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC3693A227A6A4F700F11470 /* RealmSwift */; };
 		BC3693A527A6A63700F11470 /* TripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A427A6A63700F11470 /* TripInfoModel.swift */; };
 		BC3693A727A6A9E600F11470 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A627A6A9E600F11470 /* DBManager.swift */; };
 		BC4B8A472775FFCE00F3632C /* TripPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B8A462775FFCD00F3632C /* TripPriceModel.swift */; };
@@ -31,6 +30,8 @@
 		BCA72491274AAC210051C545 /* ProfileSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA72490274AAC210051C545 /* ProfileSegue.swift */; };
 		BCBE3C34278B0E0600479BD3 /* KeyboardDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE3C33278B0E0600479BD3 /* KeyboardDismissExtension.swift */; };
 		BCC278A52782718D002D3EB9 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */; };
+		BCC6B04527D5079A00F4A2F8 /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC6B04327D5079A00F4A2F8 /* SelectionCell.swift */; };
+		BCC6B04627D5079A00F4A2F8 /* SelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC6B04427D5079A00F4A2F8 /* SelectionCell.xib */; };
 		BCCE383427300D380007402D /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE383327300D380007402D /* StatisticViewController.swift */; };
 		BCD03600272D9C990033DCF1 /* CornerExtentionUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD035FF272D9C990033DCF1 /* CornerExtentionUIVIew.swift */; };
 		BCD1F86F2743D23F00FBBF78 /* TripListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */; };
@@ -45,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8236EE583EE69AAEDB67F2D3 /* Pods_GoTripIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoTripIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA00C0B3D1CFEA0373F9CB53 /* Pods-GoTripIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoTripIOS.release.xcconfig"; path = "Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS.release.xcconfig"; sourceTree = "<group>"; };
 		BC08E768274D58C000D00387 /* TripDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailedViewController.swift; sourceTree = "<group>"; };
 		BC122A4027399EB000AC356F /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
 		BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 		BCA72490274AAC210051C545 /* ProfileSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSegue.swift; sourceTree = "<group>"; };
 		BCBE3C33278B0E0600479BD3 /* KeyboardDismissExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissExtension.swift; sourceTree = "<group>"; };
 		BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		BCC6B04327D5079A00F4A2F8 /* SelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
+		BCC6B04427D5079A00F4A2F8 /* SelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionCell.xib; sourceTree = "<group>"; };
 		BCCE383327300D380007402D /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		BCD035FF272D9C990033DCF1 /* CornerExtentionUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerExtentionUIVIew.swift; sourceTree = "<group>"; };
 		BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +85,7 @@
 		BCE314BE2714669E005AA8FE /* HomeTripBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTripBlockView.swift; sourceTree = "<group>"; };
 		BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSavingSystem.swift; sourceTree = "<group>"; };
 		BCEE4F7327D3C4E4000A8F61 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D999CE13DF8974D732E810FF /* Pods-GoTripIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoTripIOS.debug.xcconfig"; path = "Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,14 +93,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC3693A327A6A4F700F11470 /* RealmSwift in Frameworks */,
-				BC3693A127A6A4F700F11470 /* Realm in Frameworks */,
+				35F09CE0C3230424AB515B07 /* Pods_GoTripIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7059337FF41A450820152373 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D999CE13DF8974D732E810FF /* Pods-GoTripIOS.debug.xcconfig */,
+				BA00C0B3D1CFEA0373F9CB53 /* Pods-GoTripIOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7AE962C06628513A751DBC48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8236EE583EE69AAEDB67F2D3 /* Pods_GoTripIOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BC149CBB272D69B700C5F7D5 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,17 +133,17 @@
 		BC149CBC272D69D800C5F7D5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BC122A4027399EB000AC356F /* AddBlockViewController.swift */,
 				BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */,
 				BC7BA96F271750C100EBB697 /* HomeViewController.swift */,
-				BCCE383327300D380007402D /* StatisticViewController.swift */,
-				BC122A4027399EB000AC356F /* AddBlockViewController.swift */,
-				BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */,
-				BC08E768274D58C000D00387 /* TripDetailedViewController.swift */,
-				BC52B6502778B697009E7682 /* MapViewController.swift */,
 				BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */,
+				BC52B6502778B697009E7682 /* MapViewController.swift */,
 				BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */,
 				BC33C09527AFF5940040719B /* ProfileViewController.swift */,
 				BCEE4F7327D3C4E4000A8F61 /* SettingViewController.swift */,
+				BCCE383327300D380007402D /* StatisticViewController.swift */,
+				BC08E768274D58C000D00387 /* TripDetailedViewController.swift */,
+				BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -170,6 +193,8 @@
 			children = (
 				BCD23B0227123BB3007C6B47 /* GoTripIOS */,
 				BCD23B0127123BB3007C6B47 /* Products */,
+				7059337FF41A450820152373 /* Pods */,
+				7AE962C06628513A751DBC48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,18 +209,20 @@
 		BCD23B0227123BB3007C6B47 /* GoTripIOS */ = {
 			isa = PBXGroup;
 			children = (
-				BCD23B0327123BB3007C6B47 /* AppDelegate.swift */,
-				BCD23B0527123BB3007C6B47 /* SceneDelegate.swift */,
 				BC149CBD272D69E500C5F7D5 /* Model */,
 				BC149CBB272D69B700C5F7D5 /* View */,
 				BC149CBC272D69D800C5F7D5 /* Controller */,
 				BCA7248D274AA5A30051C545 /* Segue */,
-				BCD035FE272D9C240033DCF1 /* Other */,
 				BC3693A827A6BF1300F11470 /* RealmFiles */,
+				BCD035FE272D9C240033DCF1 /* Other */,
 				BCD23B0927123BB3007C6B47 /* Main.storyboard */,
-				BCD23B0C27123BBB007C6B47 /* Assets.xcassets */,
+				BCC6B04327D5079A00F4A2F8 /* SelectionCell.swift */,
+				BCC6B04427D5079A00F4A2F8 /* SelectionCell.xib */,
 				BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */,
 				BCD23B1127123BBB007C6B47 /* Info.plist */,
+				BCD23B0327123BB3007C6B47 /* AppDelegate.swift */,
+				BCD23B0527123BB3007C6B47 /* SceneDelegate.swift */,
+				BCD23B0C27123BBB007C6B47 /* Assets.xcassets */,
 			);
 			path = GoTripIOS;
 			sourceTree = "<group>";
@@ -207,19 +234,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCD23B1427123BBC007C6B47 /* Build configuration list for PBXNativeTarget "GoTripIOS" */;
 			buildPhases = (
+				3E85D82AD53735D68E52F8AF /* [CP] Check Pods Manifest.lock */,
 				BCD23AFC27123BB3007C6B47 /* Sources */,
 				BCD23AFD27123BB3007C6B47 /* Frameworks */,
 				BCD23AFE27123BB3007C6B47 /* Resources */,
+				AC2FEE336025DEA24582683D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GoTripIOS;
-			packageProductDependencies = (
-				BC3693A027A6A4F700F11470 /* Realm */,
-				BC3693A227A6A4F700F11470 /* RealmSwift */,
-			);
 			productName = GoTripIOS;
 			productReference = BCD23B0027123BB3007C6B47 /* GoTripIOS.app */;
 			productType = "com.apple.product-type.application";
@@ -247,9 +272,6 @@
 				Base,
 			);
 			mainGroup = BCD23AF727123BB3007C6B47;
-			packageReferences = (
-				BC36939F27A6A4F700F11470 /* XCRemoteSwiftPackageReference "realm-swift" */,
-			);
 			productRefGroup = BCD23B0127123BB3007C6B47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -264,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC6B04627D5079A00F4A2F8 /* SelectionCell.xib in Resources */,
 				BCD23B1027123BBB007C6B47 /* LaunchScreen.storyboard in Resources */,
 				BCD23B0D27123BBB007C6B47 /* Assets.xcassets in Resources */,
 				BCD23B0B27123BB3007C6B47 /* Main.storyboard in Resources */,
@@ -271,6 +294,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E85D82AD53735D68E52F8AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoTripIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC2FEE336025DEA24582683D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BCD23AFC27123BB3007C6B47 /* Sources */ = {
@@ -282,6 +347,7 @@
 				BCA7248F274AA5D60051C545 /* TripListSegue.swift in Sources */,
 				BCC278A52782718D002D3EB9 /* LocationSearchTable.swift in Sources */,
 				BC7BA970271750C100EBB697 /* HomeViewController.swift in Sources */,
+				BCC6B04527D5079A00F4A2F8 /* SelectionCell.swift in Sources */,
 				BCEE4F7427D3C4E4000A8F61 /* SettingViewController.swift in Sources */,
 				BCE314BF2714669E005AA8FE /* HomeTripBlockView.swift in Sources */,
 				BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */,
@@ -450,6 +516,7 @@
 		};
 		BCD23B1527123BBC007C6B47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D999CE13DF8974D732E810FF /* Pods-GoTripIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -470,6 +537,7 @@
 		};
 		BCD23B1627123BBC007C6B47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA00C0B3D1CFEA0373F9CB53 /* Pods-GoTripIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -510,30 +578,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		BC36939F27A6A4F700F11470 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BC3693A027A6A4F700F11470 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BC36939F27A6A4F700F11470 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		BC3693A227A6A4F700F11470 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BC36939F27A6A4F700F11470 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BCD23AF827123BB3007C6B47 /* Project object */;
 }

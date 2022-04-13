@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class HomeViewController: UIViewController {
     
@@ -60,46 +59,11 @@ class HomeViewController: UIViewController {
         
         hideKeyboardWhenTappedAround()
         
-        DispatchQueue.main.async {
-            if let user = LocalSavingSystem.getUserInfo() {
-                self.dbManager.signIn(email: user.email, password: user.password)
-            }
-            
-            guard let user = self.dbManager.getUser() else { return }
-            let userRealm = try! Realm(configuration: user.configuration(partitionValue: "123"))
-            let models = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
-            self.blockInfos = Array(models).sorted {
-                DBManager.stringToDate($0.dateAdded) > DBManager.stringToDate($1.dateAdded)
-            }
-        
-            self.tripBlockViews = [HomeTripBlockView?](repeating: nil, count: self.blockInfos.count)
-            self.gestureRecoginers = [TripInfoGestureRecognizer?](repeating: nil, count: self.blockInfos.count)
-            
-            self.existingBlockCount = self.blockInfos.count
-            for index in 0...self.blockInfos.count-1 {
-                let blockview = HomeTripBlockView(info: self.blockInfos[index], num: index, blockWidth: self.tripBlockWidth, indent: self.tripBlockIndent);
-                self.addTapGesture(blockview, index)
-                self.ContentView.addSubview(blockview)
-                self.tripBlockViews[index] = blockview
-                self.filteredBlockInfosIndex.append(index)
-                
-                blockview.alpha = 0
-                UIView.animate(withDuration: 0.25, delay: Double(index)*0.1, options: [], animations: {
-                    blockview.alpha = 1
-                }, completion: nil)
-            }
-            
-            self.scrollViewContainerHeightConstraint = NSLayoutConstraint(item: self.ContentView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: CGFloat(16 + 96 * self.blockInfos.count))
-            NSLayoutConstraint.activate([self.scrollViewContainerHeightConstraint])
-        }
+        loadTripInfos()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if blockInfos.count < 1 {
-            self.viewDidLoad()
-        }
         
         if !dbManager.isSignIn() {
             for i in 0..<tripBlockViews.count {
@@ -114,8 +78,43 @@ class HomeViewController: UIViewController {
             }
             blockInfos.removeAll()
             
-            resizeView()
+            print("ResizeScroll")
+            resizeScrollView()
         }
+        
+        if blockInfos.count < 1 {
+            self.loadTripInfos()
+        }
+    }
+    
+    func loadTripInfos() {
+        guard let user = LocalSavingSystem.userInfo else { return }
+        dbManager.signIn(email: user.email, password: user.password, onSuccess: {
+            self.dbManager.getTripInfos(onSuccess: { (infos) in
+                
+                self.blockInfos = infos
+                
+                self.tripBlockViews = [HomeTripBlockView?](repeating: nil, count: infos.count)
+                self.gestureRecoginers = [TripInfoGestureRecognizer?](repeating: nil, count: infos.count)
+                
+                self.existingBlockCount = self.blockInfos.count
+                for index in 0...self.blockInfos.count-1 {
+                    let blockview = HomeTripBlockView(info: self.blockInfos[index], num: index, blockWidth: self.tripBlockWidth, indent: self.tripBlockIndent);
+                    self.addTapGesture(blockview, index)
+                    self.ContentView.addSubview(blockview)
+                    self.tripBlockViews[index] = blockview
+                    self.filteredBlockInfosIndex.append(index)
+                    
+                    blockview.alpha = 0
+                    UIView.animate(withDuration: 0.25, delay: Double(index)*0.1, options: [], animations: {
+                        blockview.alpha = 1
+                    }, completion: nil)
+                }
+                
+                self.scrollViewContainerHeightConstraint = NSLayoutConstraint(item: self.ContentView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: CGFloat(16 + 96 * self.blockInfos.count))
+                NSLayoutConstraint.activate([self.scrollViewContainerHeightConstraint])
+            })
+        })
     }
     
     func updateTripBlockViews() {
@@ -151,7 +150,7 @@ class HomeViewController: UIViewController {
                     }
                 }
                 self.recalcX()
-                self.resizeView()
+                self.resizeScrollView()
             }
             //
         } else if (existingBlockCount < filteredBlockInfosIndex.count) {
@@ -184,22 +183,24 @@ class HomeViewController: UIViewController {
                 }
                 self.existingBlockCount = self.filteredBlockInfosIndex.count
                 self.recalcX()
-                self.resizeView()
+                self.resizeScrollView()
             }
-            //
+
         }
     }
     
     func recalcX() {
         var index = 0
         for view in tripBlockViews {
-            if view != nil {
-                UIView.animate(withDuration: 0.2, delay: CGFloat(index) * 0.1, options: [], animations: {view!.frame.origin.x = (index % 2 == 0) ? 16 : (UIScreen.main.bounds.width - self.tripBlockWidth - self.tripBlockIndent)
-                    index+=1}, completion: nil)
+            if let view = view {
+                UIView.animate(withDuration: 0.2, delay: CGFloat(index) * 0.1, options: [], animations: {
+                    view.frame.origin.x = (index % 2 == 0) ? 16 : (UIScreen.main.bounds.width - self.tripBlockWidth - self.tripBlockIndent)
+                    index+=1
+                }, completion: nil)
             }
         }
     }
-    func resizeView() {
+    func resizeScrollView() {
         self.scrollViewContainerHeightConstraint.constant = CGFloat(self.existingBlockCount * 96)
         UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: { self.view.layoutIfNeeded()}, completion: nil)
     }
@@ -229,7 +230,7 @@ extension HomeViewController: UIScrollViewDelegate {
                 self.tabBarView.alpha = 0
             })
         }
-        else if scrollView.contentOffset.y < 50 {
+        else {
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
                 self.tabBarView.alpha = 1
             })
@@ -251,7 +252,7 @@ extension HomeViewController: UISearchBarDelegate {
             }
             index+=1
         }
-        //print("\(filteredBlockInfosIndex)")
+
         updateTripBlockViews()
     }
 }
@@ -295,12 +296,13 @@ extension HomeViewController {
     @objc func tapOnBlock(sender: TripInfoGestureRecognizer) {
         print("Tapped on \(sender.block!.info)")
         
-        let tripVC = self.storyboard?.instantiateViewController(withIdentifier: "tripdetailed") as! TripDetailedViewController
-        tripVC.info = sender.block!.info
+        guard let block = sender.block, let tripVC = self.storyboard?.instantiateViewController(withIdentifier: "tripdetailed") as? TripDetailedViewController else { return }
         
-        transitionToDetailedView.tripType = sender.block!.info.type
-        transitionToDetailedView.startPoint.x = sender.block!.center.x
-        transitionToDetailedView.startPoint.y = sender.block!.center.y + view.subviews[2].frame.origin.y - scrollView.contentOffset.y
+        tripVC.info = block.info
+        
+        transitionToDetailedView.tripType = block.info.type
+        transitionToDetailedView.startPoint.x = block.center.x
+        transitionToDetailedView.startPoint.y = block.center.y + view.subviews[2].frame.origin.y - scrollView.contentOffset.y
         
         tripVC.transitioningDelegate = self
         tripVC.modalPresentationStyle = .custom

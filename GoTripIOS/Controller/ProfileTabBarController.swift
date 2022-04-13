@@ -21,7 +21,6 @@ class ProfileTabBarController: UITabBarController {
         super.viewDidAppear(animated)
         
         self.setTabBarHidden(true, animated: false, completion: {
-            //print(1)
             self.setTabBarHidden(false, animated: true, completion: nil)
         })
         

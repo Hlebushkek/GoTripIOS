@@ -29,33 +29,60 @@ public class LocalSavingSystem {
         }
         return nil
     }
-    
-    static func saveUserInfo(info: UserInfo) {
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(info)
-            UserDefaults.standard.set(data, forKey: defaultsSavingKeys.userInfoKey.rawValue)
-        } catch {
-            print("Unable to Encode TripInfo (\(error))")
+
+    static var userInfo: UserInfo? {
+        get {
+            if let data = UserDefaults.standard.data(forKey: defaultsSavingKeys.userInfoKey.rawValue) {
+                do {
+                    let decoder = JSONDecoder()
+                    let info = try decoder.decode(UserInfo.self, from: data)
+                    return info
+                } catch {
+                    print("Unable to Decode UserInfo (\(error))")
+                }
+            }
+            return nil
         }
-    }
-    static func getUserInfo() -> UserInfo? {
-        if let data = UserDefaults.standard.data(forKey: defaultsSavingKeys.userInfoKey.rawValue) {
+        set (info) {
             do {
-                let decoder = JSONDecoder()
-                let info = try decoder.decode(UserInfo.self, from: data)
-                return info
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(info)
+                UserDefaults.standard.set(data, forKey: defaultsSavingKeys.userInfoKey.rawValue)
             } catch {
-                print("Unable to Decode UserInfo (\(error))")
+                print("Unable to Encode TripInfo (\(error))")
             }
         }
-        return nil
+    }
+    
+    static var prefferedCurrency: CurrencyType {
+        get {
+            if let data = UserDefaults.standard.data(forKey: defaultsSavingKeys.userPrefCur.rawValue) {
+                do {
+                    let decoder = JSONDecoder()
+                    let info = try decoder.decode(CurrencyType.self, from: data)
+                    return info
+                } catch {
+                    print("Unable to Decode UserInfo (\(error))")
+                }
+            }
+            return CurrencyType.USD
+        }
+        set (newValue) {
+            do {
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(newValue)
+                UserDefaults.standard.set(data, forKey: defaultsSavingKeys.userPrefCur.rawValue)
+            } catch {
+                print("Unable to Encode TripInfo (\(error))")
+            }
+        }
     }
 }
 
 public enum defaultsSavingKeys: String {
     case tripInfoKey = "tripinfokey"
     case userInfoKey = "userinfokey"
+    case userPrefCur = "prefferedcurrency"
 }
 
 public struct UserInfo: Codable {

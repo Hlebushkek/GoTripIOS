@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RealmSwift
 
 class ProfileViewController: UIViewController {
     
@@ -29,7 +28,6 @@ class ProfileViewController: UIViewController {
         userDef.removeObject(forKey: defaultsSavingKeys.userInfoKey.rawValue)
         
         dbManager.logOut()
-
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func SignInUpButton(_ sender: Any) {
@@ -37,20 +35,14 @@ class ProfileViewController: UIViewController {
         passwordField.text = "hleb123"
         
         guard let login = loginField.text, let password = passwordField.text else {return}
+        dbManager.signIn(email: login, password: password, onSuccess: {
+            LocalSavingSystem.userInfo = UserInfo(email: login, password: password)
+            
+            DispatchQueue.main.async {
+                self.viewWillAppear(true)
+            }
+        })
         
-        dbManager.signIn(email: login, password: password)
-        
-        DispatchQueue.main.async {
-            guard let user = self.dbManager.getUser() else { return }
-            
-            let userRealm = try! Realm(configuration: user.configuration(partitionValue: "123"))
-            let _ = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
-            //print(Array(models))
-            
-            LocalSavingSystem.saveUserInfo(info: UserInfo(email: login, password: password))
-            
-            self.viewWillAppear(true)
-        }
     }
     
     
@@ -69,7 +61,7 @@ class ProfileViewController: UIViewController {
         loginStackView.alpha = 0
         
         if dbManager.isSignIn() {
-            guard let user = self.dbManager.getUser() else { return }
+            guard let user = dbManager.getUser() else { return }
             
             mailLabel.text = user.profile.email
             tripsCountLabel.text = "You have \(dbManager.getTripCount()) trips"

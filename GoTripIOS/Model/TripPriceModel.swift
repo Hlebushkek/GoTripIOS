@@ -38,8 +38,8 @@ public class TripPrice: CustomStringConvertible, Codable {
     }
 }
 
-enum CurrencyType: String, PersistableEnum, Codable {
-    case EUR = "€"
+enum CurrencyType: String, PersistableEnum, Codable, CaseIterable {
     case USD = "$"
+    case EUR = "€"
     case UAH = "₴"
 }
