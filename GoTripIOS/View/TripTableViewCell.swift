@@ -31,9 +31,9 @@ class TripTableViewCell: UITableViewCell {
         cellView.layer.cornerRadius = 12
         self.selectionStyle = .none
         
-        self.backgroundColor = TripColors.getStrongColor(num: info.type.rawValue)
-        cellView.backgroundColor = TripColors.getColor(num: info.type.rawValue)
-        tripTypeImg.tintColor = TripColors.getStrongColor(num: info.type.rawValue)
+        self.backgroundColor = TripUtilities.getStrongColor(for: info.type)
+        cellView.backgroundColor = TripUtilities.getColor(for: info.type)
+        tripTypeImg.tintColor = TripUtilities.getStrongColor(for: info.type)
         
         switch info.type {
         case .Airplane:

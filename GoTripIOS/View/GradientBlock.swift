@@ -15,10 +15,10 @@ class GradientBlock: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(frame: CGRect, type: Int) {
+    init(frame: CGRect, type: TripType) {
         super.init(frame: frame)
         
-        applyGradient(type: type)
+        applyGradient(for: type)
     }
     
     override func layoutSubviews() {
@@ -29,8 +29,11 @@ class GradientBlock: UIView {
         gradientLayer.cornerRadius = self.frame.width * 0.05
     }
     
-    private func applyGradient(type: Int) {
-        gradientLayer.colors = [TripColors.getColor(num: type).cgColor, TripColors.getStrongColor(num: type).cgColor]
+    private func applyGradient(for type: TripType) {
+        gradientLayer.colors = [
+            TripUtilities.getColor(for: type).cgColor,
+            TripUtilities.getStrongColor(for: type).cgColor
+        ]
         gradientLayer.startPoint = CGPoint(x: 0, y: 1)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         

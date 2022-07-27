@@ -17,7 +17,7 @@ public class LocalSavingSystem {
             print("Unable to Encode TripInfo (\(error))")
         }
     }
-    static func LoadTripInfp(path: String) -> [TripInfo]? {
+    static func LoadTripInfo(path: String) -> [TripInfo] {
         if let data = UserDefaults.standard.data(forKey: path) {
             do {
                 let decoder = JSONDecoder()
@@ -27,7 +27,7 @@ public class LocalSavingSystem {
                 print("Unable to Decode TripInfp (\(error))")
             }
         }
-        return nil
+        return []
     }
 
     static var userInfo: UserInfo? {

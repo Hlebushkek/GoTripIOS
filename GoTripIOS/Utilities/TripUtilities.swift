@@ -5,7 +5,7 @@
 //  Created by Gleb Sobolevsky on 27.07.2022.
 //
 
-import Foundation
+import UIKit
 
 class TripUtilities {
     static func GetDate(from string: String) -> Date {
@@ -20,13 +20,22 @@ class TripUtilities {
         return dateFormatter.string(from: date ?? Date.distantPast)
     }
     
-    private static let tripTypesImages = ["airplane", "train.side.front.car", "bus.fill", "car.fill"]
-    private static let tripTypesName = ["Airplane", "Train", "Bus", "Car"]
+    private static let tripTypeImages = ["airplane", "train.side.front.car", "bus.fill", "car.fill"]
+    private static let tripTypeNames = ["Airplane", "Train", "Bus", "Car"]
     
-    static func getImage(for type: TripType) -> String {
-        return tripTypesImages[type.rawValue]
+    static func getImage(for type: TripType) -> UIImage {
+        return UIImage(systemName: tripTypeImages[type.rawValue]) ?? UIImage.add
     }
     static func getName(for type: TripType) -> String {
-        return tripTypesName[type.rawValue]
+        return tripTypeNames[type.rawValue]
     }
+    
+    private static let tripTypeColorNames = ["AirplaneColor", "TrainColor", "BusColor", "CarColor"]
+    static func getColor(for type: TripType) -> UIColor {
+        return UIColor(named: tripTypeColorNames[type.rawValue]) ?? UIColor.black
+    }
+    static func getStrongColor(for type: TripType) -> UIColor {
+        return UIColor(named: tripTypeColorNames[type.rawValue] + "Strong") ?? UIColor.black
+    }
+    
 }

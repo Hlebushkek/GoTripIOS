@@ -96,11 +96,11 @@ class TripDetailedViewController: UIViewController {
         
     func setInfo() {
         if let info = self.info {
-            self.view.backgroundColor = TripColors.getColor(num: info.type.rawValue)
+            self.view.backgroundColor = TripUtilities.getColor(for: info.type)
             //setBackgroundGradient()
             bottomView.alpha = 0
             
-            topView.backgroundColor = TripColors.getStrongColor(num: info.type.rawValue)
+            topView.backgroundColor = TripUtilities.getStrongColor(for: info.type)
             topView.alpha = 0
             
             editableLabels[0].text = info.placeFrom
@@ -111,9 +111,14 @@ class TripDetailedViewController: UIViewController {
     }
     
     func setBackgroundGradient() {
+        guard let info = info else { return }
+        
         bottomView.layer.addSublayer(bottomGradientLayer)
         
-        bottomGradientLayer.colors = [TripColors.getStrongColor(num: info!.type.rawValue).cgColor, TripColors.getColor(num: info!.type.rawValue).cgColor]
+        bottomGradientLayer.colors = [
+            TripUtilities.getStrongColor(for: info.type).cgColor,
+            TripUtilities.getColor(for: info.type).cgColor
+        ]
         bottomGradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
         bottomGradientLayer.endPoint = CGPoint(x: 0.5, y: 0.25)
         

@@ -38,7 +38,10 @@ class HomeTripBlockView: UIView {
     func setGradient() {
         self.layer.addSublayer(gradientLayer)
         
-        gradientLayer.colors = [TripColors.getColor(num: info.type.rawValue).cgColor, TripColors.getStrongColor(num: info.type.rawValue).cgColor]
+        gradientLayer.colors = [
+            TripUtilities.getColor(for: info.type).cgColor,
+            TripUtilities.getStrongColor(for: info.type).cgColor
+        ]
         gradientLayer.startPoint = CGPoint(x: 0, y: 1)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         
@@ -70,7 +73,7 @@ class HomeTripBlockView: UIView {
         priceL.frame = CGRect(x: UIScreen.main.bounds.width*0.85-48.0-16.0, y: 16.0, width: 48.0, height: 32.0)
         priceL.textAlignment = .center
         priceL.adjustsFontSizeToFitWidth = true
-        priceL.text = info.price!.description
+        priceL.text = info.price?.description
         
         self.addSubview(city1L)
         self.addSubview(city2L)

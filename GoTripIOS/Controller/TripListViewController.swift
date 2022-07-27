@@ -20,7 +20,7 @@ class TripListViewController: UIViewController {
     
     var tripTypeName = ""
     var tripType: TripType = .Airplane
-    var blockInfos = LocalSavingSystem.LoadTripInfp(path: defaultsSavingKeys.tripInfoKey.rawValue)!
+    var blockInfos = LocalSavingSystem.LoadTripInfo(path: defaultsSavingKeys.tripInfoKey.rawValue)
     var tripsListView: TripsListView?
     
     @IBAction func backButtonAction(_ sender: Any) {
