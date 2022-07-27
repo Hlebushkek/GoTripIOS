@@ -17,7 +17,7 @@
 		BC3693A527A6A63700F11470 /* TripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A427A6A63700F11470 /* TripInfoModel.swift */; };
 		BC3693A727A6A9E600F11470 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A627A6A9E600F11470 /* DBManager.swift */; };
 		BC4B8A472775FFCE00F3632C /* TripPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B8A462775FFCD00F3632C /* TripPrice.swift */; };
-		BC5247C4272C1BBE00A100EA /* HomeTripBlockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */; };
+		BC5247C4272C1BBE00A100EA /* TripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5247C3272C1BBE00A100EA /* TripInfo.swift */; };
 		BC52B6512778B697009E7682 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52B6502778B697009E7682 /* MapViewController.swift */; };
 		BC59FF2E27465D4D001DCA06 /* TripsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59FF2D27465D4D001DCA06 /* TripsListView.swift */; };
 		BC59FF3027467F87001DCA06 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */; };
@@ -59,7 +59,7 @@
 		BC3693A427A6A63700F11470 /* TripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoModel.swift; sourceTree = "<group>"; };
 		BC3693A627A6A9E600F11470 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		BC4B8A462775FFCD00F3632C /* TripPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPrice.swift; sourceTree = "<group>"; };
-		BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTripBlockModel.swift; sourceTree = "<group>"; };
+		BC5247C3272C1BBE00A100EA /* TripInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfo.swift; sourceTree = "<group>"; };
 		BC52B6502778B697009E7682 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BC59FF2D27465D4D001DCA06 /* TripsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListView.swift; sourceTree = "<group>"; };
 		BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
@@ -129,6 +129,8 @@
 				BC59FF2D27465D4D001DCA06 /* TripsListView.swift */,
 				BC7EDD5927510ADD0029B0FA /* TripDotsView.swift */,
 				BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */,
+				BCC6B04327D5079A00F4A2F8 /* SelectionCell.swift */,
+				BCC6B04427D5079A00F4A2F8 /* SelectionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,20 +156,21 @@
 		BC149CBD272D69E500C5F7D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC5247C3272C1BBE00A100EA /* HomeTripBlockModel.swift */,
+				BC3693A827A6BF1300F11470 /* RealmModel */,
+				BC5247C3272C1BBE00A100EA /* TripInfo.swift */,
 				BC4B8A462775FFCD00F3632C /* TripPrice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BC3693A827A6BF1300F11470 /* RealmFiles */ = {
+		BC3693A827A6BF1300F11470 /* RealmModel */ = {
 			isa = PBXGroup;
 			children = (
 				BC3693A627A6A9E600F11470 /* DBManager.swift */,
 				BC3693A427A6A63700F11470 /* TripInfoModel.swift */,
 				BC8CF06A28916C1F005E490C /* TripPriceModel.swift */,
 			);
-			path = RealmFiles;
+			path = RealmModel;
 			sourceTree = "<group>";
 		};
 		BC8CF06728916BD2005E490C /* Utilities */ = {
@@ -225,12 +228,9 @@
 				BC149CBB272D69B700C5F7D5 /* View */,
 				BC149CBC272D69D800C5F7D5 /* Controller */,
 				BCA7248D274AA5A30051C545 /* Segue */,
-				BC3693A827A6BF1300F11470 /* RealmFiles */,
 				BC8CF06728916BD2005E490C /* Utilities */,
 				BCD035FE272D9C240033DCF1 /* Other */,
 				BCD23B0927123BB3007C6B47 /* Main.storyboard */,
-				BCC6B04327D5079A00F4A2F8 /* SelectionCell.swift */,
-				BCC6B04427D5079A00F4A2F8 /* SelectionCell.xib */,
 				BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */,
 				BCD23B1127123BBB007C6B47 /* Info.plist */,
 				BCD23B0327123BB3007C6B47 /* AppDelegate.swift */,
@@ -387,7 +387,7 @@
 				BC8CF06B28916C1F005E490C /* TripPriceModel.swift in Sources */,
 				BC1F121727ADE97B00AFCE2A /* ProfileTabBarController.swift in Sources */,
 				BCD03600272D9C990033DCF1 /* CornerExtentionUIVIew.swift in Sources */,
-				BC5247C4272C1BBE00A100EA /* HomeTripBlockModel.swift in Sources */,
+				BC5247C4272C1BBE00A100EA /* TripInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

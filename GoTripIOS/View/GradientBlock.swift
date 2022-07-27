@@ -21,23 +21,24 @@ class GradientBlock: UIView {
         applyGradient(type: type)
     }
     
-    private func applyGradient(type: Int) {
-        self.layer.addSublayer(gradientLayer)
-        
-        gradientLayer.colors = [TripColors.getColor(num: type).cgColor, TripColors.getStrongColor(num: type).cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowRadius = 10
-        layer.shadowOpacity = 0.2
-        layer.shadowOffset = CGSize(width: 0, height: 10)
-    }
     override func layoutSubviews() {
         super.layoutSubviews()
         
         gradientLayer.frame = self.frame
         gradientLayer.frame.origin = CGPoint(x: 0, y: 0)
         gradientLayer.cornerRadius = self.frame.width * 0.05
+    }
+    
+    private func applyGradient(type: Int) {
+        gradientLayer.colors = [TripColors.getColor(num: type).cgColor, TripColors.getStrongColor(num: type).cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 1)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        
+        self.layer.addSublayer(gradientLayer)
+        
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 0.2
+        layer.shadowOffset = CGSize(width: 0, height: 10)
     }
 }

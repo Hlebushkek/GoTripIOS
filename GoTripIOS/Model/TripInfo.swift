@@ -1,5 +1,5 @@
 //
-//  HomeTripBlockModel.swift
+//  TripInfo.swift
 //  GoTripIOS
 //
 //  Created by Gleb Sobolevsky on 29.10.2021.

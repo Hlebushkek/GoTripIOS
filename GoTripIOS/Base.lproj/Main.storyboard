@@ -1391,13 +1391,13 @@
                         <viewControllerLayoutGuide type="bottom" id="z7c-5c-fPZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CM5-eA-I2j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLh-hH-3n0">
-                                <rect key="frame" x="0.0" y="140" width="414" height="1210"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="563"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lNv-X9-dJb">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1210"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="563"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tripCell" rowHeight="75" id="JW9-QI-93P">
@@ -1471,7 +1471,7 @@
                             <constraint firstItem="nv7-Rg-hFA" firstAttribute="leading" secondItem="CM5-eA-I2j" secondAttribute="leading" constant="32.666666666666664" id="lBX-Qk-cHR"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="1350"/>
+                    <size key="freeformSize" width="414" height="703"/>
                     <connections>
                         <outlet property="backButton" destination="nv7-Rg-hFA" id="cCu-TI-4FE"/>
                         <outlet property="tableView" destination="lNv-X9-dJb" id="pEu-LR-Qyo"/>
@@ -1479,7 +1479,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QPD-9Y-GxC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1837" y="380"/>
+            <point key="canvasLocation" x="-1838.4615384615383" y="149.64454976303315"/>
         </scene>
         <!--Trip List View Controller-->
         <scene sceneID="FkQ-bl-7sz">
@@ -1490,7 +1490,7 @@
                         <viewControllerLayoutGuide type="bottom" id="dGk-iy-o3E"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iIs-5D-IXy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="732"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhf-Vr-92O">
@@ -1527,7 +1527,7 @@
                             <constraint firstItem="m4w-Ee-8BI" firstAttribute="leading" secondItem="iIs-5D-IXy" secondAttribute="leadingMargin" id="dcP-mL-Odi"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="1350"/>
+                    <size key="freeformSize" width="414" height="732"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="tripTypeNum">
                             <integer key="value" value="1"/>
@@ -1539,7 +1539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99c-fk-QAO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-988" y="354"/>
+            <point key="canvasLocation" x="-988" y="149"/>
         </scene>
         <!--Trip Detailed View Controller-->
         <scene sceneID="jcC-U1-4Gq">
