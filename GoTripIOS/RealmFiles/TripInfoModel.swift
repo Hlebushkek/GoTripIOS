@@ -5,7 +5,6 @@
 //  Created by Gleb Sobolevsky on 30.01.2022.
 //
 
-import Foundation
 import RealmSwift
 
 /*class UserModel: Object {
@@ -16,7 +15,7 @@ import RealmSwift
     @Persisted var email: String = ""
 }*/
 
-class TripInfoModel: Object {
+class TripInfoModel: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var ownerID: String = ""
     @Persisted var placeFrom: String = ""
@@ -24,30 +23,20 @@ class TripInfoModel: Object {
     @Persisted var price: TripPriceModel? = TripPriceModel.free()
     @Persisted var type: TripType = TripType.Airplane
     @Persisted var dateAdded: String = ""
+    @Persisted var isFavourite: Bool = false
 }
 
-class TripPriceModel: Object {
-    @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted private var integerPart = 0
-    @Persisted private var fractionalPart = 0
-    @Persisted var currencyType: CurrencyType = .EUR
-    
-    override var description: String {
-        return "\(integerPart).\(fractionalPart)\(currencyType.rawValue)"
-    }
-    
-    convenience init(_ value: Float) {
-        self.init()
+extension TripInfoModel {
+    static func empty() -> TripInfoModel {
+        let info = TripInfoModel()
+        info.ownerID = "[Undefined]"
+        info.placeFrom = "[Undefined]"
+        info.placeTo = "[Undefined]"
+        info.price = .free()
+        info.type = .Airplane
+        info.dateAdded = TripUtilities.GetString(from: Date.distantPast)
+        info.isFavourite = false
         
-        self.integerPart = Int(value)
-        self.fractionalPart = Int((value - Float(self.integerPart)) * 100)
-    }
-    
-    func getAsFloat() -> Float {
-        return Float(integerPart) + Float(fractionalPart) / 100
-    }
-    
-    static func free() -> TripPriceModel {
-        return TripPriceModel(0.0)
+        return info
     }
 }

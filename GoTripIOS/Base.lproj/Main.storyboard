@@ -20,7 +20,7 @@
                         <viewControllerLayoutGuide type="bottom" id="VSg-QZ-ihp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KoH-ZO-mlO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KLT-El-WNf" userLabel="TopBarView">
@@ -90,10 +90,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzn-pd-4pV" userLabel="MainView">
-                                <rect key="frame" x="0.0" y="172" width="414" height="1144"/>
+                                <rect key="frame" x="0.0" y="172" width="414" height="581"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-gS-dgs">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1176"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="613"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYe-88-j13" userLabel="ContView">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="720"/>
@@ -118,7 +118,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uWI-4h-6UA" userLabel="TabBar">
-                                <rect key="frame" x="87" y="1252" width="240" height="64"/>
+                                <rect key="frame" x="87" y="689" width="240" height="64"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle 22TabBarBack" translatesAutoresizingMaskIntoConstraints="NO" id="5jO-E3-79U" userLabel="TabBar">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="64"/>
@@ -196,7 +196,7 @@
                             <constraint firstItem="tGA-jZ-Jmr" firstAttribute="leading" secondItem="KoH-ZO-mlO" secondAttribute="leading" id="uPY-Z4-beg"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="1350"/>
+                    <size key="freeformSize" width="414" height="787"/>
                     <connections>
                         <outlet property="ContentView" destination="lYe-88-j13" id="O5w-Gm-FGs"/>
                         <outlet property="scrollView" destination="ADD-gS-dgs" id="lMN-dL-QYA"/>
@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYl-JS-2Bh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-987.69230769230762" y="-381.042654028436"/>
+            <point key="canvasLocation" x="-987.69230769230762" y="-581.16113744075824"/>
         </scene>
         <!--Add Block View Controller-->
         <scene sceneID="SYa-Ur-0Ny">
@@ -1479,7 +1479,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QPD-9Y-GxC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2114" y="732"/>
+            <point key="canvasLocation" x="-1837" y="380"/>
         </scene>
         <!--Trip List View Controller-->
         <scene sceneID="FkQ-bl-7sz">
@@ -1539,7 +1539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99c-fk-QAO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1022" y="732"/>
+            <point key="canvasLocation" x="-988" y="354"/>
         </scene>
         <!--Trip Detailed View Controller-->
         <scene sceneID="jcC-U1-4Gq">

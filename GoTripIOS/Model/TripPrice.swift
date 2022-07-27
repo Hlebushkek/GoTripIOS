@@ -1,5 +1,5 @@
 //
-//  TripPriceModel.swift
+//  TripPrice.swift
 //  GoTripIOS
 //
 //  Created by Gleb Sobolevsky on 24.12.2021.

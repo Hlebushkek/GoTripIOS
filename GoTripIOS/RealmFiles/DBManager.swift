@@ -141,23 +141,6 @@ class DBManager {
         return [0, 0, 0, 0]
     }
     
-    
-    //Date formatter
-    static func dateToString(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YY, MMM d, HH:mm:ss"
-
-        return dateFormatter.string(from: date)
-    }
-    static func stringToDate(_ stringDate: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YY, MMM d, HH:mm:ss"
-
-        return dateFormatter.date(from: stringDate) ?? Date()
-    }
-    
-    //
-    
     func getTripInfos(onSuccess: @escaping ([TripInfoModel])->Void) {
         guard let user = getUser() else {
             print("appUser not found")
@@ -169,9 +152,9 @@ class DBManager {
                 let userRealm = try Realm(configuration: user.configuration(partitionValue: "123"))
                 let models = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
                 let modelsArr = Array(models).sorted {
-                    DBManager.stringToDate($0.dateAdded) > DBManager.stringToDate($1.dateAdded)
+                    TripUtilities.GetDate(from: $0.dateAdded) > TripUtilities.GetDate(from: $1.dateAdded)
                 }
-                
+                print(modelsArr.count)
                 onSuccess(modelsArr)
             } catch {
                 debugPrint(error.localizedDescription)

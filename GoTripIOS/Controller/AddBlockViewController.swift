@@ -49,7 +49,7 @@ class AddBlockViewController: UIViewController {
         newBlockInfo.placeTo = self.placeTo.text!
         newBlockInfo.price = TripPriceModel(number)
         newBlockInfo.type = TripType(rawValue: self.pickerView.selectedRow(inComponent: 0)) ?? .Airplane
-        newBlockInfo.dateAdded = DBManager.dateToString(Date())
+        newBlockInfo.dateAdded = TripUtilities.GetString(from: Date())
         
         self.dbManager.cloudAddTrip(newBlockInfo)
         
