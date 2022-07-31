@@ -67,6 +67,11 @@ class DBManager {
     }
     func signIn(email: String, password: String, onSuccess: @escaping ()->Void) {
         print("Log in as user: \(email)")
+        
+        let config = Realm.Configuration(
+            schemaVersion: 3)
+        Realm.Configuration.defaultConfiguration = config
+        
         app.login(credentials: Credentials.emailPassword(email: email, password: password)) { (result) in
             switch result {
             case .failure(let error):
@@ -110,6 +115,52 @@ class DBManager {
         return appUser
     }
     
+    func getTripInfos(onSuccess: @escaping ([TripInfoModel])->Void) {
+        guard let user = getUser() else {
+            print("appUser not found")
+            return
+        }
+        
+        DispatchQueue.main.async {
+            do {
+                let userRealm = try Realm(configuration: user.configuration(partitionValue: "123"))
+                let models = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
+                let modelsArr = Array(models).sorted {
+                    TripUtilities.GetDate(from: $0.dateAdded) > TripUtilities.GetDate(from: $1.dateAdded)
+                }
+                print(modelsArr.count)
+                onSuccess(modelsArr)
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    func getTripInfosByType(type: TripType, onSuccess: @escaping ([TripInfoModel])->Void) {
+        guard let user = getUser() else {
+            print("appUser not found")
+            return
+        }
+        
+        DispatchQueue.main.async {
+            do {
+                let userRealm = try Realm(configuration: user.configuration(partitionValue: "123"))
+                let models = userRealm.objects(TripInfoModel.self).where{
+                    $0.ownerID == user.id && $0.type == type
+                }
+                let modelsArr = Array(models).sorted {
+                    TripUtilities.GetDate(from: $0.dateAdded) > TripUtilities.GetDate(from: $1.dateAdded)
+                }
+                print(modelsArr.count)
+                onSuccess(modelsArr)
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+        }
+        
+    }
+    
     func getTripCount() -> Int {
         guard let user = getUser() else { return 0 }
         
@@ -139,27 +190,5 @@ class DBManager {
         }
         
         return [0, 0, 0, 0]
-    }
-    
-    func getTripInfos(onSuccess: @escaping ([TripInfoModel])->Void) {
-        guard let user = getUser() else {
-            print("appUser not found")
-            return
-        }
-        
-        DispatchQueue.main.async {
-            do {
-                let userRealm = try Realm(configuration: user.configuration(partitionValue: "123"))
-                let models = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
-                let modelsArr = Array(models).sorted {
-                    TripUtilities.GetDate(from: $0.dateAdded) > TripUtilities.GetDate(from: $1.dateAdded)
-                }
-                print(modelsArr.count)
-                onSuccess(modelsArr)
-            } catch {
-                debugPrint(error.localizedDescription)
-            }
-        }
-        
     }
 }

@@ -58,8 +58,6 @@ class HomeViewController: UIViewController {
         searchBar.delegate = self
         
         hideKeyboardWhenTappedAround()
-        
-        loadTripInfos()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,7 +88,7 @@ class HomeViewController: UIViewController {
     func loadTripInfos() {
         guard let user = LocalSavingSystem.userInfo else { return }
         dbManager.signIn(email: user.email, password: user.password, onSuccess: {
-            self.dbManager.getTripInfos(onSuccess: { (infos) in
+            self.dbManager.getTripInfos(onSuccess: { infos in
                 
                 self.blockInfos = infos
                 
@@ -98,7 +96,7 @@ class HomeViewController: UIViewController {
                 self.gestureRecoginers = [TripInfoGestureRecognizer?](repeating: nil, count: infos.count)
                 
                 self.existingBlockCount = self.blockInfos.count
-                for index in 0...self.blockInfos.count-1 {
+                for index in 0..<self.blockInfos.count {
                     let blockview = HomeTripBlockView(info: self.blockInfos[index], num: index, blockWidth: self.tripBlockWidth, indent: self.tripBlockIndent);
                     self.addTapGesture(blockview, index)
                     self.ContentView.addSubview(blockview)
@@ -260,25 +258,8 @@ extension HomeViewController: UISearchBarDelegate {
 extension HomeViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ShowTableView") {
-            if let vc = segue.destination as? TripListViewController {
-                switch sender as! TripType {
-                case .Airplane:
-                    vc.tripTypeNum = 0
-                    vc.tripTypeName = "Airplane"
-                    break;
-                case .Train:
-                    vc.tripTypeNum = 1
-                    vc.tripTypeName = "Train"
-                    break
-                case .Bus:
-                    vc.tripTypeNum = 2
-                    vc.tripTypeName = "Bus"
-                    break;
-                case .Car:
-                    vc.tripTypeNum = 3
-                    vc.tripTypeName = "Car"
-                    break
-                }
+            if let toVC = segue.destination as? TripListViewController {
+                toVC.tripType = sender as? TripType ?? .Airplane
             }
         }
     }

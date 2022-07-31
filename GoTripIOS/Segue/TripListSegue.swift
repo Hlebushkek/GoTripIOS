@@ -26,9 +26,8 @@ class TripListSegue: UIStoryboardSegue {
         UIView.animate(withDuration: 0.75, delay: 0, options: [.curveEaseInOut], animations: {
             toVC.view.transform = CGAffineTransform.identity
             toVC.view.layer.cornerRadius = 0
-        }, completion: {
-            success in fromVC.present(toVC, animated: false, completion: nil)
-            toVC.presentTable()
+        }, completion: { success in
+            fromVC.present(toVC, animated: false, completion: nil)
         })
     }
 }
