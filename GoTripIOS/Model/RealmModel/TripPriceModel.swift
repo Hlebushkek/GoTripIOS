@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-class TripPriceModel: Object {
+class TripPriceModel: Object, Codable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted private var integerPart = 0
     @Persisted private var fractionalPart = 0

@@ -8,7 +8,7 @@
 import Foundation
 
 public class LocalSavingSystem {
-    static func SaveTripInfo(path: String, info: [TripInfo]) {
+    static func SaveTripInfo(path: String, info: [TripInfoModel]) {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(info)
@@ -17,11 +17,11 @@ public class LocalSavingSystem {
             print("Unable to Encode TripInfo (\(error))")
         }
     }
-    static func LoadTripInfo(path: String) -> [TripInfo] {
+    static func LoadTripInfo(path: String) -> [TripInfoModel] {
         if let data = UserDefaults.standard.data(forKey: path) {
             do {
                 let decoder = JSONDecoder()
-                let info = try decoder.decode([TripInfo].self, from: data)
+                let info = try decoder.decode([TripInfoModel].self, from: data)
                 return info
             } catch {
                 print("Unable to Decode TripInfp (\(error))")

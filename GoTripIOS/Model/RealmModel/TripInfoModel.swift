@@ -15,7 +15,7 @@ import RealmSwift
     @Persisted var email: String = ""
 }*/
 
-class TripInfoModel: Object, ObjectKeyIdentifiable {
+class TripInfoModel: Object, ObjectKeyIdentifiable, Codable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var ownerID: String = ""
     @Persisted var placeFrom: String = ""
