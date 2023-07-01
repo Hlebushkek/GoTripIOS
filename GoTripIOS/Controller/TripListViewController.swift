@@ -14,7 +14,7 @@ class TripListViewController: UIViewController {
     
     private var finishedLoadingInitialTableCells = false
     private var cellContentColor = UIColor.white
-    var tripType: TripType = .Airplane {
+    var tripType: TripType = .airplane {
         didSet {
             guard let tripTypeNameLabel = tripTypeNameLabel else { return }
             tripTypeNameLabel.text = TripUtilities.getName(for: tripType)
@@ -33,13 +33,13 @@ class TripListViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.alpha = 0
-        dbManager.getTripInfosByType(type: tripType, onSuccess: { infos in
+        dbManager.getTrips(with: tripType) { infos in
             self.tripInfos = infos
             UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
                 self.tableView.alpha = 1
             }, completion: nil)
             self.tableView.reloadData()
-        })
+        }
     }
     
     @IBAction func backButtonAction(_ sender: Any) {

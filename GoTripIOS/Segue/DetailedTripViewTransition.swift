@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailedTripViewTransition: NSObject {
-    var tripType = TripType.Airplane
+    var tripType = TripType.airplane
     var block = UIView()
     var startPoint = CGPoint.zero
     var duration = 0.5
@@ -32,8 +32,7 @@ extension DetailedTripViewTransition: UIViewControllerAnimatedTransitioning {
                 let viewCenter = presentedView.center
                 let viewSize = presentedView.frame.size
                 
-                //let indent = UIScreen.main.bounds.width * 0.03
-                let blockWidth = UIScreen.main.bounds.width * 0.85
+                let blockWidth = UIScreen.main.bounds.width - 4 - 16
                 
                 block = UIView()
                 block.frame = CGRect(x: 0, y: 0, width: blockWidth, height: 64)
@@ -48,8 +47,7 @@ extension DetailedTripViewTransition: UIViewControllerAnimatedTransitioning {
                 presentedView.alpha = 0
                 containerView.addSubview(presentedView)
                 
-                
-                UIView.animate(withDuration: duration, delay: 0, options: [], animations: {
+                UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseIn], animations: {
                     self.block.transform = CGAffineTransform(scaleX: viewSize.width / blockWidth, y: viewSize.height / 64)
                     self.block.center = viewCenter
                     self.block.layer.cornerRadius = 0
@@ -57,8 +55,8 @@ extension DetailedTripViewTransition: UIViewControllerAnimatedTransitioning {
                     presentedView.transform = .identity
                     presentedView.alpha = 1
                     presentedView.center = viewCenter
-                    }, completion: {(succes: Bool) in
-                        transitionContext.completeTransition(succes)
+                }, completion: { succes in
+                    transitionContext.completeTransition(succes)
                 })
             }
         } else {
@@ -67,7 +65,7 @@ extension DetailedTripViewTransition: UIViewControllerAnimatedTransitioning {
                 let viewCenter = returningView.center
               
                 
-                UIView.animate(withDuration: duration, delay: 0, options: [], animations: {
+                UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseIn], animations: {
                     self.block.transform = .identity
                     self.block.layer.cornerRadius = 16
                     self.block.center = self.startPoint

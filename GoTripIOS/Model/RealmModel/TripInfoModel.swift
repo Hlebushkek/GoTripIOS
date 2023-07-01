@@ -21,7 +21,7 @@ class TripInfoModel: Object, ObjectKeyIdentifiable, Codable {
     @Persisted var placeFrom: String = ""
     @Persisted var placeTo: String = ""
     @Persisted var price: TripPriceModel? = TripPriceModel.free()
-    @Persisted var type: TripType = TripType.Airplane
+    @Persisted var type: TripType = TripType.airplane
     @Persisted var dateAdded: String = ""
     @Persisted var isFavourite: Bool = false
 }
@@ -33,7 +33,7 @@ extension TripInfoModel {
         info.placeFrom = "[Undefined]"
         info.placeTo = "[Undefined]"
         info.price = .free()
-        info.type = .Airplane
+        info.type = .airplane
         info.dateAdded = TripUtilities.GetString(from: Date.distantPast)
         info.isFavourite = false
         
@@ -42,8 +42,8 @@ extension TripInfoModel {
 }
 
 public enum TripType: Int, PersistableEnum, Codable {
-    case Airplane
-    case Train
-    case Bus
-    case Car
+    case airplane
+    case train
+    case bus
+    case car
 }

@@ -44,21 +44,22 @@ class AddBlockViewController: UIViewController {
             return
         }
         
-        let newBlockInfo = TripInfoModel()
-        newBlockInfo.placeFrom = self.placeFrom.text!
-        newBlockInfo.placeTo = self.placeTo.text!
-        newBlockInfo.price = TripPriceModel(number)
-        newBlockInfo.type = TripType(rawValue: self.pickerView.selectedRow(inComponent: 0)) ?? .Airplane
-        newBlockInfo.dateAdded = TripUtilities.GetString(from: Date())
+        let trip = TripInfoModel()
+        trip.placeFrom = self.placeFrom.text!
+        trip.placeTo = self.placeTo.text!
+        trip.price = TripPriceModel(number)
+        trip.type = TripType(rawValue: self.pickerView.selectedRow(inComponent: 0)) ?? .airplane
+        trip.dateAdded = TripUtilities.GetString(from: Date())
         
-        self.dbManager.cloudAddTrip(newBlockInfo)
+        self.dbManager.cloudAddTrip(trip)
         
         let parentVC = self.presentingViewController as? HomeViewController
-        self.dismiss(animated: true, completion: { parentVC?.insertBlockInfo(info: newBlockInfo) })
+        self.dismiss(animated: true, completion: {
+            parentVC?.insert(trip, at: .end)
+        })
     }
     
     func isCorrectInput() -> Bool {
-        
         var alertsList = ""
         
         if placeFrom.text!.isEmpty {
@@ -88,12 +89,15 @@ extension AddBlockViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
            return 1
     }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
             return pickerData.count
     }
+    
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 40
     }
+    
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var label: UILabel
         if let view = view as? UILabel { label = view }
@@ -109,22 +113,7 @@ extension AddBlockViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         label.layer.cornerRadius = 10;
         label.layer.masksToBounds = true
         
-        switch row {
-        case 0:
-            label.backgroundColor = UIColor(named: "AirplaneColor")
-            break;
-        case 1:
-            label.backgroundColor = UIColor(named: "TrainColor")
-            break;
-        case 2:
-            label.backgroundColor = UIColor(named: "BusColor")
-            break;
-        case 3:
-            label.backgroundColor = UIColor(named: "CarColor")
-            break;
-        default:
-            break;
-        }
+        label.backgroundColor = TripUtilities.getColor(for: TripType(rawValue: row) ?? .airplane)
 
         return label
     }

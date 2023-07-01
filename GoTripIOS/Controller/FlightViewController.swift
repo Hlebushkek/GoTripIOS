@@ -24,7 +24,7 @@ class FlightViewController: UIViewController {
 
         var index = 0
         for block in blockInfos {
-            if block.type != .Airplane {
+            if block.type != .airplane {
                 blockInfos.remove(at: index)
                 index-=1
             }

@@ -13,8 +13,6 @@ class DBManager {
     fileprivate var app = App(id: "gotripios-pxcep")
     fileprivate var appUser: User?
     
-    var trips: [TripInfoModel] = []
-    
     static var shared: DBManager = {
             let instance = DBManager()
             return instance
@@ -115,45 +113,44 @@ class DBManager {
         return appUser
     }
     
-    func getTripInfos(onSuccess: @escaping ([TripInfoModel])->Void) {
+    func getTrips(with completion: @escaping ([TripInfoModel])->Void) {
         guard let user = getUser() else {
-            print("appUser not found")
+            completion([])
             return
         }
         
         DispatchQueue.main.async {
             do {
                 let userRealm = try Realm(configuration: user.configuration(partitionValue: "123"))
-                let models = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
-                let modelsArr = Array(models).sorted {
+                let modelsResult = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
+                let models = Array(modelsResult).sorted {
                     TripUtilities.GetDate(from: $0.dateAdded) > TripUtilities.GetDate(from: $1.dateAdded)
                 }
-                print(modelsArr.count)
-                onSuccess(modelsArr)
+                
+                completion(models)
             } catch {
                 debugPrint(error.localizedDescription)
             }
         }
-        
     }
     
-    func getTripInfosByType(type: TripType, onSuccess: @escaping ([TripInfoModel])->Void) {
+    func getTrips(with type: TripType, completion: @escaping ([TripInfoModel])->Void) {
         guard let user = getUser() else {
-            print("appUser not found")
+            completion([])
             return
         }
         
         DispatchQueue.main.async {
             do {
                 let userRealm = try Realm(configuration: user.configuration(partitionValue: "123"))
-                let models = userRealm.objects(TripInfoModel.self).where{
+                let modelsResult = userRealm.objects(TripInfoModel.self).where {
                     $0.ownerID == user.id && $0.type == type
                 }
-                let modelsArr = Array(models).sorted {
+                let models = Array(modelsResult).sorted {
                     TripUtilities.GetDate(from: $0.dateAdded) > TripUtilities.GetDate(from: $1.dateAdded)
                 }
-                print(modelsArr.count)
-                onSuccess(modelsArr)
+                
+                completion(models)
             } catch {
                 debugPrint(error.localizedDescription)
             }
@@ -176,6 +173,7 @@ class DBManager {
         
         return 0
     }
+    
     func getTripCountByTrip() -> [Int] {
         guard let user = getUser() else { return [0, 0, 0, 0] }
         
@@ -184,7 +182,7 @@ class DBManager {
             let models = userRealm.objects(TripInfoModel.self).where{$0.ownerID == user.id}
             let modelsArr = Array(models)
             
-            return [modelsArr.filter({$0.type == .Airplane}).count, modelsArr.filter({$0.type == .Train}).count, modelsArr.filter({$0.type == .Bus}).count, modelsArr.filter({$0.type == .Car}).count]
+            return [modelsArr.filter({$0.type == .airplane}).count, modelsArr.filter({$0.type == .train}).count, modelsArr.filter({$0.type == .bus}).count, modelsArr.filter({$0.type == .car}).count]
         } catch {
             debugPrint(error.localizedDescription)
         }

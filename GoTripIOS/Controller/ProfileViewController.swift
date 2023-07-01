@@ -37,12 +37,7 @@ class ProfileViewController: UIViewController {
         guard let login = loginField.text, let password = passwordField.text else {return}
         dbManager.signIn(email: login, password: password, onSuccess: {
             LocalSavingSystem.userInfo = UserInfo(email: login, password: password)
-            
-            DispatchQueue.main.async {
-                self.viewWillAppear(true)
-            }
         })
-        
     }
     
     
