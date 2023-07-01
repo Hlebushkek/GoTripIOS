@@ -16,8 +16,6 @@
 		BC33C09627AFF5940040719B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C09527AFF5940040719B /* ProfileViewController.swift */; };
 		BC3693A527A6A63700F11470 /* TripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A427A6A63700F11470 /* TripInfoModel.swift */; };
 		BC3693A727A6A9E600F11470 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A627A6A9E600F11470 /* DBManager.swift */; };
-		BC4B8A472775FFCE00F3632C /* TripPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B8A462775FFCD00F3632C /* TripPrice.swift */; };
-		BC5247C4272C1BBE00A100EA /* TripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5247C3272C1BBE00A100EA /* TripInfo.swift */; };
 		BC52B6512778B697009E7682 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52B6502778B697009E7682 /* MapViewController.swift */; };
 		BC59FF3027467F87001DCA06 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */; };
 		BC7AE22D2752605B005936B8 /* DetailedTripViewTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AE22C2752605B005936B8 /* DetailedTripViewTransition.swift */; };
@@ -56,8 +54,6 @@
 		BC33C09527AFF5940040719B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BC3693A427A6A63700F11470 /* TripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoModel.swift; sourceTree = "<group>"; };
 		BC3693A627A6A9E600F11470 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		BC4B8A462775FFCD00F3632C /* TripPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPrice.swift; sourceTree = "<group>"; };
-		BC5247C3272C1BBE00A100EA /* TripInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfo.swift; sourceTree = "<group>"; };
 		BC52B6502778B697009E7682 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		BC7AE22C2752605B005936B8 /* DetailedTripViewTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailedTripViewTransition.swift; path = GoTripIOS/Segue/DetailedTripViewTransition.swift; sourceTree = SOURCE_ROOT; };
@@ -152,8 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				BC3693A827A6BF1300F11470 /* RealmModel */,
-				BC5247C3272C1BBE00A100EA /* TripInfo.swift */,
-				BC4B8A462775FFCD00F3632C /* TripPrice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -374,12 +368,10 @@
 				BC3693A527A6A63700F11470 /* TripInfoModel.swift in Sources */,
 				BCCE383427300D380007402D /* StatisticViewController.swift in Sources */,
 				BC3693A727A6A9E600F11470 /* DBManager.swift in Sources */,
-				BC4B8A472775FFCE00F3632C /* TripPrice.swift in Sources */,
 				BCA72491274AAC210051C545 /* ProfileSegue.swift in Sources */,
 				BC8CF06B28916C1F005E490C /* TripPriceModel.swift in Sources */,
 				BC1F121727ADE97B00AFCE2A /* ProfileTabBarController.swift in Sources */,
 				BCD03600272D9C990033DCF1 /* CornerExtentionUIVIew.swift in Sources */,
-				BC5247C4272C1BBE00A100EA /* TripInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

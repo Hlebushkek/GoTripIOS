@@ -40,3 +40,10 @@ extension TripInfoModel {
         return info
     }
 }
+
+public enum TripType: Int, PersistableEnum, Codable {
+    case Airplane
+    case Train
+    case Bus
+    case Car
+}

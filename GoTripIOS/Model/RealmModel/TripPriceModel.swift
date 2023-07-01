@@ -32,3 +32,9 @@ class TripPriceModel: Object {
         return TripPriceModel(0.0)
     }
 }
+
+enum CurrencyType: String, PersistableEnum, Codable, CaseIterable {
+    case USD = "$"
+    case EUR = "€"
+    case UAH = "₴"
+}
