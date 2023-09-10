@@ -38,7 +38,7 @@ extension DetailedTripViewTransition: UIViewControllerAnimatedTransitioning {
                 block.frame = CGRect(x: 0, y: 0, width: blockWidth, height: 64)
                 block.center = startPoint
                 block.layer.cornerRadius = 16
-                block.backgroundColor = TripUtilities.getColor(for: tripType)
+                block.backgroundColor = tripType.color()
                 
                 containerView.addSubview(block)
                 

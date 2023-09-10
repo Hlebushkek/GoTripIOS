@@ -16,6 +16,7 @@ class TripListSegue: UIStoryboardSegue {
         guard let toVC = self.destination as? TripListViewController else { return }
         
         let fromVC = self.source
+        fromVC.navigationController?.navigationBar.alpha = 0
         
         let containerView = fromVC.view.superview
         

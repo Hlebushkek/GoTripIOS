@@ -8,28 +8,32 @@
 import UIKit
 
 class ProfileSegue: UIStoryboardSegue {
+
     override func perform() {
         swipe()
     }
-    
+
     func swipe() {
-        let toVC = self.destination as! UITabBarController
+        guard let toVC = self.destination as? UITabBarController else { return }
         let fromVC = self.source
+        fromVC.navigationController?.navigationBar.alpha = 0
+        
         toVC.modalPresentationStyle = .fullScreen
 
         let containerView = fromVC.view.superview
-        let firstTabVC = toVC.viewControllers![0]
+        guard let profileVC = toVC.viewControllers?[0] else { return }
         
-        firstTabVC.view.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
-        firstTabVC.view.layer.cornerRadius = toVC.view.frame.size.height / 2
-        
-        containerView?.addSubview(firstTabVC.view)
+        profileVC.view.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+        profileVC.view.layer.cornerRadius = toVC.view.frame.size.height / 2
+
+        containerView?.addSubview(profileVC.view)
 
         UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: {
-            firstTabVC.view.transform = CGAffineTransform.identity
-            firstTabVC.view.layer.cornerRadius = 0
-        }, completion: {
-            success in fromVC.present(toVC, animated: false, completion: nil)
+            profileVC.view.transform = CGAffineTransform.identity
+            profileVC.view.layer.cornerRadius = 0
+        }, completion: { success in
+            profileVC.view.removeFromSuperview()
+            fromVC.present(toVC, animated: false, completion: nil)
         })
     }
 }

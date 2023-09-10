@@ -19,12 +19,12 @@ class TripTableViewCell: UITableViewCell {
         self.layer.cornerRadius = 12
         self.selectionStyle = .none
         
-        self.backgroundColor = TripUtilities.getStrongColor(for: info.type)
-        self.contentView.backgroundColor = TripUtilities.getColor(for: info.type)
+        self.backgroundColor = info.type.colorStrong()
+        self.contentView.backgroundColor = info.type.color()
         self.contentView.subviews[0].layer.cornerRadius = 8
         
-        tripTypeImage.tintColor = TripUtilities.getStrongColor(for: info.type)
-        tripTypeImage.image = TripUtilities.getImage(for: info.type)
+        tripTypeImage.tintColor = info.type.colorStrong()
+        tripTypeImage.image = info.type.image()
         
         placeFromLabel.text = info.placeFrom
         placeFromLabel.numberOfLines = 0

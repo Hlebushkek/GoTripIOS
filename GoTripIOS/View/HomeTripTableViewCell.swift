@@ -13,14 +13,19 @@ protocol HomeTripTableViewCellDelegate: AnyObject {
 
 class HomeTripTableViewCell: UITableViewCell {
     
+    private lazy var gradientLayer: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        layer.cornerRadius = 8
+        return layer
+    }()
+    
+    @IBOutlet private weak var gradientViewTrailingConstraint: NSLayoutConstraint?
+    @IBOutlet private weak var gradientViewLeadingConstraint: NSLayoutConstraint?
+    
     @IBOutlet private weak var gradientView: UIView?
     @IBOutlet private weak var placeFromLabel: UILabel?
     @IBOutlet private weak var placeToLabel: UILabel?
     @IBOutlet private weak var priceLabel: UILabel?
-    
-    private weak var gradientLayer: CAGradientLayer?
-    @IBOutlet private weak var gradientViewTrailingConstraint: NSLayoutConstraint?
-    @IBOutlet private weak var gradientViewLeadingConstraint: NSLayoutConstraint?
     
     weak var delegate: HomeTripTableViewCellDelegate?
     
@@ -30,7 +35,11 @@ class HomeTripTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         setupGestureRecognizer()
-        setupGradientLayer()
+        setupGradientView()
+    }
+    
+    deinit {
+        gradientLayer.removeFromSuperlayer()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -39,6 +48,7 @@ class HomeTripTableViewCell: UITableViewCell {
     
     func update(with trip: TripInfoModel, index: Int) {
         self.trip = trip
+        
         updateUI()
         updatePosition(for: index)
     }
@@ -49,35 +59,39 @@ class HomeTripTableViewCell: UITableViewCell {
         self.isUserInteractionEnabled = true
     }
     
-    private func setupGradientLayer() {
+    private func setupGradientView() {
         gradientView?.layer.shadowColor = UIColor.black.cgColor
         gradientView?.layer.shadowRadius = 4
         gradientView?.layer.shadowOpacity = 0.3
         gradientView?.layer.shadowOffset = CGSize(width: 0, height: 4)
         
-        let gradient = CAGradientLayer()
-        gradient.frame = gradientView?.bounds ?? .zero
-        gradient.cornerRadius = 8
-        gradientView?.layer.insertSublayer(gradient, at: 0)
-        gradientLayer = gradient
+        gradientView?.layer.insertSublayer(gradientLayer, at: 0)
+        gradientLayer.frame = gradientView?.bounds ?? .zero
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        gradientLayer?.frame = gradientView?.bounds ?? .zero
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        gradientLayer.frame = gradientView?.bounds ?? .zero
+        CATransaction.commit()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        updateUI()
     }
     
     private func updateUI() {
         guard let trip else { return }
         
-        gradientLayer?.colors = [
-            TripUtilities.getColor(for: trip.type).cgColor,
-            TripUtilities.getStrongColor(for: trip.type).cgColor
+        gradientLayer.colors = [
+            trip.type.color().cgColor,
+            trip.type.colorStrong().cgColor
         ]
-        gradientLayer?.startPoint = CGPoint(x: 0, y: 1)
-        gradientLayer?.endPoint = CGPoint(x: 1, y: 0)
-        gradientLayer?.frame = gradientView?.bounds ?? .zero
+        gradientLayer.startPoint = CGPoint(x: 0, y: 1)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.frame = gradientView?.bounds ?? .zero
         
         placeFromLabel?.text = trip.placeFrom
         placeToLabel?.text = trip.placeTo

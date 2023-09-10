@@ -31,8 +31,8 @@ class GradientBlock: UIView {
     
     private func applyGradient(for type: TripType) {
         gradientLayer.colors = [
-            TripUtilities.getColor(for: type).cgColor,
-            TripUtilities.getStrongColor(for: type).cgColor
+            type.color().cgColor,
+            type.colorStrong().cgColor
         ]
         gradientLayer.startPoint = CGPoint(x: 0, y: 1)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)

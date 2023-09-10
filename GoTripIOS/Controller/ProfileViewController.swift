@@ -20,33 +20,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var loginField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    @IBAction func backButtonAction(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    @IBAction func SignOutButtonAction(_ sender: Any) {
-        let userDef = UserDefaults.standard
-        userDef.removeObject(forKey: defaultsSavingKeys.userInfoKey.rawValue)
-        
-        dbManager.logOut()
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func SignInUpButton(_ sender: Any) {
-        loginField.text = "volsoor@gmail.com"
-        passwordField.text = "hleb123"
-        
-        guard let login = loginField.text, let password = passwordField.text else {return}
-        dbManager.signIn(email: login, password: password, onSuccess: {
-            LocalSavingSystem.userInfo = UserInfo(email: login, password: password)
-        })
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
-        
-        profileInfoStack.alpha = 0
-        loginStackView.alpha = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,15 +36,38 @@ class ProfileViewController: UIViewController {
             
             mailLabel.text = user.profile.email
             tripsCountLabel.text = "You have \(dbManager.getTripCount()) trips"
-            
-            UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
+        }
+
+        UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
+            if self.dbManager.isSignIn() {
                 self.profileInfoStack.alpha = 1
-            }, completion: nil)
-        }
-        else {
-            UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
+            } else {
                 self.loginStackView.alpha = 1
-            }, completion: nil)
-        }
+            }
+        }, completion: nil)
+    }
+    
+    @IBAction func backButtonAction(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+
+    @IBAction func SignOutButtonAction(_ sender: Any) {
+        let userDef = UserDefaults.standard
+        userDef.removeObject(forKey: defaultsSavingKeys.userInfoKey.rawValue)
+        
+        dbManager.logOut()
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func SignInUpButton(_ sender: Any) {
+        loginField.text = "volsoor@gmail.com"
+        passwordField.text = "hleb123"
+        
+        guard let login = loginField.text,
+              let password = passwordField.text else { return }
+
+        dbManager.signIn(email: login, password: password, onSuccess: {
+            LocalSavingSystem.userInfo = UserInfo(email: login, password: password)
+        })
     }
 }

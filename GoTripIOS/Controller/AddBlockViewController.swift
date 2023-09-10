@@ -113,7 +113,7 @@ extension AddBlockViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         label.layer.cornerRadius = 10;
         label.layer.masksToBounds = true
         
-        label.backgroundColor = TripUtilities.getColor(for: TripType(rawValue: row) ?? .airplane)
+        label.backgroundColor = (TripType(rawValue: row) ?? .airplane).color()
 
         return label
     }

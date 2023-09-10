@@ -17,7 +17,7 @@ class TripListViewController: UIViewController {
     var tripType: TripType = .airplane {
         didSet {
             guard let tripTypeNameLabel = tripTypeNameLabel else { return }
-            tripTypeNameLabel.text = TripUtilities.getName(for: tripType)
+            tripTypeNameLabel.text = tripType.title()
         }
     }
     
@@ -27,7 +27,7 @@ class TripListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tripTypeNameLabel.text = TripUtilities.getName(for: tripType)
+        tripTypeNameLabel.text = tripType.title()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -88,6 +88,7 @@ extension TripListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.contentView.subviews[0].alpha = 1
         }, completion: nil)
     }
+
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let cell = tableView.cellForRow(at: indexPath) as! TripTableViewCell
         cellContentColor = cell.contentView.backgroundColor!
@@ -95,14 +96,15 @@ extension TripListViewController: UITableViewDelegate, UITableViewDataSource {
         UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: { cell.contentView.subviews[0].backgroundColor = .white}, completion: nil)
         return indexPath
     }
+
     func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
         let cell = tableView.cellForRow(at: indexPath) as! TripTableViewCell
 
         UIView.animate(withDuration: 0.4, delay: 0, options: [], animations: { cell.contentView.subviews[0].backgroundColor = self.cellContentColor }, completion: nil)
         return indexPath
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         print("You tapped cell number \(indexPath.row).")
     }
 }

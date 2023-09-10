@@ -13,12 +13,16 @@ class HomeViewController: UIViewController {
         static let homeTripTableCellViewNibName = "HomeTripTableViewCell"
         static let showListsSegueIdentifier = "ShowTableView"
     }
-    
-    @IBOutlet weak var tabBarView: UIView!
-    
+
+    private var searchController: UISearchController?
+    private var searchText: String {
+        searchController?.searchBar.text ?? ""
+    }
+
+    @IBOutlet weak var tabBarView: UIView? {
+        didSet { tabBarView?.layer.cornerRadius = 8 }
+    }
     @IBOutlet weak var tableView: UITableView?
-    
-    @IBOutlet weak var searchBar: UISearchBar?
     
     @IBAction func tripTypeButtonWasPressed(_ sender: Any) {
         guard let button = sender as? UIButton else { return }
@@ -31,7 +35,7 @@ class HomeViewController: UIViewController {
     
     private var trips: [TripInfoModel] = [] {
         didSet {
-            filter(text: searchBar?.text ?? "")
+            filter(text: searchText)
         }
     }
     private var filteredTrips: [TripInfoModel] = [] {
@@ -45,7 +49,23 @@ class HomeViewController: UIViewController {
         
         hideKeyboardWhenTappedAround()
         
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.secondarySystemBackground
+        
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
+        navigationItem.compactAppearance = appearance
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController?.searchResultsUpdater = self
+        searchController?.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
         tableView?.register(UINib(nibName: Constants.homeTripTableCellViewNibName, bundle: .main), forCellReuseIdentifier: Constants.homeTripTableCellViewNibName)
+        
+        updateTabBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,9 +74,17 @@ class HomeViewController: UIViewController {
         reloadList()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        updateTabBar()
+    }
+    
     private func reloadList() {
         dbManager.getTrips { [weak self] trips in
             self?.trips = trips
+            
+            self?.tableView?.beginUpdates()
+            self?.tableView?.setNeedsDisplay()
+            self?.tableView?.endUpdates()
         }
     }
     
@@ -193,12 +221,21 @@ class HomeViewController: UIViewController {
 //
 //        updateTripBlockViews()
 //    }
+    
+    private func updateTabBar() {
+        guard let tabBarView else { return }
+        
+        for i in 0..<tabBarView.subviews[0].subviews.count {
+            guard let button = tabBarView.subviews[0].subviews[i] as? UIButton else { continue }
+            button.tintColor = UIColor.label
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDelegate {
     
     func insert(_ trip: TripInfoModel, at index: UITableView.InsertType) {
-//        let fitSearch = tripFirSearch(trip)
+//        let fitSearch = tripFitSearch(trip)
         
 //        tableView?.beginUpdates()
         switch index {
@@ -221,11 +258,11 @@ extension HomeViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 50 {
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
-                self.tabBarView.alpha = 0
+                self.tabBarView?.alpha = 0
             }
         } else {
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
-                self.tabBarView.alpha = 1
+                self.tabBarView?.alpha = 1
             }
         }
     }
@@ -270,39 +307,23 @@ extension HomeViewController: HomeTripTableViewCellDelegate {
 }
 
 
-extension HomeViewController: UISearchBarDelegate {
+extension HomeViewController {
     
-    private func tripFirSearch(_ trip: TripInfoModel, text: String) -> Bool {
+    private func tripFitSearch(_ trip: TripInfoModel, text: String) -> Bool {
         trip.placeFrom.lowercased().contains(text.lowercased()) ||
         trip.placeTo.lowercased().contains(text.lowercased()) ||
         String(describing: trip.price).lowercased().contains(text.lowercased()) ||
         text.isEmpty
     }
     
-    private func tripFirSearch(_ trip: TripInfoModel) -> Bool {
-        return tripFirSearch(trip, text: searchBar?.text ?? "")
+    private func tripFitSearch(_ trip: TripInfoModel) -> Bool {
+        return tripFitSearch(trip, text: searchText)
     }
     
     private func filter(text: String) {
         filteredTrips = trips.filter {
-            tripFirSearch($0, text: text)
+            tripFitSearch($0, text: text)
         }
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filter(text: searchText)
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        UIView.animate(withDuration: 0.2, animations: {
-            searchBar.backgroundColor = UIColor.white.withAlphaComponent(0.6)
-        })
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        UIView.animate(withDuration: 0.2, animations: {
-            searchBar.backgroundColor = UIColor.clear
-        })
     }
 }
 
@@ -326,5 +347,11 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
         transitionToDetailedView.transitionMode = .dismiss
         
         return transitionToDetailedView
+    }
+}
+
+extension HomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filter(text: searchText)
     }
 }
