@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		35F09CE0C3230424AB515B07 /* Pods_GoTripIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8236EE583EE69AAEDB67F2D3 /* Pods_GoTripIOS.framework */; };
 		BC08E769274D58C000D00387 /* TripDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08E768274D58C000D00387 /* TripDetailedViewController.swift */; };
 		BC122A4127399EB000AC356F /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC122A4027399EB000AC356F /* AddBlockViewController.swift */; };
-		BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */; };
 		BC1F121727ADE97B00AFCE2A /* ProfileTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */; };
 		BC33C09627AFF5940040719B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C09527AFF5940040719B /* ProfileViewController.swift */; };
 		BC3693A527A6A63700F11470 /* TripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A427A6A63700F11470 /* TripInfoModel.swift */; };
@@ -49,7 +48,6 @@
 		BA00C0B3D1CFEA0373F9CB53 /* Pods-GoTripIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoTripIOS.release.xcconfig"; path = "Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS.release.xcconfig"; sourceTree = "<group>"; };
 		BC08E768274D58C000D00387 /* TripDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailedViewController.swift; sourceTree = "<group>"; };
 		BC122A4027399EB000AC356F /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
-		BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
 		BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarController.swift; sourceTree = "<group>"; };
 		BC33C09527AFF5940040719B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BC3693A427A6A63700F11470 /* TripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoModel.swift; sourceTree = "<group>"; };
@@ -132,9 +130,8 @@
 		BC149CBC272D69D800C5F7D5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BC122A4027399EB000AC356F /* AddBlockViewController.swift */,
-				BC149CBE272D6AB600C5F7D5 /* FlightViewController.swift */,
 				BC7BA96F271750C100EBB697 /* HomeViewController.swift */,
+				BC122A4027399EB000AC356F /* AddBlockViewController.swift */,
 				BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */,
 				BC52B6502778B697009E7682 /* MapViewController.swift */,
 				BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */,
@@ -354,7 +351,6 @@
 				BC7BA970271750C100EBB697 /* HomeViewController.swift in Sources */,
 				BCC6B04527D5079A00F4A2F8 /* SelectionCell.swift in Sources */,
 				BCEE4F7427D3C4E4000A8F61 /* SettingViewController.swift in Sources */,
-				BC149CBF272D6AB600C5F7D5 /* FlightViewController.swift in Sources */,
 				BC8CF06928916BDF005E490C /* TripUtilities.swift in Sources */,
 				BC7AE22D2752605B005936B8 /* DetailedTripViewTransition.swift in Sources */,
 				BC52B6512778B697009E7682 /* MapViewController.swift in Sources */,
@@ -526,7 +522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38M6285G4U;
 				INFOPLIST_FILE = GoTripIOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -547,7 +543,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38M6285G4U;
 				INFOPLIST_FILE = GoTripIOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
