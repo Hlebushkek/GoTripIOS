@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+
+
 class ProfileViewController: UIViewController {
     
     private var dbManager = DBManager.shared
@@ -27,10 +29,11 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        profileInfoStack.alpha = 0
-        loginStackView.alpha = 0
-        
+        self.tabBarController?.navigationItem.title = self.title
+        updateUI()
+    }
+    
+    func updateUI() {
         if dbManager.isSignIn() {
             guard let user = dbManager.getUser() else { return }
             
@@ -38,10 +41,13 @@ class ProfileViewController: UIViewController {
             tripsCountLabel.text = "You have \(dbManager.getTripCount()) trips"
         }
 
-        UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: { [weak self] in
+            guard let self else { return }
             if self.dbManager.isSignIn() {
+                self.loginStackView.alpha = 0
                 self.profileInfoStack.alpha = 1
             } else {
+                self.profileInfoStack.alpha = 0
                 self.loginStackView.alpha = 1
             }
         }, completion: nil)
@@ -56,7 +62,7 @@ class ProfileViewController: UIViewController {
         userDef.removeObject(forKey: defaultsSavingKeys.userInfoKey.rawValue)
         
         dbManager.logOut()
-        self.dismiss(animated: true, completion: nil)
+        updateUI()
     }
 
     @IBAction func SignInUpButton(_ sender: Any) {
@@ -68,6 +74,9 @@ class ProfileViewController: UIViewController {
 
         dbManager.signIn(email: login, password: password, onSuccess: {
             LocalSavingSystem.userInfo = UserInfo(email: login, password: password)
+            DispatchQueue.main.async { [weak self] in
+                self?.updateUI()
+            }
         })
     }
 }

@@ -12,18 +12,12 @@ class ProfileTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
-        
         self.tabBar.isHidden = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.setTabBarHidden(true, animated: false, completion: {
-            self.setTabBarHidden(false, animated: true, completion: nil)
-        })
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setTabBarHidden(false, animated: animated, completion: nil)
     }
 }
 
@@ -44,21 +38,16 @@ extension ProfileTabBarController: UITabBarControllerDelegate  {
 
 extension ProfileTabBarController {
     func setTabBarHidden(_ isHidden: Bool, animated: Bool, completion: (() -> Void)? = nil ) {
-//        if (tabBar.isHidden == isHidden) {
-//            completion?()
-//        }
+        let height = tabBar.frame.size.height
+        let duration = (animated ? 0.25 : 0.0)
 
         if !isHidden {
-            tabBar.isHidden = false
+            self.tabBar.transform = CGAffineTransform(translationX: 0, y: height)
+            self.tabBar.isHidden = false
         }
-        let height = tabBar.frame.size.height
-        let offsetY = view.frame.height - (isHidden ? 0 : height)
-        let duration = (animated ? 0.5 : 0.0)
-
-        let frame = CGRect(origin: CGPoint(x: tabBar.frame.minX, y: offsetY), size: tabBar.frame.size)
-
+        
         UIView.animate(withDuration: duration, animations: {
-            self.tabBar.frame = frame
+            self.tabBar.transform = isHidden ? CGAffineTransform(translationX: 0, y: height) : .identity
         }) { _ in
             self.tabBar.isHidden = isHidden
             completion?()

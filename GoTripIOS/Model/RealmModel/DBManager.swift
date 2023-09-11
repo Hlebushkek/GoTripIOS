@@ -8,7 +8,14 @@
 import Foundation
 import RealmSwift
 
-class DBManager {
+@objc
+protocol DBManagerObserverProtocol: ObservingProtocol {
+    @objc optional func didLoginIn()
+    @objc optional func didLogOut()
+}
+
+@objc
+class DBManager: Observable {
     fileprivate lazy var mainLocalRealm = try! Realm(configuration: .defaultConfiguration)
     fileprivate var app = App(id: "gotripios-pxcep")
     fileprivate var appUser: User?
@@ -18,7 +25,9 @@ class DBManager {
             return instance
     }()
     
-    private init(){}
+    private override init() {
+        super.init()
+    }
 
     //Local
     func localAddTripToUser(trip: TripInfoModel, userID: String) {
@@ -54,31 +63,31 @@ class DBManager {
     func signUp() {
         let email = "volsoor@gmail.com"
         let password = "hleb123"
-        app.emailPasswordAuth.registerUser(email: email, password: password, completion: { [weak self](error) in
+        app.emailPasswordAuth.registerUser(email: email, password: password, completion: { [weak self] (error) in
             guard error == nil else {
                 print("Signup failed: \(error!)")
                 return
             }
             print("Signup successful!")
-            self!.signIn(email: email, password: password, onSuccess: {})
+            self?.signIn(email: email, password: password, onSuccess: {})
         })
     }
     func signIn(email: String, password: String, onSuccess: @escaping ()->Void) {
         print("Log in as user: \(email)")
         
-        let config = Realm.Configuration(
-            schemaVersion: 3)
+        let config = Realm.Configuration(schemaVersion: 3)
         Realm.Configuration.defaultConfiguration = config
         
-        app.login(credentials: Credentials.emailPassword(email: email, password: password)) { (result) in
+        app.login(credentials: Credentials.emailPassword(email: email, password: password)) { [weak self] (result) in
             switch result {
             case .failure(let error):
                 print("Login failed: \(error)")
                 return
             case .success(let user):
                 print("Login succeeded!")
-                self.appUser = user
+                self?.appUser = user
                 
+                self?.notifyListeners(with: #selector(DBManagerObserverProtocol.didLoginIn))
                 onSuccess()
             }
         }
@@ -105,6 +114,8 @@ class DBManager {
     func logOut() {
         print("Log out")
         appUser = nil
+        
+        notifyListeners(with: #selector(DBManagerObserverProtocol.didLogOut))
     }
     func isSignIn() -> Bool {
         return appUser == nil ? false : true

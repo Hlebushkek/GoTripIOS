@@ -62,9 +62,10 @@ class StatisticViewController: UIViewController {
         typeButtonAction(self)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.title = self.title
+        
         if currentlySelectedWindow != .None {
             recalcHeight()
             calcHeight()

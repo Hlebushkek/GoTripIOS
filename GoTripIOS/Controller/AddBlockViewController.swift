@@ -51,11 +51,13 @@ class AddBlockViewController: UIViewController {
         trip.type = TripType(rawValue: self.pickerView.selectedRow(inComponent: 0)) ?? .airplane
         trip.dateAdded = TripUtilities.GetString(from: Date())
         
-        self.dbManager.cloudAddTrip(trip)
+        dbManager.cloudAddTrip(trip)
         
-        let parentVC = self.presentingViewController as? HomeViewController
+        let parentVC = self.presentingViewController
+        let navVC = self.presentingViewController as? UINavigationController
+        let homeVC = navVC?.viewControllers[0] as? HomeViewController
         self.dismiss(animated: true, completion: {
-            parentVC?.insert(trip, at: .end)
+            homeVC?.insert(trip, at: .start)
         })
     }
     
@@ -74,11 +76,9 @@ class AddBlockViewController: UIViewController {
         
         if (alertsList.isEmpty) {
             return true
-        }
-        else {
+        } else {
             let dialogMessage = UIAlertController(title: "Attention", message: "You have not entered the following positions:\(alertsList)", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default)
-            dialogMessage.addAction(okButton)
+            dialogMessage.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(dialogMessage, animated: true, completion: nil)
             return false
         }

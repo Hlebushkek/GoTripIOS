@@ -49,7 +49,8 @@ class HomeTripTableViewCell: UITableViewCell {
     func update(with trip: TripInfoModel, index: Int) {
         self.trip = trip
         
-        updateUI()
+        updateGradient()
+        updateLabels()
         updatePosition(for: index)
     }
     
@@ -79,10 +80,10 @@ class HomeTripTableViewCell: UITableViewCell {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        updateUI()
+        updateGradient()
     }
     
-    private func updateUI() {
+    private func updateGradient() {
         guard let trip else { return }
         
         gradientLayer.colors = [
@@ -92,6 +93,10 @@ class HomeTripTableViewCell: UITableViewCell {
         gradientLayer.startPoint = CGPoint(x: 0, y: 1)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         gradientLayer.frame = gradientView?.bounds ?? .zero
+    }
+    
+    private func updateLabels() {
+        guard let trip else { return }
         
         placeFromLabel?.text = trip.placeFrom
         placeToLabel?.text = trip.placeTo

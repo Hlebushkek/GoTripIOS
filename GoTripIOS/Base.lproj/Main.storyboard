@@ -36,13 +36,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fg9-yJ-9Bg">
                                         <rect key="frame" x="4" y="4" width="232" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B40-nW-Tbo">
-                                                <rect key="frame" x="0.0" y="0.0" width="30.333333333333332" height="40"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="house" catalog="system"/>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWm-WU-kGb">
-                                                <rect key="frame" x="50.33333333333335" y="0.0" width="30.333333333333336" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="43" height="40"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="airplane" catalog="system"/>
                                                 <connections>
@@ -50,7 +45,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egg-uI-Qt5">
-                                                <rect key="frame" x="100.66666666666666" y="0.0" width="30.666666666666657" height="40"/>
+                                                <rect key="frame" x="63" y="0.0" width="43" height="40"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="train.side.front.car" catalog="system"/>
                                                 <connections>
@@ -58,7 +53,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVm-gV-HoU">
-                                                <rect key="frame" x="151.33333333333334" y="0.0" width="30.333333333333343" height="40"/>
+                                                <rect key="frame" x="126" y="0.0" width="43" height="40"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="bus" catalog="system"/>
                                                 <connections>
@@ -66,7 +61,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="129-gl-8Nb">
-                                                <rect key="frame" x="201.66666666666669" y="0.0" width="30.333333333333343" height="40"/>
+                                                <rect key="frame" x="189" y="0.0" width="43" height="40"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="car" catalog="system"/>
                                                 <connections>
@@ -107,7 +102,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="person.fill" catalog="system" id="JuN-gW-HbO">
                             <connections>
-                                <segue destination="fhZ-ca-kgY" kind="custom" customClass="ProfileSegue" customModule="GoTripIOS" customModuleProvider="target" id="lbj-f4-X14"/>
+                                <segue destination="fhZ-ca-kgY" kind="show" identifier="" id="lbj-f4-X14"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -115,7 +110,7 @@
                     <connections>
                         <outlet property="tabBarView" destination="uWI-4h-6UA" id="8Y3-rn-1XR"/>
                         <outlet property="tableView" destination="8nK-N8-vDc" id="mEK-lH-kYb"/>
-                        <segue destination="Knc-Dl-8lJ" kind="presentation" identifier="ShowTableView" customClass="TripListSegue" customModule="GoTripIOS" customModuleProvider="target" modalPresentationStyle="fullScreen" id="Rdl-vs-Sc4"/>
+                        <segue destination="Knc-Dl-8lJ" kind="presentation" identifier="ShowTableView" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Rdl-vs-Sc4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYl-JS-2Bh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -248,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXG-aX-P8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30.769230769230766" y="20.616113744075829"/>
+            <point key="canvasLocation" x="-569" y="21"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="82e-4I-qIX">
@@ -313,12 +308,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Lm-Tc-fnk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2485" y="21"/>
+            <point key="canvasLocation" x="2406" y="21"/>
         </scene>
         <!--Profile-->
         <scene sceneID="XOi-Hq-qqr">
             <objects>
-                <viewController id="Urc-Mt-dnj" customClass="ProfileViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Profile" id="Urc-Mt-dnj" customClass="ProfileViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FFe-eV-2Fl"/>
                         <viewControllerLayoutGuide type="bottom" id="o4R-ff-4pN"/>
@@ -392,6 +387,7 @@
                             <constraint firstItem="xwC-pl-8mC" firstAttribute="leading" secondItem="j0c-bi-DIw" secondAttribute="leadingMargin" constant="32" id="erX-Kf-Vgx"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="syg-kK-EhR"/>
                     <navigationItem key="navigationItem" title="Profile" id="9GO-a0-WVD">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="VNJ-63-uoZ">
                             <connections>
@@ -410,12 +406,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EbE-XG-9ph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2449" y="-1953"/>
+            <point key="canvasLocation" x="1705" y="-1988"/>
         </scene>
-        <!--Setting-->
+        <!--Settings-->
         <scene sceneID="uTN-fy-1Vx">
             <objects>
-                <viewController id="DmS-Al-vXp" customClass="SettingViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" id="DmS-Al-vXp" customClass="SettingViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ozj-ko-NwF"/>
                         <viewControllerLayoutGuide type="bottom" id="gJm-xt-JdB"/>
@@ -458,6 +454,7 @@
                             <constraint firstItem="7bb-Mc-DUq" firstAttribute="centerX" secondItem="j74-8C-M8t" secondAttribute="centerX" id="kfR-SS-zpd"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Preferences" image="gear" catalog="system" id="O1t-82-WkP"/>
                     <navigationItem key="navigationItem" title="Setting" id="lIy-WU-Vqw">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="WBa-Xr-WAO">
                             <connections>
@@ -477,30 +474,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFc-bx-WzO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2450.7692307692305" y="-651.18483412322269"/>
+            <point key="canvasLocation" x="1705" y="-692"/>
         </scene>
-        <!--Profile Tab Bar Controller-->
+        <!--Preferences-->
         <scene sceneID="NG0-tV-Ye0">
             <objects>
-                <tabBarController id="fhZ-ca-kgY" customClass="ProfileTabBarController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="profileTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fhZ-ca-kgY" customClass="ProfileTabBarController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Preferences" id="c2R-4d-Y3c"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vax-4z-8gM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <tabBarAppearance key="scrollEdgeAppearance"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ddv-ka-H81" kind="relationship" relationship="viewControllers" id="yF2-Bf-Cgk"/>
-                        <segue destination="j0U-LI-3g8" kind="relationship" relationship="viewControllers" id="dJQ-os-f5E"/>
-                        <segue destination="WX4-vR-a2X" kind="relationship" relationship="viewControllers" id="qwo-Ic-WrM"/>
+                        <segue destination="Urc-Mt-dnj" kind="relationship" relationship="viewControllers" id="6ra-Ni-zKH"/>
+                        <segue destination="YRg-CR-e5L" kind="relationship" relationship="viewControllers" id="OeD-BB-MrV"/>
+                        <segue destination="DmS-Al-vXp" kind="relationship" relationship="viewControllers" id="LsE-wk-vDv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RTQ-p0-BRw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960" y="-692.41706161137438"/>
+            <point key="canvasLocation" x="908" y="-692"/>
         </scene>
         <!--Statistic-->
         <scene sceneID="0Ke-BQ-nLI">
             <objects>
-                <viewController id="YRg-CR-e5L" customClass="StatisticViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Statistic" id="YRg-CR-e5L" customClass="StatisticViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xqg-FX-xrQ"/>
                         <viewControllerLayoutGuide type="bottom" id="3OR-JO-UL1"/>
@@ -1260,6 +1259,7 @@
                             <constraint firstItem="3OR-JO-UL1" firstAttribute="top" secondItem="YQ1-sv-VKj" secondAttribute="bottom" constant="64" id="bcz-Gv-xf9"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Statistic" image="info.circle" catalog="system" id="v1Z-4o-dyI"/>
                     <navigationItem key="navigationItem" title="Statistic" id="N9R-iK-s1F">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="3da-p6-1hM">
                             <connections>
@@ -1292,12 +1292,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5l-fM-Av3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2450.7692307692305" y="-1295.260663507109"/>
+            <point key="canvasLocation" x="1705" y="-1347"/>
         </scene>
         <!--Trip List View Controller-->
         <scene sceneID="FkQ-bl-7sz">
             <objects>
-                <viewController id="Knc-Dl-8lJ" customClass="TripListViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tripListController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Knc-Dl-8lJ" customClass="TripListViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M2q-ry-390"/>
                         <viewControllerLayoutGuide type="bottom" id="dGk-iy-o3E"/>
@@ -1418,12 +1418,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99c-fk-QAO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-685" y="-20"/>
+            <point key="canvasLocation" x="180" y="-20"/>
         </scene>
         <!--Trip Detailed View Controller-->
         <scene sceneID="jcC-U1-4Gq">
             <objects>
-                <viewController storyboardIdentifier="tripdetailed" modalPresentationStyle="formSheet" id="u5t-4I-mjz" customClass="TripDetailedViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tripDetailedController" modalPresentationStyle="formSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u5t-4I-mjz" customClass="TripDetailedViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r7T-gi-WYQ"/>
                         <viewControllerLayoutGuide type="bottom" id="9is-hC-ZMS"/>
@@ -1556,7 +1556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9x-LN-8nv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31" y="788"/>
+            <point key="canvasLocation" x="128" y="724"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YIi-s4-2F4">
@@ -1574,66 +1574,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBk-QO-Ymj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="811" y="21"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="OhD-1y-Lrv">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ddv-ka-H81" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="2ne-47-ej0">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xhy-QF-S12">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Urc-Mt-dnj" kind="relationship" relationship="rootViewController" id="tcq-Gn-3n5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zn0-0y-DCE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1738" y="-1953"/>
-        </scene>
-        <!--Statistic-->
-        <scene sceneID="1WK-LR-6vh">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j0U-LI-3g8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Statistic" image="info.circle" catalog="system" id="rkR-7y-PEG"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BsC-Rr-J6C">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="YRg-CR-e5L" kind="relationship" relationship="rootViewController" id="rce-uA-e4v"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Eli-jl-2kX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1740" y="-1294.5497630331754"/>
-        </scene>
-        <!--Setting-->
-        <scene sceneID="rQJ-bO-WAw">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WX4-vR-a2X" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" image="gear" catalog="system" id="QFN-xJ-VhZ"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aj7-zo-Vs2">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="DmS-Al-vXp" kind="relationship" relationship="rootViewController" id="Wpm-L4-gnk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1aC-kq-XyP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1740" y="-651.18483412322269"/>
+            <point key="canvasLocation" x="909" y="21"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qiq-xz-H9P">
@@ -1651,7 +1592,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bin-ai-ZLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-989.23076923076917" y="-692.41706161137438"/>
+            <point key="canvasLocation" x="-925" y="-692"/>
         </scene>
     </scenes>
     <resources>
@@ -1664,7 +1605,6 @@
         <image name="bus" catalog="system" width="128" height="122"/>
         <image name="car" catalog="system" width="128" height="95"/>
         <image name="gear" catalog="system" width="128" height="122"/>
-        <image name="house" catalog="system" width="128" height="104"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="map" catalog="system" width="128" height="112"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>

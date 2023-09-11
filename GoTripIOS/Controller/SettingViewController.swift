@@ -44,6 +44,10 @@ class SettingViewController: UIViewController {
         currencySelectOutlet.setTitle(LocalSavingSystem.prefferedCurrency.rawValue, for: .normal)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.title = self.title
+    }
     
     func addTransperentView(_ frames: CGRect) {
         transperentView.frame = UIScreen.main.bounds

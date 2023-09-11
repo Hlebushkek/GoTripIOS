@@ -9,10 +9,6 @@ import UIKit
 
 class TripListSegue: UIStoryboardSegue {
     override func perform() {
-        swipe()
-    }
-    
-    func swipe() {
         guard let toVC = self.destination as? TripListViewController else { return }
         
         let fromVC = self.source
@@ -27,6 +23,7 @@ class TripListSegue: UIStoryboardSegue {
         UIView.animate(withDuration: 0.75, delay: 0, options: [.curveEaseInOut], animations: {
             toVC.view.transform = CGAffineTransform.identity
             toVC.view.layer.cornerRadius = 0
+            toVC.view.layoutIfNeeded()
         }, completion: { success in
             fromVC.present(toVC, animated: false, completion: nil)
         })

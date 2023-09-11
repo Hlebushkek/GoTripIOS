@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, ObservingProtocol {
     
     enum Constants {
         static let homeTripTableCellViewNibName = "HomeTripTableViewCell"
@@ -47,6 +47,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dbManager.addListener(self)
+        
         hideKeyboardWhenTappedAround()
         
         let appearance = UINavigationBarAppearance()
@@ -68,10 +70,8 @@ class HomeViewController: UIViewController {
         updateTabBar()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        reloadList()
+    deinit {
+        dbManager.removeListener(self)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -237,7 +237,6 @@ extension HomeViewController: UITableViewDelegate {
     func insert(_ trip: TripInfoModel, at index: UITableView.InsertType) {
 //        let fitSearch = tripFitSearch(trip)
         
-//        tableView?.beginUpdates()
         switch index {
         case .start:
             trips.insert(trip, at: 0)
@@ -252,7 +251,6 @@ extension HomeViewController: UITableViewDelegate {
             trips.append(trip)
 //            tableView?.insertRows(at: [IndexPath(index: filteredTrips.count - 1)], with: .automatic)
         }
-//        tableView?.endUpdates()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -291,7 +289,7 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: HomeTripTableViewCellDelegate {
     func userDidSelect(_ cell: HomeTripTableViewCell) {
-        guard let tripVC = self.storyboard?.instantiateViewController(withIdentifier: "tripdetailed") as? TripDetailedViewController else { return }
+        guard let tripVC = self.storyboard?.instantiateViewController(withIdentifier: "tripDetailedController") as? TripDetailedViewController else { return }
 
         tripVC.info = cell.trip
 
@@ -306,9 +304,17 @@ extension HomeViewController: HomeTripTableViewCellDelegate {
     }
 }
 
+extension HomeViewController: DBManagerObserverProtocol {
+    func didLoginIn() {
+        reloadList()
+    }
+    
+    func didLogOut() {
+        trips = []
+    }
+}
 
 extension HomeViewController {
-    
     private func tripFitSearch(_ trip: TripInfoModel, text: String) -> Bool {
         trip.placeFrom.lowercased().contains(text.lowercased()) ||
         trip.placeTo.lowercased().contains(text.lowercased()) ||
@@ -327,8 +333,15 @@ extension HomeViewController {
     }
 }
 
+extension HomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filter(text: searchText)
+    }
+}
+
 extension HomeViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination.transitioningDelegate = self
         if (segue.identifier == Constants.showListsSegueIdentifier) {
             if let toVC = segue.destination as? TripListViewController {
                 toVC.tripType = sender as? TripType ?? .airplane
@@ -339,19 +352,24 @@ extension HomeViewController {
 
 extension HomeViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transitionToDetailedView.transitionMode = .present
-        
-        return transitionToDetailedView
+        let id = presented.restorationIdentifier
+        switch id {
+        case "tripDetailedController":
+            transitionToDetailedView.transitionMode = .present
+            return transitionToDetailedView
+        default:
+            return nil
+        }
     }
+    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transitionToDetailedView.transitionMode = .dismiss
-        
-        return transitionToDetailedView
-    }
-}
-
-extension HomeViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        filter(text: searchText)
+        let id = dismissed.restorationIdentifier
+        switch id {
+        case "tripDetailedController":
+            transitionToDetailedView.transitionMode = .dismiss
+            return transitionToDetailedView
+        default:
+            return nil
+        }
     }
 }

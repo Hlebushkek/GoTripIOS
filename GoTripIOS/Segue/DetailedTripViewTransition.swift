@@ -7,17 +7,18 @@
 
 import UIKit
 
+enum TransitionMode: Int {
+    case present
+    case dismiss
+    case pop
+}
+
 class DetailedTripViewTransition: NSObject {
     var tripType = TripType.airplane
     var block = UIView()
     var startPoint = CGPoint.zero
     var duration = 0.5
     
-    enum TransitionMode: Int {
-        case present
-        case dismiss
-        case pop
-    }
     var transitionMode = TransitionMode.present
 }
 extension DetailedTripViewTransition: UIViewControllerAnimatedTransitioning {
@@ -63,7 +64,6 @@ extension DetailedTripViewTransition: UIViewControllerAnimatedTransitioning {
             let transitionModeKey = (transitionMode == .pop) ? UITransitionContextViewKey.to : UITransitionContextViewKey.from
             if let returningView = transitionContext.view(forKey: transitionModeKey) {
                 let viewCenter = returningView.center
-              
                 
                 UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseIn], animations: {
                     self.block.transform = .identity
