@@ -9,15 +9,13 @@ import UIKit
 
 class TripListViewController: UIViewController {
     
-    @IBOutlet weak var tripTypeNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     private var finishedLoadingInitialTableCells = false
     private var cellContentColor = UIColor.white
     var tripType: TripType = .airplane {
         didSet {
-            guard let tripTypeNameLabel = tripTypeNameLabel else { return }
-            tripTypeNameLabel.text = tripType.title()
+            self.navigationItem.title = tripType.title()
         }
     }
     
@@ -26,8 +24,6 @@ class TripListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tripTypeNameLabel.text = tripType.title()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -41,11 +37,6 @@ class TripListViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    
-    @IBAction func backButtonAction(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
 }
 
 extension TripListViewController: UITableViewDelegate, UITableViewDataSource {

@@ -110,7 +110,7 @@
                     <connections>
                         <outlet property="tabBarView" destination="uWI-4h-6UA" id="8Y3-rn-1XR"/>
                         <outlet property="tableView" destination="8nK-N8-vDc" id="mEK-lH-kYb"/>
-                        <segue destination="Knc-Dl-8lJ" kind="presentation" identifier="ShowTableView" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Rdl-vs-Sc4"/>
+                        <segue destination="Knc-Dl-8lJ" kind="show" identifier="ShowTableView" id="Rdl-vs-Sc4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYl-JS-2Bh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1306,32 +1306,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="732"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhf-Vr-92O">
-                                <rect key="frame" x="172.33333333333334" y="48" width="69.666666666666657" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="hsp-s5-1DD"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="vh4-ow-A83"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4w-Ee-8BI">
-                                <rect key="frame" x="20" y="50" width="64" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="Lp5-m7-JiU"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Back">
-                                    <fontDescription key="titleFontDescription" name="ArialMT" family="Arial" pointSize="16"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="backButtonAction:" destination="Knc-Dl-8lJ" eventType="touchUpInside" id="T6b-RY-sqU"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="72" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ek5-jb-kye">
-                                <rect key="frame" x="20" y="100" width="374" height="632"/>
+                                <rect key="frame" x="20" y="91" width="374" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripsByTypeTableCell" id="0Wq-Pu-JAC" customClass="TripTableViewCell" customModule="GoTripIOS" customModuleProvider="target">
@@ -1399,21 +1375,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fhf-Vr-92O" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m4w-Ee-8BI" secondAttribute="trailing" constant="8" symbolic="YES" id="1B4-Hw-7ou"/>
-                            <constraint firstItem="m4w-Ee-8BI" firstAttribute="centerY" secondItem="fhf-Vr-92O" secondAttribute="centerY" id="4yQ-oq-NCL"/>
                             <constraint firstItem="Ek5-jb-kye" firstAttribute="leading" secondItem="iIs-5D-IXy" secondAttribute="leadingMargin" id="Aq8-5x-fJA"/>
-                            <constraint firstItem="fhf-Vr-92O" firstAttribute="top" secondItem="M2q-ry-390" secondAttribute="bottom" constant="48" id="FxU-Km-5h0"/>
-                            <constraint firstItem="fhf-Vr-92O" firstAttribute="centerX" secondItem="iIs-5D-IXy" secondAttribute="centerX" id="Y6E-h6-dz1"/>
-                            <constraint firstItem="m4w-Ee-8BI" firstAttribute="leading" secondItem="iIs-5D-IXy" secondAttribute="leadingMargin" id="dcP-mL-Odi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ek5-jb-kye" secondAttribute="trailing" id="hTC-c4-xCB"/>
-                            <constraint firstItem="Ek5-jb-kye" firstAttribute="top" secondItem="fhf-Vr-92O" secondAttribute="bottom" constant="16" id="j9u-rb-HsX"/>
+                            <constraint firstItem="Ek5-jb-kye" firstAttribute="top" secondItem="M2q-ry-390" secondAttribute="bottom" id="xGb-iT-Efu"/>
                             <constraint firstAttribute="bottom" secondItem="Ek5-jb-kye" secondAttribute="bottom" id="xzg-ND-8H4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qLp-oW-NXt"/>
                     <size key="freeformSize" width="414" height="732"/>
                     <connections>
                         <outlet property="tableView" destination="Ek5-jb-kye" id="Ji0-I7-a2F"/>
-                        <outlet property="tripTypeNameLabel" destination="fhf-Vr-92O" id="KAy-Xu-67I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99c-fk-QAO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1635,19 +1606,19 @@
             <color red="0.85490196078431369" green="0.41176470588235292" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

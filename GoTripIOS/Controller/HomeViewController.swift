@@ -41,6 +41,9 @@ class HomeViewController: UIViewController, ObservingProtocol {
     private var filteredTrips: [TripInfoModel] = [] {
         didSet {
             tableView?.reloadData()
+            tableView?.beginUpdates()
+            tableView?.setNeedsDisplay()
+            tableView?.endUpdates()
         }
     }
     
@@ -81,10 +84,6 @@ class HomeViewController: UIViewController, ObservingProtocol {
     private func reloadList() {
         dbManager.getTrips { [weak self] trips in
             self?.trips = trips
-            
-            self?.tableView?.beginUpdates()
-            self?.tableView?.setNeedsDisplay()
-            self?.tableView?.endUpdates()
         }
     }
     
