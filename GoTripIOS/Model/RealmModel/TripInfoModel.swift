@@ -6,6 +6,7 @@
 //
 
 import RealmSwift
+import UIKit
 
 /*class UserModel: Object {
     @Persisted(primaryKey: true) var _id: ObjectId

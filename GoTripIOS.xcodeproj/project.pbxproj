@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35F09CE0C3230424AB515B07 /* Pods_GoTripIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8236EE583EE69AAEDB67F2D3 /* Pods_GoTripIOS.framework */; };
 		BC08E769274D58C000D00387 /* TripDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08E768274D58C000D00387 /* TripDetailedViewController.swift */; };
 		BC122A4127399EB000AC356F /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC122A4027399EB000AC356F /* AddBlockViewController.swift */; };
 		BC1F121727ADE97B00AFCE2A /* ProfileTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */; };
@@ -24,6 +23,8 @@
 		BC7EDD5A27510ADD0029B0FA /* TripDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7EDD5927510ADD0029B0FA /* TripDotsView.swift */; };
 		BC8CF06928916BDF005E490C /* TripUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CF06828916BDF005E490C /* TripUtilities.swift */; };
 		BC8CF06B28916C1F005E490C /* TripPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CF06A28916C1F005E490C /* TripPriceModel.swift */; };
+		BC9235432AB3E67900B9AF25 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BC9235422AB3E67900B9AF25 /* Realm */; };
+		BC9235452AB3E67900B9AF25 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC9235442AB3E67900B9AF25 /* RealmSwift */; };
 		BCA45AB9275A3B5C00152FAB /* GradientBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */; };
 		BCA7248F274AA5D60051C545 /* TripListSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA7248E274AA5D60051C545 /* TripListSegue.swift */; };
 		BCA72491274AAC210051C545 /* PushPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA72490274AAC210051C545 /* PushPresentAnimator.swift */; };
@@ -44,8 +45,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8236EE583EE69AAEDB67F2D3 /* Pods_GoTripIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoTripIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA00C0B3D1CFEA0373F9CB53 /* Pods-GoTripIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoTripIOS.release.xcconfig"; path = "Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS.release.xcconfig"; sourceTree = "<group>"; };
 		BC08E768274D58C000D00387 /* TripDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailedViewController.swift; sourceTree = "<group>"; };
 		BC122A4027399EB000AC356F /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
 		BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarController.swift; sourceTree = "<group>"; };
@@ -81,7 +80,6 @@
 		BCD23B1127123BBB007C6B47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSavingSystem.swift; sourceTree = "<group>"; };
 		BCEE4F7327D3C4E4000A8F61 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		D999CE13DF8974D732E810FF /* Pods-GoTripIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoTripIOS.debug.xcconfig"; path = "Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,26 +87,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35F09CE0C3230424AB515B07 /* Pods_GoTripIOS.framework in Frameworks */,
+				BC9235452AB3E67900B9AF25 /* RealmSwift in Frameworks */,
+				BC9235432AB3E67900B9AF25 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7059337FF41A450820152373 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D999CE13DF8974D732E810FF /* Pods-GoTripIOS.debug.xcconfig */,
-				BA00C0B3D1CFEA0373F9CB53 /* Pods-GoTripIOS.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		7AE962C06628513A751DBC48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8236EE583EE69AAEDB67F2D3 /* Pods_GoTripIOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -196,7 +185,6 @@
 			children = (
 				BCD23B0227123BB3007C6B47 /* GoTripIOS */,
 				BCD23B0127123BB3007C6B47 /* Products */,
-				7059337FF41A450820152373 /* Pods */,
 				7AE962C06628513A751DBC48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -235,17 +223,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCD23B1427123BBC007C6B47 /* Build configuration list for PBXNativeTarget "GoTripIOS" */;
 			buildPhases = (
-				3E85D82AD53735D68E52F8AF /* [CP] Check Pods Manifest.lock */,
 				BCD23AFC27123BB3007C6B47 /* Sources */,
 				BCD23AFD27123BB3007C6B47 /* Frameworks */,
 				BCD23AFE27123BB3007C6B47 /* Resources */,
-				AC2FEE336025DEA24582683D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GoTripIOS;
+			packageProductDependencies = (
+				BC9235422AB3E67900B9AF25 /* Realm */,
+				BC9235442AB3E67900B9AF25 /* RealmSwift */,
+			);
 			productName = GoTripIOS;
 			productReference = BCD23B0027123BB3007C6B47 /* GoTripIOS.app */;
 			productType = "com.apple.product-type.application";
@@ -256,8 +246,9 @@
 		BCD23AF827123BB3007C6B47 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					BCD23AFF27123BB3007C6B47 = {
 						CreatedOnToolsVersion = 12.4;
@@ -273,6 +264,9 @@
 				Base,
 			);
 			mainGroup = BCD23AF727123BB3007C6B47;
+			packageReferences = (
+				BC9235412AB3E67900B9AF25 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = BCD23B0127123BB3007C6B47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -296,48 +290,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3E85D82AD53735D68E52F8AF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GoTripIOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AC2FEE336025DEA24582683D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoTripIOS/Pods-GoTripIOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BCD23AFC27123BB3007C6B47 /* Sources */ = {
@@ -434,6 +386,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -495,6 +448,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -515,7 +469,6 @@
 		};
 		BCD23B1527123BBC007C6B47 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D999CE13DF8974D732E810FF /* Pods-GoTripIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -536,7 +489,6 @@
 		};
 		BCD23B1627123BBC007C6B47 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA00C0B3D1CFEA0373F9CB53 /* Pods-GoTripIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -577,6 +529,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC9235412AB3E67900B9AF25 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC9235422AB3E67900B9AF25 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC9235412AB3E67900B9AF25 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		BC9235442AB3E67900B9AF25 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC9235412AB3E67900B9AF25 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BCD23AF827123BB3007C6B47 /* Project object */;
 }
