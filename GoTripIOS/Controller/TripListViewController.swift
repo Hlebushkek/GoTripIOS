@@ -9,46 +9,66 @@ import UIKit
 
 class TripListViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var typeLabel: UILabel?
+    @IBOutlet weak var typeImage: UIImageView?
+    
+    @IBOutlet weak var tableView: UITableView?
     
     private var finishedLoadingInitialTableCells = false
-    private var cellContentColor = UIColor.white
-    var tripType: TripType = .airplane {
-        didSet {
-            self.navigationItem.title = tripType.title()
-        }
-    }
+    private var cellContentColor: UIColor? = .white
+    
+    var tripType: TripType = .airplane
     
     private var dbManager = DBManager.shared
-    private var tripInfos: [TripInfoModel] = []
+    private var trips: [TripInfoModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView?.delegate = self
+        tableView?.dataSource = self
         
-        tableView.alpha = 0
-        dbManager.getTrips(with: tripType) { infos in
-            self.tripInfos = infos
+        typeLabel?.text = tripType.title()
+        typeImage?.image = tripType.image()
+        
+        tableView?.alpha = 0
+        dbManager.getTrips(with: tripType) { [weak self] infos in
+            self?.trips = infos
             UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
-                self.tableView.alpha = 1
+                self?.tableView?.alpha = 1
             }, completion: nil)
-            self.tableView.reloadData()
+            self?.tableView?.reloadData()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        typeImage?.alpha = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+            self?.typeImage?.alpha = 1
+        })
+    }
+    
+    @IBAction func backButtonAction(_ sender: Any) {
+        dismiss(animated: true)
     }
 }
 
 extension TripListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tripInfos.count
+        return trips.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "tripsByTypeTableCell", for: indexPath) as? TripTableViewCell else { return UITableViewCell() }
         
-        cell.updateRepresentation(for: tripInfos[indexPath.row])
+        cell.updateRepresentation(for: trips[indexPath.row])
         
         return cell
     }
@@ -59,12 +79,13 @@ extension TripListViewController: UITableViewDelegate, UITableViewDataSource {
         var lastInitialDisplayableCell = false
         var delay = 0.0
         
-        if tripInfos.count > 0 && !finishedLoadingInitialTableCells {
+        if trips.count > 0 && !finishedLoadingInitialTableCells {
             if let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows,
                 let lastIndexPath = indexPathsForVisibleRows.last, lastIndexPath.row == indexPath.row {
                 lastInitialDisplayableCell = true
             }
         }
+        
         if !finishedLoadingInitialTableCells {
             if lastInitialDisplayableCell {
                 finishedLoadingInitialTableCells = true
@@ -81,17 +102,23 @@ extension TripListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let cell = tableView.cellForRow(at: indexPath) as! TripTableViewCell
-        cellContentColor = cell.contentView.backgroundColor!
+        guard let cell = tableView.cellForRow(at: indexPath) as? TripTableViewCell else { return nil }
+        cellContentColor = cell.contentView.backgroundColor
         
-        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: { cell.contentView.subviews[0].backgroundColor = .white}, completion: nil)
+        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+            cell.contentView.subviews[0].backgroundColor = .white
+        }, completion: nil)
+        
         return indexPath
     }
 
     func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
-        let cell = tableView.cellForRow(at: indexPath) as! TripTableViewCell
-
-        UIView.animate(withDuration: 0.4, delay: 0, options: [], animations: { cell.contentView.subviews[0].backgroundColor = self.cellContentColor }, completion: nil)
+        let cell = tableView.cellForRow(at: indexPath) as? TripTableViewCell
+        
+        UIView.animate(withDuration: 0.4, delay: 0, options: [], animations: {
+            cell?.contentView.subviews[0].backgroundColor = self.cellContentColor
+        }, completion: nil)
+        
         return indexPath
     }
 

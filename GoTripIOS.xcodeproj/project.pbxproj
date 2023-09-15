@@ -26,7 +26,6 @@
 		BC9235432AB3E67900B9AF25 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BC9235422AB3E67900B9AF25 /* Realm */; };
 		BC9235452AB3E67900B9AF25 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC9235442AB3E67900B9AF25 /* RealmSwift */; };
 		BCA45AB9275A3B5C00152FAB /* GradientBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */; };
-		BCA7248F274AA5D60051C545 /* TripListSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA7248E274AA5D60051C545 /* TripListSegue.swift */; };
 		BCA72491274AAC210051C545 /* PushPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA72490274AAC210051C545 /* PushPresentAnimator.swift */; };
 		BCBE3C34278B0E0600479BD3 /* KeyboardDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE3C33278B0E0600479BD3 /* KeyboardDismissExtension.swift */; };
 		BCBF02632AAEA53B006FDA24 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBF02622AAEA53A006FDA24 /* Observable.swift */; };
@@ -62,7 +61,6 @@
 		BC8CF06828916BDF005E490C /* TripUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripUtilities.swift; sourceTree = "<group>"; };
 		BC8CF06A28916C1F005E490C /* TripPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPriceModel.swift; sourceTree = "<group>"; };
 		BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBlock.swift; sourceTree = "<group>"; };
-		BCA7248E274AA5D60051C545 /* TripListSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListSegue.swift; sourceTree = "<group>"; };
 		BCA72490274AAC210051C545 /* PushPresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushPresentAnimator.swift; sourceTree = "<group>"; };
 		BCBE3C33278B0E0600479BD3 /* KeyboardDismissExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissExtension.swift; sourceTree = "<group>"; };
 		BCBF02622AAEA53A006FDA24 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				BC7AE22C2752605B005936B8 /* DetailedTripViewTransition.swift */,
-				BCA7248E274AA5D60051C545 /* TripListSegue.swift */,
 				BCA72490274AAC210051C545 /* PushPresentAnimator.swift */,
 			);
 			path = Segue;
@@ -298,7 +295,6 @@
 			files = (
 				BCD1F86F2743D23F00FBBF78 /* TripListViewController.swift in Sources */,
 				BC122A4127399EB000AC356F /* AddBlockViewController.swift in Sources */,
-				BCA7248F274AA5D60051C545 /* TripListSegue.swift in Sources */,
 				BCC278A52782718D002D3EB9 /* LocationSearchTable.swift in Sources */,
 				BC7BA970271750C100EBB697 /* HomeViewController.swift in Sources */,
 				BCC6B04527D5079A00F4A2F8 /* SelectionCell.swift in Sources */,

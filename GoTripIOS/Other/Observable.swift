@@ -38,7 +38,7 @@ public class Observable: NSObject, ObservableProtocol {
     public func notifyListeners(with selector: Selector) {
         self.listeners.allObjects.forEach { obj in
             if obj.responds(to: selector) {
-                obj.perform(selector, with: self)
+                let _ = obj.perform(selector, with: self)
             }
         }
     }

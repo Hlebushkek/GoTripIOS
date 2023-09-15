@@ -13,9 +13,13 @@ protocol HomeTripTableViewCellDelegate: AnyObject {
 
 class HomeTripTableViewCell: UITableViewCell {
     
+    enum Constants {
+        static let layerCornerRadius: CGFloat = 8
+    }
+    
     private lazy var gradientLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
-        layer.cornerRadius = 8
+        layer.cornerRadius = Constants.layerCornerRadius
         return layer
     }()
     

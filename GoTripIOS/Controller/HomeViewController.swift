@@ -26,7 +26,15 @@ class HomeViewController: UIViewController, ObservingProtocol {
     
     @IBAction func tripTypeButtonWasPressed(_ sender: Any) {
         guard let button = sender as? UIButton else { return }
-        performSegue(withIdentifier: Constants.showListsSegueIdentifier, sender: TripType(rawValue: button.tag))
+        
+        let index = button.tag
+        
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+            self?.tabBarView?.subviews[0].subviews[index].alpha = 0
+        }, completion: { [weak self] _ in
+            self?.performSegue(withIdentifier: Constants.showListsSegueIdentifier, sender: TripType(rawValue: index))
+        })
+        
     }
     
     private let dbManager = DBManager.shared
@@ -71,6 +79,11 @@ class HomeViewController: UIViewController, ObservingProtocol {
         tableView?.register(UINib(nibName: Constants.homeTripTableCellViewNibName, bundle: .main), forCellReuseIdentifier: Constants.homeTripTableCellViewNibName)
         
         updateTabBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarView?.subviews[0].subviews.forEach { $0.alpha = 1 }
     }
     
     deinit {

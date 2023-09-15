@@ -36,7 +36,6 @@ class AddBlockViewController: UIViewController {
     }
     
     @IBAction func submitButtonAction(_ sender: Any) {
-        
         guard isCorrectInput() && dbManager.isSignIn() else { return }
         
         guard let number = Float(price.text!) else {
@@ -53,7 +52,6 @@ class AddBlockViewController: UIViewController {
         
         dbManager.cloudAddTrip(trip)
         
-        let parentVC = self.presentingViewController
         let navVC = self.presentingViewController as? UINavigationController
         let homeVC = navVC?.viewControllers[0] as? HomeViewController
         self.dismiss(animated: true, completion: {
