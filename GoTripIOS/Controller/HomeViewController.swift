@@ -95,7 +95,7 @@ class HomeViewController: UIViewController, ObservingProtocol {
     }
     
     private func reloadList() {
-        dbManager.getTrips { [weak self] trips in
+        dbManager.fetchTrips { [weak self] trips in
             self?.trips = trips
         }
     }

@@ -86,6 +86,6 @@ public enum defaultsSavingKeys: String {
 }
 
 public struct UserInfo: Codable {
-    var email: String = ""
-    var password: String = ""
+    let name: String
+    let email: String
 }

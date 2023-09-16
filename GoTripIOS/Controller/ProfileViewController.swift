@@ -37,8 +37,10 @@ class ProfileViewController: UIViewController {
         if dbManager.isSignIn() {
             guard let user = dbManager.getUser() else { return }
             
-            mailLabel.text = user.profile.email
-            tripsCountLabel.text = "You have \(dbManager.getTripCount()) trips"
+            mailLabel.text = user.email
+            dbManager.fetchTrips { [weak self] trips in
+                self?.tripsCountLabel.text = "You have \(trips.count) trips"
+            }
         }
 
         UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: { [weak self] in
@@ -66,14 +68,29 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func SignInUpButton(_ sender: Any) {
-        loginField.text = "volsoor@gmail.com"
-        passwordField.text = "hleb123"
+        loginField.text = "test@gmail.com"
+        passwordField.text = "123"
         
-        guard let login = loginField.text,
+        guard let email = loginField.text,
               let password = passwordField.text else { return }
 
-        dbManager.signIn(email: login, password: password, onSuccess: {
-            LocalSavingSystem.userInfo = UserInfo(email: login, password: password)
+        dbManager.signIn(email: email, password: password, completion: {
+            LocalSavingSystem.userInfo = UserInfo(name: "testName", email: email)
+            DispatchQueue.main.async { [weak self] in
+                self?.updateUI()
+            }
+        })
+    }
+    
+    @IBAction func signUp(_ sender: Any) {
+        loginField.text = "test@gmail.com"
+        passwordField.text = "test123"
+        
+        guard let email = loginField.text,
+              let password = passwordField.text else { return }
+
+        dbManager.signUp(email: email, password: password, completion: {
+            LocalSavingSystem.userInfo = UserInfo(name: "testName", email: email)
             DispatchQueue.main.async { [weak self] in
                 self?.updateUI()
             }

@@ -50,7 +50,7 @@ class AddBlockViewController: UIViewController {
         trip.type = TripType(rawValue: self.pickerView.selectedRow(inComponent: 0)) ?? .airplane
         trip.dateAdded = TripUtilities.GetString(from: Date())
         
-        dbManager.cloudAddTrip(trip)
+        dbManager.addTrip(trip)
         
         let navVC = self.presentingViewController as? UINavigationController
         let homeVC = navVC?.viewControllers[0] as? HomeViewController

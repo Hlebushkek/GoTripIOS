@@ -12,7 +12,7 @@
 		BC1F121727ADE97B00AFCE2A /* ProfileTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */; };
 		BC33C09627AFF5940040719B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C09527AFF5940040719B /* ProfileViewController.swift */; };
 		BC3693A527A6A63700F11470 /* TripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A427A6A63700F11470 /* TripInfoModel.swift */; };
-		BC3693A727A6A9E600F11470 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A627A6A9E600F11470 /* DBManager.swift */; };
+		BC3693A727A6A9E600F11470 /* DBManagerRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3693A627A6A9E600F11470 /* DBManagerRealm.swift */; };
 		BC369C662A4FF2B40050770C /* HomeTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC369C642A4FF2B40050770C /* HomeTripTableViewCell.swift */; };
 		BC369C672A4FF2B40050770C /* HomeTripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC369C652A4FF2B40050770C /* HomeTripTableViewCell.xib */; };
 		BC369C752A50DB080050770C /* UITableView+InsertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC369C742A50DB080050770C /* UITableView+InsertType.swift */; };
@@ -23,8 +23,6 @@
 		BC7EDD5A27510ADD0029B0FA /* TripDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7EDD5927510ADD0029B0FA /* TripDotsView.swift */; };
 		BC8CF06928916BDF005E490C /* TripUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CF06828916BDF005E490C /* TripUtilities.swift */; };
 		BC8CF06B28916C1F005E490C /* TripPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CF06A28916C1F005E490C /* TripPriceModel.swift */; };
-		BC9235432AB3E67900B9AF25 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BC9235422AB3E67900B9AF25 /* Realm */; };
-		BC9235452AB3E67900B9AF25 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC9235442AB3E67900B9AF25 /* RealmSwift */; };
 		BCA45AB9275A3B5C00152FAB /* GradientBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */; };
 		BCA72491274AAC210051C545 /* PushPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA72490274AAC210051C545 /* PushPresentAnimator.swift */; };
 		BCBE3C34278B0E0600479BD3 /* KeyboardDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE3C33278B0E0600479BD3 /* KeyboardDismissExtension.swift */; };
@@ -39,6 +37,116 @@
 		BCD23B0B27123BB3007C6B47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0927123BB3007C6B47 /* Main.storyboard */; };
 		BCD23B0D27123BBB007C6B47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0C27123BBB007C6B47 /* Assets.xcassets */; };
 		BCD23B1027123BBB007C6B47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */; };
+		BCDEAE1E2AB43478003D3AD3 /* TripListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */; };
+		BCDEAE1F2AB43478003D3AD3 /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC122A4027399EB000AC356F /* AddBlockViewController.swift */; };
+		BCDEAE202AB43478003D3AD3 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */; };
+		BCDEAE212AB43478003D3AD3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7BA96F271750C100EBB697 /* HomeViewController.swift */; };
+		BCDEAE222AB43478003D3AD3 /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC6B04327D5079A00F4A2F8 /* SelectionCell.swift */; };
+		BCDEAE232AB43478003D3AD3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE4F7327D3C4E4000A8F61 /* SettingViewController.swift */; };
+		BCDEAE242AB43478003D3AD3 /* TripUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CF06828916BDF005E490C /* TripUtilities.swift */; };
+		BCDEAE252AB43478003D3AD3 /* DetailedTripViewTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AE22C2752605B005936B8 /* DetailedTripViewTransition.swift */; };
+		BCDEAE262AB43478003D3AD3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52B6502778B697009E7682 /* MapViewController.swift */; };
+		BCDEAE272AB43478003D3AD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD23B0327123BB3007C6B47 /* AppDelegate.swift */; };
+		BCDEAE282AB43478003D3AD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD23B0527123BB3007C6B47 /* SceneDelegate.swift */; };
+		BCDEAE292AB43478003D3AD3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C09527AFF5940040719B /* ProfileViewController.swift */; };
+		BCDEAE2A2AB43478003D3AD3 /* LocalSavingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */; };
+		BCDEAE2B2AB43478003D3AD3 /* TripDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08E768274D58C000D00387 /* TripDetailedViewController.swift */; };
+		BCDEAE2C2AB43478003D3AD3 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */; };
+		BCDEAE2D2AB43478003D3AD3 /* TripDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7EDD5927510ADD0029B0FA /* TripDotsView.swift */; };
+		BCDEAE2E2AB43478003D3AD3 /* GradientBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */; };
+		BCDEAE2F2AB43478003D3AD3 /* HomeTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC369C642A4FF2B40050770C /* HomeTripTableViewCell.swift */; };
+		BCDEAE302AB43478003D3AD3 /* KeyboardDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE3C33278B0E0600479BD3 /* KeyboardDismissExtension.swift */; };
+		BCDEAE322AB43478003D3AD3 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE383327300D380007402D /* StatisticViewController.swift */; };
+		BCDEAE342AB43478003D3AD3 /* PushPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA72490274AAC210051C545 /* PushPresentAnimator.swift */; };
+		BCDEAE352AB43478003D3AD3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBF02622AAEA53A006FDA24 /* Observable.swift */; };
+		BCDEAE372AB43478003D3AD3 /* ProfileTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */; };
+		BCDEAE382AB43478003D3AD3 /* UITableView+InsertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC369C742A50DB080050770C /* UITableView+InsertType.swift */; };
+		BCDEAE582AB43478003D3AD3 /* SelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC6B04427D5079A00F4A2F8 /* SelectionCell.xib */; };
+		BCDEAE592AB43478003D3AD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */; };
+		BCDEAE5A2AB43478003D3AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0C27123BBB007C6B47 /* Assets.xcassets */; };
+		BCDEAE5B2AB43478003D3AD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0927123BB3007C6B47 /* Main.storyboard */; };
+		BCDEAE5C2AB43478003D3AD3 /* HomeTripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC369C652A4FF2B40050770C /* HomeTripTableViewCell.xib */; };
+		BCDEAE5D2AB43478003D3AD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCDEADFB2AB43232003D3AD3 /* GoogleService-Info.plist */; };
+		BCDEAE842AB4347A003D3AD3 /* TripListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */; };
+		BCDEAE852AB4347A003D3AD3 /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC122A4027399EB000AC356F /* AddBlockViewController.swift */; };
+		BCDEAE862AB4347A003D3AD3 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC278A42782718D002D3EB9 /* LocationSearchTable.swift */; };
+		BCDEAE872AB4347A003D3AD3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7BA96F271750C100EBB697 /* HomeViewController.swift */; };
+		BCDEAE882AB4347A003D3AD3 /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC6B04327D5079A00F4A2F8 /* SelectionCell.swift */; };
+		BCDEAE892AB4347A003D3AD3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE4F7327D3C4E4000A8F61 /* SettingViewController.swift */; };
+		BCDEAE8A2AB4347A003D3AD3 /* TripUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CF06828916BDF005E490C /* TripUtilities.swift */; };
+		BCDEAE8B2AB4347A003D3AD3 /* DetailedTripViewTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AE22C2752605B005936B8 /* DetailedTripViewTransition.swift */; };
+		BCDEAE8C2AB4347A003D3AD3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52B6502778B697009E7682 /* MapViewController.swift */; };
+		BCDEAE8D2AB4347A003D3AD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD23B0327123BB3007C6B47 /* AppDelegate.swift */; };
+		BCDEAE8E2AB4347A003D3AD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD23B0527123BB3007C6B47 /* SceneDelegate.swift */; };
+		BCDEAE8F2AB4347A003D3AD3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C09527AFF5940040719B /* ProfileViewController.swift */; };
+		BCDEAE902AB4347A003D3AD3 /* LocalSavingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */; };
+		BCDEAE912AB4347A003D3AD3 /* TripDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08E768274D58C000D00387 /* TripDetailedViewController.swift */; };
+		BCDEAE922AB4347A003D3AD3 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59FF2F27467F87001DCA06 /* TripTableViewCell.swift */; };
+		BCDEAE932AB4347A003D3AD3 /* TripDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7EDD5927510ADD0029B0FA /* TripDotsView.swift */; };
+		BCDEAE942AB4347A003D3AD3 /* GradientBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA45AB8275A3B5B00152FAB /* GradientBlock.swift */; };
+		BCDEAE952AB4347A003D3AD3 /* HomeTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC369C642A4FF2B40050770C /* HomeTripTableViewCell.swift */; };
+		BCDEAE962AB4347A003D3AD3 /* KeyboardDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE3C33278B0E0600479BD3 /* KeyboardDismissExtension.swift */; };
+		BCDEAE982AB4347A003D3AD3 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE383327300D380007402D /* StatisticViewController.swift */; };
+		BCDEAE9A2AB4347A003D3AD3 /* PushPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA72490274AAC210051C545 /* PushPresentAnimator.swift */; };
+		BCDEAE9B2AB4347A003D3AD3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBF02622AAEA53A006FDA24 /* Observable.swift */; };
+		BCDEAE9D2AB4347A003D3AD3 /* ProfileTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */; };
+		BCDEAE9E2AB4347A003D3AD3 /* UITableView+InsertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC369C742A50DB080050770C /* UITableView+InsertType.swift */; };
+		BCDEAEBE2AB4347A003D3AD3 /* SelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC6B04427D5079A00F4A2F8 /* SelectionCell.xib */; };
+		BCDEAEBF2AB4347A003D3AD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */; };
+		BCDEAEC02AB4347A003D3AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0C27123BBB007C6B47 /* Assets.xcassets */; };
+		BCDEAEC12AB4347A003D3AD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD23B0927123BB3007C6B47 /* Main.storyboard */; };
+		BCDEAEC22AB4347A003D3AD3 /* HomeTripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC369C652A4FF2B40050770C /* HomeTripTableViewCell.xib */; };
+		BCDEAECB2AB43537003D3AD3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAECA2AB43537003D3AD3 /* Realm */; };
+		BCDEAECD2AB43537003D3AD3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAECC2AB43537003D3AD3 /* RealmSwift */; };
+		BCDEAECF2AB43821003D3AD3 /* DBManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAECE2AB43821003D3AD3 /* DBManagerProtocol.swift */; };
+		BCDEAED02AB43821003D3AD3 /* DBManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAECE2AB43821003D3AD3 /* DBManagerProtocol.swift */; };
+		BCDEAED12AB43821003D3AD3 /* DBManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAECE2AB43821003D3AD3 /* DBManagerProtocol.swift */; };
+		BCDEAEDB2AB5517C003D3AD3 /* DBManagerFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAED92AB55179003D3AD3 /* DBManagerFirebase.swift */; };
+		BCDEAEDE2AB55386003D3AD3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEDD2AB55386003D3AD3 /* FirebaseAnalytics */; };
+		BCDEAEE02AB55386003D3AD3 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEDF2AB55386003D3AD3 /* FirebaseAnalyticsOnDeviceConversion */; };
+		BCDEAEE22AB55386003D3AD3 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEE12AB55386003D3AD3 /* FirebaseAnalyticsSwift */; };
+		BCDEAEE42AB55386003D3AD3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEE32AB55386003D3AD3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		BCDEAEE62AB55386003D3AD3 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEE52AB55386003D3AD3 /* FirebaseAppCheck */; };
+		BCDEAEE82AB55386003D3AD3 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEE72AB55386003D3AD3 /* FirebaseAppDistribution-Beta */; };
+		BCDEAEEA2AB55386003D3AD3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEE92AB55386003D3AD3 /* FirebaseAuth */; };
+		BCDEAEEC2AB55386003D3AD3 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEEB2AB55386003D3AD3 /* FirebaseAuthCombine-Community */; };
+		BCDEAEEE2AB55386003D3AD3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEED2AB55386003D3AD3 /* FirebaseCrashlytics */; };
+		BCDEAEF02AB55386003D3AD3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEEF2AB55386003D3AD3 /* FirebaseDatabase */; };
+		BCDEAEF22AB55386003D3AD3 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEF12AB55386003D3AD3 /* FirebaseDatabaseSwift */; };
+		BCDEAEF42AB55386003D3AD3 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEF32AB55386003D3AD3 /* FirebaseDynamicLinks */; };
+		BCDEAEF62AB55386003D3AD3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEF52AB55386003D3AD3 /* FirebaseFirestore */; };
+		BCDEAEF82AB55386003D3AD3 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEF72AB55386003D3AD3 /* FirebaseFirestoreCombine-Community */; };
+		BCDEAEFA2AB55386003D3AD3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEF92AB55386003D3AD3 /* FirebaseFirestoreSwift */; };
+		BCDEAEFC2AB55386003D3AD3 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEFB2AB55386003D3AD3 /* FirebaseFunctions */; };
+		BCDEAEFE2AB55386003D3AD3 /* FirebaseFunctionsCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEFD2AB55386003D3AD3 /* FirebaseFunctionsCombine-Community */; };
+		BCDEAF002AB55386003D3AD3 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAEFF2AB55386003D3AD3 /* FirebaseInAppMessaging-Beta */; };
+		BCDEAF022AB55386003D3AD3 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAF012AB55386003D3AD3 /* FirebaseInAppMessagingSwift-Beta */; };
+		BCDEAF042AB55386003D3AD3 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAF032AB55386003D3AD3 /* FirebaseInstallations */; };
+		BCDEAF062AB55386003D3AD3 /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAF052AB55386003D3AD3 /* FirebaseMLModelDownloader */; };
+		BCDEAF082AB55386003D3AD3 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAF072AB55386003D3AD3 /* FirebaseMessaging */; };
+		BCDEAF0A2AB55386003D3AD3 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAF092AB55386003D3AD3 /* FirebasePerformance */; };
+		BCDEAF0C2AB55386003D3AD3 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAF0B2AB55386003D3AD3 /* FirebaseRemoteConfig */; };
+		BCDEAF0E2AB55386003D3AD3 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAF0D2AB55386003D3AD3 /* FirebaseRemoteConfigSwift */; };
+		BCDEAF102AB55386003D3AD3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAF0F2AB55386003D3AD3 /* FirebaseStorage */; };
+		BCDEAF122AB55386003D3AD3 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BCDEAF112AB55386003D3AD3 /* FirebaseStorageCombine-Community */; };
+		BCDEAF142AB5547F003D3AD3 /* TripType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF132AB5547F003D3AD3 /* TripType.swift */; };
+		BCDEAF152AB5547F003D3AD3 /* TripType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF132AB5547F003D3AD3 /* TripType.swift */; };
+		BCDEAF162AB5547F003D3AD3 /* TripType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF132AB5547F003D3AD3 /* TripType.swift */; };
+		BCDEAF1D2AB56135003D3AD3 /* TripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF1C2AB56135003D3AD3 /* TripInfoModel.swift */; };
+		BCDEAF1F2AB5614A003D3AD3 /* TripPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF1E2AB56149003D3AD3 /* TripPriceModel.swift */; };
+		BCDEAF212AB56171003D3AD3 /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF202AB56171003D3AD3 /* CurrencyType.swift */; };
+		BCDEAF222AB56171003D3AD3 /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF202AB56171003D3AD3 /* CurrencyType.swift */; };
+		BCDEAF232AB56171003D3AD3 /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF202AB56171003D3AD3 /* CurrencyType.swift */; };
+		BCDEAF252AB5620D003D3AD3 /* TripPriceModel+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF242AB5620D003D3AD3 /* TripPriceModel+Common.swift */; };
+		BCDEAF262AB5620D003D3AD3 /* TripPriceModel+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF242AB5620D003D3AD3 /* TripPriceModel+Common.swift */; };
+		BCDEAF272AB5620D003D3AD3 /* TripPriceModel+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF242AB5620D003D3AD3 /* TripPriceModel+Common.swift */; };
+		BCDEAF292AB563C1003D3AD3 /* TripInfoModel+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF282AB563C1003D3AD3 /* TripInfoModel+Common.swift */; };
+		BCDEAF2A2AB563C1003D3AD3 /* TripInfoModel+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF282AB563C1003D3AD3 /* TripInfoModel+Common.swift */; };
+		BCDEAF2B2AB563C1003D3AD3 /* TripInfoModel+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF282AB563C1003D3AD3 /* TripInfoModel+Common.swift */; };
+		BCDEAF2E2AB59AA1003D3AD3 /* DBManagerVapore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF2D2AB59AA1003D3AD3 /* DBManagerVapore.swift */; };
+		BCDEAF302AB59E79003D3AD3 /* TripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF2F2AB59E79003D3AD3 /* TripInfoModel.swift */; };
+		BCDEAF322AB59E88003D3AD3 /* TripInfoPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF312AB59E88003D3AD3 /* TripInfoPrice.swift */; };
+		BCDEAF342AB5A200003D3AD3 /* ResourceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEAF332AB5A200003D3AD3 /* ResourceRequest.swift */; };
 		BCEA25A9272C8F0700EE9557 /* LocalSavingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */; };
 		BCEE4F7427D3C4E4000A8F61 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE4F7327D3C4E4000A8F61 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
@@ -49,7 +157,7 @@
 		BC1F121627ADE97A00AFCE2A /* ProfileTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarController.swift; sourceTree = "<group>"; };
 		BC33C09527AFF5940040719B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BC3693A427A6A63700F11470 /* TripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoModel.swift; sourceTree = "<group>"; };
-		BC3693A627A6A9E600F11470 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		BC3693A627A6A9E600F11470 /* DBManagerRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManagerRealm.swift; sourceTree = "<group>"; };
 		BC369C642A4FF2B40050770C /* HomeTripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTripTableViewCell.swift; sourceTree = "<group>"; };
 		BC369C652A4FF2B40050770C /* HomeTripTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTripTableViewCell.xib; sourceTree = "<group>"; };
 		BC369C742A50DB080050770C /* UITableView+InsertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+InsertType.swift"; sourceTree = "<group>"; };
@@ -69,13 +177,30 @@
 		BCC6B04427D5079A00F4A2F8 /* SelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionCell.xib; sourceTree = "<group>"; };
 		BCCE383327300D380007402D /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		BCD1F86E2743D23F00FBBF78 /* TripListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListViewController.swift; sourceTree = "<group>"; };
-		BCD23B0027123BB3007C6B47 /* GoTripIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoTripIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCD23B0027123BB3007C6B47 /* GoTripIOSRealm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoTripIOSRealm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD23B0327123BB3007C6B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD23B0527123BB3007C6B47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BCD23B0A27123BB3007C6B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCD23B0C27123BBB007C6B47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD23B0F27123BBB007C6B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BCD23B1127123BBB007C6B47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCD23B1127123BBB007C6B47 /* InfoRealm.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoRealm.plist; sourceTree = "<group>"; };
+		BCDEADFB2AB43232003D3AD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BCDEAE612AB43478003D3AD3 /* GoTripIOSFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoTripIOSFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCDEAE622AB43479003D3AD3 /* InfoFirebase.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = InfoFirebase.plist; path = /Users/glebsobolevsky/Documents/SwiftProjects/GoTrip/GoTripIOS/InfoFirebase.plist; sourceTree = "<absolute>"; };
+		BCDEAEC72AB4347A003D3AD3 /* GoTripIOSVapore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoTripIOSVapore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCDEAEC82AB4347B003D3AD3 /* InfoVapore.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = InfoVapore.plist; path = /Users/glebsobolevsky/Documents/SwiftProjects/GoTrip/GoTripIOS/InfoVapore.plist; sourceTree = "<absolute>"; };
+		BCDEAECE2AB43821003D3AD3 /* DBManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManagerProtocol.swift; sourceTree = "<group>"; };
+		BCDEAED92AB55179003D3AD3 /* DBManagerFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManagerFirebase.swift; sourceTree = "<group>"; };
+		BCDEAF132AB5547F003D3AD3 /* TripType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripType.swift; sourceTree = "<group>"; };
+		BCDEAF1C2AB56135003D3AD3 /* TripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoModel.swift; sourceTree = "<group>"; };
+		BCDEAF1E2AB56149003D3AD3 /* TripPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPriceModel.swift; sourceTree = "<group>"; };
+		BCDEAF202AB56171003D3AD3 /* CurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyType.swift; sourceTree = "<group>"; };
+		BCDEAF242AB5620D003D3AD3 /* TripPriceModel+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripPriceModel+Common.swift"; sourceTree = "<group>"; };
+		BCDEAF282AB563C1003D3AD3 /* TripInfoModel+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripInfoModel+Common.swift"; sourceTree = "<group>"; };
+		BCDEAF2D2AB59AA1003D3AD3 /* DBManagerVapore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManagerVapore.swift; sourceTree = "<group>"; };
+		BCDEAF2F2AB59E79003D3AD3 /* TripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoModel.swift; sourceTree = "<group>"; };
+		BCDEAF312AB59E88003D3AD3 /* TripInfoPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoPrice.swift; sourceTree = "<group>"; };
+		BCDEAF332AB5A200003D3AD3 /* ResourceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRequest.swift; sourceTree = "<group>"; };
 		BCEA25A8272C8F0700EE9557 /* LocalSavingSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSavingSystem.swift; sourceTree = "<group>"; };
 		BCEE4F7327D3C4E4000A8F61 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,8 +210,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC9235452AB3E67900B9AF25 /* RealmSwift in Frameworks */,
-				BC9235432AB3E67900B9AF25 /* Realm in Frameworks */,
+				BCDEAECD2AB43537003D3AD3 /* RealmSwift in Frameworks */,
+				BCDEAECB2AB43537003D3AD3 /* Realm in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCDEAE392AB43478003D3AD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDEAEF02AB55386003D3AD3 /* FirebaseDatabase in Frameworks */,
+				BCDEAEFE2AB55386003D3AD3 /* FirebaseFunctionsCombine-Community in Frameworks */,
+				BCDEAEF62AB55386003D3AD3 /* FirebaseFirestore in Frameworks */,
+				BCDEAEE22AB55386003D3AD3 /* FirebaseAnalyticsSwift in Frameworks */,
+				BCDEAEDE2AB55386003D3AD3 /* FirebaseAnalytics in Frameworks */,
+				BCDEAEE02AB55386003D3AD3 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				BCDEAF062AB55386003D3AD3 /* FirebaseMLModelDownloader in Frameworks */,
+				BCDEAEFA2AB55386003D3AD3 /* FirebaseFirestoreSwift in Frameworks */,
+				BCDEAEE62AB55386003D3AD3 /* FirebaseAppCheck in Frameworks */,
+				BCDEAEE42AB55386003D3AD3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				BCDEAEEA2AB55386003D3AD3 /* FirebaseAuth in Frameworks */,
+				BCDEAEEE2AB55386003D3AD3 /* FirebaseCrashlytics in Frameworks */,
+				BCDEAF0E2AB55386003D3AD3 /* FirebaseRemoteConfigSwift in Frameworks */,
+				BCDEAF002AB55386003D3AD3 /* FirebaseInAppMessaging-Beta in Frameworks */,
+				BCDEAEF22AB55386003D3AD3 /* FirebaseDatabaseSwift in Frameworks */,
+				BCDEAEFC2AB55386003D3AD3 /* FirebaseFunctions in Frameworks */,
+				BCDEAF122AB55386003D3AD3 /* FirebaseStorageCombine-Community in Frameworks */,
+				BCDEAF0C2AB55386003D3AD3 /* FirebaseRemoteConfig in Frameworks */,
+				BCDEAEE82AB55386003D3AD3 /* FirebaseAppDistribution-Beta in Frameworks */,
+				BCDEAEEC2AB55386003D3AD3 /* FirebaseAuthCombine-Community in Frameworks */,
+				BCDEAF0A2AB55386003D3AD3 /* FirebasePerformance in Frameworks */,
+				BCDEAF022AB55386003D3AD3 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				BCDEAF102AB55386003D3AD3 /* FirebaseStorage in Frameworks */,
+				BCDEAEF42AB55386003D3AD3 /* FirebaseDynamicLinks in Frameworks */,
+				BCDEAEF82AB55386003D3AD3 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				BCDEAF082AB55386003D3AD3 /* FirebaseMessaging in Frameworks */,
+				BCDEAF042AB55386003D3AD3 /* FirebaseInstallations in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCDEAE9F2AB4347A003D3AD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +300,14 @@
 		BC149CBD272D69E500C5F7D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BCDEAF132AB5547F003D3AD3 /* TripType.swift */,
+				BCDEAF202AB56171003D3AD3 /* CurrencyType.swift */,
+				BCDEAF282AB563C1003D3AD3 /* TripInfoModel+Common.swift */,
+				BCDEAF242AB5620D003D3AD3 /* TripPriceModel+Common.swift */,
+				BCDEAECE2AB43821003D3AD3 /* DBManagerProtocol.swift */,
 				BC3693A827A6BF1300F11470 /* RealmModel */,
+				BCDEAF1B2AB56117003D3AD3 /* FirebaseModel */,
+				BCDEAF2C2AB599E9003D3AD3 /* VaporeModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,9 +315,9 @@
 		BC3693A827A6BF1300F11470 /* RealmModel */ = {
 			isa = PBXGroup;
 			children = (
-				BC3693A627A6A9E600F11470 /* DBManager.swift */,
 				BC3693A427A6A63700F11470 /* TripInfoModel.swift */,
 				BC8CF06A28916C1F005E490C /* TripPriceModel.swift */,
+				BC3693A627A6A9E600F11470 /* DBManagerRealm.swift */,
 			);
 			path = RealmModel;
 			sourceTree = "<group>";
@@ -189,7 +362,9 @@
 		BCD23B0127123BB3007C6B47 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BCD23B0027123BB3007C6B47 /* GoTripIOS.app */,
+				BCD23B0027123BB3007C6B47 /* GoTripIOSRealm.app */,
+				BCDEAE612AB43478003D3AD3 /* GoTripIOSFirebase.app */,
+				BCDEAEC72AB4347A003D3AD3 /* GoTripIOSVapore.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,22 +378,46 @@
 				BCA7248D274AA5A30051C545 /* Segue */,
 				BC8CF06728916BD2005E490C /* Utilities */,
 				BCD035FE272D9C240033DCF1 /* Other */,
-				BCD23B0927123BB3007C6B47 /* Main.storyboard */,
-				BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */,
-				BCD23B1127123BBB007C6B47 /* Info.plist */,
 				BCD23B0327123BB3007C6B47 /* AppDelegate.swift */,
 				BCD23B0527123BB3007C6B47 /* SceneDelegate.swift */,
+				BCD23B0927123BB3007C6B47 /* Main.storyboard */,
+				BCD23B0E27123BBB007C6B47 /* LaunchScreen.storyboard */,
+				BCD23B1127123BBB007C6B47 /* InfoRealm.plist */,
+				BCDEAE622AB43479003D3AD3 /* InfoFirebase.plist */,
+				BCDEAEC82AB4347B003D3AD3 /* InfoVapore.plist */,
+				BCDEADFB2AB43232003D3AD3 /* GoogleService-Info.plist */,
 				BCD23B0C27123BBB007C6B47 /* Assets.xcassets */,
 			);
 			path = GoTripIOS;
 			sourceTree = "<group>";
 		};
+		BCDEAF1B2AB56117003D3AD3 /* FirebaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				BCDEAF1C2AB56135003D3AD3 /* TripInfoModel.swift */,
+				BCDEAF1E2AB56149003D3AD3 /* TripPriceModel.swift */,
+				BCDEAED92AB55179003D3AD3 /* DBManagerFirebase.swift */,
+			);
+			path = FirebaseModel;
+			sourceTree = "<group>";
+		};
+		BCDEAF2C2AB599E9003D3AD3 /* VaporeModel */ = {
+			isa = PBXGroup;
+			children = (
+				BCDEAF2F2AB59E79003D3AD3 /* TripInfoModel.swift */,
+				BCDEAF312AB59E88003D3AD3 /* TripInfoPrice.swift */,
+				BCDEAF2D2AB59AA1003D3AD3 /* DBManagerVapore.swift */,
+				BCDEAF332AB5A200003D3AD3 /* ResourceRequest.swift */,
+			);
+			path = VaporeModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BCD23AFF27123BB3007C6B47 /* GoTripIOS */ = {
+		BCD23AFF27123BB3007C6B47 /* GoTripIOSRealm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BCD23B1427123BBC007C6B47 /* Build configuration list for PBXNativeTarget "GoTripIOS" */;
+			buildConfigurationList = BCD23B1427123BBC007C6B47 /* Build configuration list for PBXNativeTarget "GoTripIOSRealm" */;
 			buildPhases = (
 				BCD23AFC27123BB3007C6B47 /* Sources */,
 				BCD23AFD27123BB3007C6B47 /* Frameworks */,
@@ -228,13 +427,78 @@
 			);
 			dependencies = (
 			);
-			name = GoTripIOS;
+			name = GoTripIOSRealm;
 			packageProductDependencies = (
-				BC9235422AB3E67900B9AF25 /* Realm */,
-				BC9235442AB3E67900B9AF25 /* RealmSwift */,
+				BCDEAECA2AB43537003D3AD3 /* Realm */,
+				BCDEAECC2AB43537003D3AD3 /* RealmSwift */,
 			);
 			productName = GoTripIOS;
-			productReference = BCD23B0027123BB3007C6B47 /* GoTripIOS.app */;
+			productReference = BCD23B0027123BB3007C6B47 /* GoTripIOSRealm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BCDEADFD2AB43478003D3AD3 /* GoTripIOSFirebase */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCDEAE5E2AB43478003D3AD3 /* Build configuration list for PBXNativeTarget "GoTripIOSFirebase" */;
+			buildPhases = (
+				BCDEAE1D2AB43478003D3AD3 /* Sources */,
+				BCDEAE392AB43478003D3AD3 /* Frameworks */,
+				BCDEAE572AB43478003D3AD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoTripIOSFirebase;
+			packageProductDependencies = (
+				BCDEAEDD2AB55386003D3AD3 /* FirebaseAnalytics */,
+				BCDEAEDF2AB55386003D3AD3 /* FirebaseAnalyticsOnDeviceConversion */,
+				BCDEAEE12AB55386003D3AD3 /* FirebaseAnalyticsSwift */,
+				BCDEAEE32AB55386003D3AD3 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				BCDEAEE52AB55386003D3AD3 /* FirebaseAppCheck */,
+				BCDEAEE72AB55386003D3AD3 /* FirebaseAppDistribution-Beta */,
+				BCDEAEE92AB55386003D3AD3 /* FirebaseAuth */,
+				BCDEAEEB2AB55386003D3AD3 /* FirebaseAuthCombine-Community */,
+				BCDEAEED2AB55386003D3AD3 /* FirebaseCrashlytics */,
+				BCDEAEEF2AB55386003D3AD3 /* FirebaseDatabase */,
+				BCDEAEF12AB55386003D3AD3 /* FirebaseDatabaseSwift */,
+				BCDEAEF32AB55386003D3AD3 /* FirebaseDynamicLinks */,
+				BCDEAEF52AB55386003D3AD3 /* FirebaseFirestore */,
+				BCDEAEF72AB55386003D3AD3 /* FirebaseFirestoreCombine-Community */,
+				BCDEAEF92AB55386003D3AD3 /* FirebaseFirestoreSwift */,
+				BCDEAEFB2AB55386003D3AD3 /* FirebaseFunctions */,
+				BCDEAEFD2AB55386003D3AD3 /* FirebaseFunctionsCombine-Community */,
+				BCDEAEFF2AB55386003D3AD3 /* FirebaseInAppMessaging-Beta */,
+				BCDEAF012AB55386003D3AD3 /* FirebaseInAppMessagingSwift-Beta */,
+				BCDEAF032AB55386003D3AD3 /* FirebaseInstallations */,
+				BCDEAF052AB55386003D3AD3 /* FirebaseMLModelDownloader */,
+				BCDEAF072AB55386003D3AD3 /* FirebaseMessaging */,
+				BCDEAF092AB55386003D3AD3 /* FirebasePerformance */,
+				BCDEAF0B2AB55386003D3AD3 /* FirebaseRemoteConfig */,
+				BCDEAF0D2AB55386003D3AD3 /* FirebaseRemoteConfigSwift */,
+				BCDEAF0F2AB55386003D3AD3 /* FirebaseStorage */,
+				BCDEAF112AB55386003D3AD3 /* FirebaseStorageCombine-Community */,
+			);
+			productName = GoTripIOS;
+			productReference = BCDEAE612AB43478003D3AD3 /* GoTripIOSFirebase.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BCDEAE632AB4347A003D3AD3 /* GoTripIOSVapore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCDEAEC42AB4347A003D3AD3 /* Build configuration list for PBXNativeTarget "GoTripIOSVapore" */;
+			buildPhases = (
+				BCDEAE832AB4347A003D3AD3 /* Sources */,
+				BCDEAE9F2AB4347A003D3AD3 /* Frameworks */,
+				BCDEAEBD2AB4347A003D3AD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoTripIOSVapore;
+			packageProductDependencies = (
+			);
+			productName = GoTripIOS;
+			productReference = BCDEAEC72AB4347A003D3AD3 /* GoTripIOSVapore.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -262,13 +526,16 @@
 			);
 			mainGroup = BCD23AF727123BB3007C6B47;
 			packageReferences = (
-				BC9235412AB3E67900B9AF25 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BCDEAEC92AB43537003D3AD3 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = BCD23B0127123BB3007C6B47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BCD23AFF27123BB3007C6B47 /* GoTripIOS */,
+				BCD23AFF27123BB3007C6B47 /* GoTripIOSRealm */,
+				BCDEADFD2AB43478003D3AD3 /* GoTripIOSFirebase */,
+				BCDEAE632AB4347A003D3AD3 /* GoTripIOSVapore */,
 			);
 		};
 /* End PBXProject section */
@@ -286,6 +553,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BCDEAE572AB43478003D3AD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDEAE582AB43478003D3AD3 /* SelectionCell.xib in Resources */,
+				BCDEAE592AB43478003D3AD3 /* LaunchScreen.storyboard in Resources */,
+				BCDEAE5A2AB43478003D3AD3 /* Assets.xcassets in Resources */,
+				BCDEAE5B2AB43478003D3AD3 /* Main.storyboard in Resources */,
+				BCDEAE5C2AB43478003D3AD3 /* HomeTripTableViewCell.xib in Resources */,
+				BCDEAE5D2AB43478003D3AD3 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCDEAEBD2AB4347A003D3AD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDEAEBE2AB4347A003D3AD3 /* SelectionCell.xib in Resources */,
+				BCDEAEBF2AB4347A003D3AD3 /* LaunchScreen.storyboard in Resources */,
+				BCDEAEC02AB4347A003D3AD3 /* Assets.xcassets in Resources */,
+				BCDEAEC12AB4347A003D3AD3 /* Main.storyboard in Resources */,
+				BCDEAEC22AB4347A003D3AD3 /* HomeTripTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -294,6 +586,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD1F86F2743D23F00FBBF78 /* TripListViewController.swift in Sources */,
+				BCDEAF212AB56171003D3AD3 /* CurrencyType.swift in Sources */,
+				BCDEAECF2AB43821003D3AD3 /* DBManagerProtocol.swift in Sources */,
 				BC122A4127399EB000AC356F /* AddBlockViewController.swift in Sources */,
 				BCC278A52782718D002D3EB9 /* LocationSearchTable.swift in Sources */,
 				BC7BA970271750C100EBB697 /* HomeViewController.swift in Sources */,
@@ -303,9 +597,11 @@
 				BC7AE22D2752605B005936B8 /* DetailedTripViewTransition.swift in Sources */,
 				BC52B6512778B697009E7682 /* MapViewController.swift in Sources */,
 				BCD23B0427123BB3007C6B47 /* AppDelegate.swift in Sources */,
+				BCDEAF252AB5620D003D3AD3 /* TripPriceModel+Common.swift in Sources */,
 				BCD23B0627123BB3007C6B47 /* SceneDelegate.swift in Sources */,
 				BC33C09627AFF5940040719B /* ProfileViewController.swift in Sources */,
 				BCEA25A9272C8F0700EE9557 /* LocalSavingSystem.swift in Sources */,
+				BCDEAF142AB5547F003D3AD3 /* TripType.swift in Sources */,
 				BC08E769274D58C000D00387 /* TripDetailedViewController.swift in Sources */,
 				BC59FF3027467F87001DCA06 /* TripTableViewCell.swift in Sources */,
 				BC7EDD5A27510ADD0029B0FA /* TripDotsView.swift in Sources */,
@@ -314,12 +610,92 @@
 				BCBE3C34278B0E0600479BD3 /* KeyboardDismissExtension.swift in Sources */,
 				BC3693A527A6A63700F11470 /* TripInfoModel.swift in Sources */,
 				BCCE383427300D380007402D /* StatisticViewController.swift in Sources */,
-				BC3693A727A6A9E600F11470 /* DBManager.swift in Sources */,
+				BC3693A727A6A9E600F11470 /* DBManagerRealm.swift in Sources */,
+				BCDEAF292AB563C1003D3AD3 /* TripInfoModel+Common.swift in Sources */,
 				BCA72491274AAC210051C545 /* PushPresentAnimator.swift in Sources */,
 				BCBF02632AAEA53B006FDA24 /* Observable.swift in Sources */,
 				BC8CF06B28916C1F005E490C /* TripPriceModel.swift in Sources */,
 				BC1F121727ADE97B00AFCE2A /* ProfileTabBarController.swift in Sources */,
 				BC369C752A50DB080050770C /* UITableView+InsertType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCDEAE1D2AB43478003D3AD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDEAE1E2AB43478003D3AD3 /* TripListViewController.swift in Sources */,
+				BCDEAF222AB56171003D3AD3 /* CurrencyType.swift in Sources */,
+				BCDEAF1D2AB56135003D3AD3 /* TripInfoModel.swift in Sources */,
+				BCDEAED02AB43821003D3AD3 /* DBManagerProtocol.swift in Sources */,
+				BCDEAE1F2AB43478003D3AD3 /* AddBlockViewController.swift in Sources */,
+				BCDEAE202AB43478003D3AD3 /* LocationSearchTable.swift in Sources */,
+				BCDEAE212AB43478003D3AD3 /* HomeViewController.swift in Sources */,
+				BCDEAE222AB43478003D3AD3 /* SelectionCell.swift in Sources */,
+				BCDEAE232AB43478003D3AD3 /* SettingViewController.swift in Sources */,
+				BCDEAE242AB43478003D3AD3 /* TripUtilities.swift in Sources */,
+				BCDEAE252AB43478003D3AD3 /* DetailedTripViewTransition.swift in Sources */,
+				BCDEAE262AB43478003D3AD3 /* MapViewController.swift in Sources */,
+				BCDEAE272AB43478003D3AD3 /* AppDelegate.swift in Sources */,
+				BCDEAF262AB5620D003D3AD3 /* TripPriceModel+Common.swift in Sources */,
+				BCDEAE282AB43478003D3AD3 /* SceneDelegate.swift in Sources */,
+				BCDEAE292AB43478003D3AD3 /* ProfileViewController.swift in Sources */,
+				BCDEAE2A2AB43478003D3AD3 /* LocalSavingSystem.swift in Sources */,
+				BCDEAE2B2AB43478003D3AD3 /* TripDetailedViewController.swift in Sources */,
+				BCDEAE2C2AB43478003D3AD3 /* TripTableViewCell.swift in Sources */,
+				BCDEAF152AB5547F003D3AD3 /* TripType.swift in Sources */,
+				BCDEAEDB2AB5517C003D3AD3 /* DBManagerFirebase.swift in Sources */,
+				BCDEAE2D2AB43478003D3AD3 /* TripDotsView.swift in Sources */,
+				BCDEAE2E2AB43478003D3AD3 /* GradientBlock.swift in Sources */,
+				BCDEAE2F2AB43478003D3AD3 /* HomeTripTableViewCell.swift in Sources */,
+				BCDEAE302AB43478003D3AD3 /* KeyboardDismissExtension.swift in Sources */,
+				BCDEAE322AB43478003D3AD3 /* StatisticViewController.swift in Sources */,
+				BCDEAF2A2AB563C1003D3AD3 /* TripInfoModel+Common.swift in Sources */,
+				BCDEAE342AB43478003D3AD3 /* PushPresentAnimator.swift in Sources */,
+				BCDEAF1F2AB5614A003D3AD3 /* TripPriceModel.swift in Sources */,
+				BCDEAE352AB43478003D3AD3 /* Observable.swift in Sources */,
+				BCDEAE372AB43478003D3AD3 /* ProfileTabBarController.swift in Sources */,
+				BCDEAE382AB43478003D3AD3 /* UITableView+InsertType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCDEAE832AB4347A003D3AD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDEAE842AB4347A003D3AD3 /* TripListViewController.swift in Sources */,
+				BCDEAED12AB43821003D3AD3 /* DBManagerProtocol.swift in Sources */,
+				BCDEAF232AB56171003D3AD3 /* CurrencyType.swift in Sources */,
+				BCDEAE852AB4347A003D3AD3 /* AddBlockViewController.swift in Sources */,
+				BCDEAE862AB4347A003D3AD3 /* LocationSearchTable.swift in Sources */,
+				BCDEAE872AB4347A003D3AD3 /* HomeViewController.swift in Sources */,
+				BCDEAE882AB4347A003D3AD3 /* SelectionCell.swift in Sources */,
+				BCDEAE892AB4347A003D3AD3 /* SettingViewController.swift in Sources */,
+				BCDEAE8A2AB4347A003D3AD3 /* TripUtilities.swift in Sources */,
+				BCDEAE8B2AB4347A003D3AD3 /* DetailedTripViewTransition.swift in Sources */,
+				BCDEAE8C2AB4347A003D3AD3 /* MapViewController.swift in Sources */,
+				BCDEAF272AB5620D003D3AD3 /* TripPriceModel+Common.swift in Sources */,
+				BCDEAF322AB59E88003D3AD3 /* TripInfoPrice.swift in Sources */,
+				BCDEAF342AB5A200003D3AD3 /* ResourceRequest.swift in Sources */,
+				BCDEAE8D2AB4347A003D3AD3 /* AppDelegate.swift in Sources */,
+				BCDEAE8E2AB4347A003D3AD3 /* SceneDelegate.swift in Sources */,
+				BCDEAF2B2AB563C1003D3AD3 /* TripInfoModel+Common.swift in Sources */,
+				BCDEAE8F2AB4347A003D3AD3 /* ProfileViewController.swift in Sources */,
+				BCDEAE902AB4347A003D3AD3 /* LocalSavingSystem.swift in Sources */,
+				BCDEAF302AB59E79003D3AD3 /* TripInfoModel.swift in Sources */,
+				BCDEAF162AB5547F003D3AD3 /* TripType.swift in Sources */,
+				BCDEAE912AB4347A003D3AD3 /* TripDetailedViewController.swift in Sources */,
+				BCDEAE922AB4347A003D3AD3 /* TripTableViewCell.swift in Sources */,
+				BCDEAE932AB4347A003D3AD3 /* TripDotsView.swift in Sources */,
+				BCDEAE942AB4347A003D3AD3 /* GradientBlock.swift in Sources */,
+				BCDEAE952AB4347A003D3AD3 /* HomeTripTableViewCell.swift in Sources */,
+				BCDEAE962AB4347A003D3AD3 /* KeyboardDismissExtension.swift in Sources */,
+				BCDEAF2E2AB59AA1003D3AD3 /* DBManagerVapore.swift in Sources */,
+				BCDEAE982AB4347A003D3AD3 /* StatisticViewController.swift in Sources */,
+				BCDEAE9A2AB4347A003D3AD3 /* PushPresentAnimator.swift in Sources */,
+				BCDEAE9B2AB4347A003D3AD3 /* Observable.swift in Sources */,
+				BCDEAE9D2AB4347A003D3AD3 /* ProfileTabBarController.swift in Sources */,
+				BCDEAE9E2AB4347A003D3AD3 /* UITableView+InsertType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,13 +846,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38M6285G4U;
-				INFOPLIST_FILE = GoTripIOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_FILE = GoTripIOS/InfoRealm.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hlebushek.GoTripIOS;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hlebushek.GoTripIOSRealm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -490,13 +867,98 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38M6285G4U;
-				INFOPLIST_FILE = GoTripIOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_FILE = GoTripIOS/InfoRealm.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hlebushek.GoTripIOS;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hlebushek.GoTripIOSRealm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BCDEAE5F2AB43478003D3AD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38M6285G4U;
+				INFOPLIST_FILE = GoTripIOS/InfoFirebase.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hlebushek.GoTripIOSFirebase;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BCDEAE602AB43478003D3AD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38M6285G4U;
+				INFOPLIST_FILE = GoTripIOS/InfoFirebase.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hlebushek.GoTripIOSFirebase;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BCDEAEC52AB4347A003D3AD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38M6285G4U;
+				INFOPLIST_FILE = GoTripIOS/InfoVapore.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hlebushek.GoTripIOSVapor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BCDEAEC62AB4347A003D3AD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38M6285G4U;
+				INFOPLIST_FILE = GoTripIOS/InfoVapore.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hlebushek.GoTripIOSVapor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,7 +977,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BCD23B1427123BBC007C6B47 /* Build configuration list for PBXNativeTarget "GoTripIOS" */ = {
+		BCD23B1427123BBC007C6B47 /* Build configuration list for PBXNativeTarget "GoTripIOSRealm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BCD23B1527123BBC007C6B47 /* Debug */,
@@ -524,29 +986,190 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		BCDEAE5E2AB43478003D3AD3 /* Build configuration list for PBXNativeTarget "GoTripIOSFirebase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCDEAE5F2AB43478003D3AD3 /* Debug */,
+				BCDEAE602AB43478003D3AD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCDEAEC42AB4347A003D3AD3 /* Build configuration list for PBXNativeTarget "GoTripIOSVapore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCDEAEC52AB4347A003D3AD3 /* Debug */,
+				BCDEAEC62AB4347A003D3AD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BC9235412AB3E67900B9AF25 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		BCDEAEC92AB43537003D3AD3 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.42.2;
+			};
+		};
+		BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.15.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BC9235422AB3E67900B9AF25 /* Realm */ = {
+		BCDEAECA2AB43537003D3AD3 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BC9235412AB3E67900B9AF25 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = BCDEAEC92AB43537003D3AD3 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		BC9235442AB3E67900B9AF25 /* RealmSwift */ = {
+		BCDEAECC2AB43537003D3AD3 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BC9235412AB3E67900B9AF25 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = BCDEAEC92AB43537003D3AD3 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		BCDEAEDD2AB55386003D3AD3 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		BCDEAEDF2AB55386003D3AD3 /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		BCDEAEE12AB55386003D3AD3 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		BCDEAEE32AB55386003D3AD3 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		BCDEAEE52AB55386003D3AD3 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		BCDEAEE72AB55386003D3AD3 /* FirebaseAppDistribution-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAppDistribution-Beta";
+		};
+		BCDEAEE92AB55386003D3AD3 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		BCDEAEEB2AB55386003D3AD3 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		BCDEAEED2AB55386003D3AD3 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		BCDEAEEF2AB55386003D3AD3 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		BCDEAEF12AB55386003D3AD3 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		BCDEAEF32AB55386003D3AD3 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+		BCDEAEF52AB55386003D3AD3 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BCDEAEF72AB55386003D3AD3 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		BCDEAEF92AB55386003D3AD3 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		BCDEAEFB2AB55386003D3AD3 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		BCDEAEFD2AB55386003D3AD3 /* FirebaseFunctionsCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFunctionsCombine-Community";
+		};
+		BCDEAEFF2AB55386003D3AD3 /* FirebaseInAppMessaging-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessaging-Beta";
+		};
+		BCDEAF012AB55386003D3AD3 /* FirebaseInAppMessagingSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessagingSwift-Beta";
+		};
+		BCDEAF032AB55386003D3AD3 /* FirebaseInstallations */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseInstallations;
+		};
+		BCDEAF052AB55386003D3AD3 /* FirebaseMLModelDownloader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMLModelDownloader;
+		};
+		BCDEAF072AB55386003D3AD3 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		BCDEAF092AB55386003D3AD3 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		BCDEAF0B2AB55386003D3AD3 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		BCDEAF0D2AB55386003D3AD3 /* FirebaseRemoteConfigSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfigSwift;
+		};
+		BCDEAF0F2AB55386003D3AD3 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		BCDEAF112AB55386003D3AD3 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDEAEDC2AB55386003D3AD3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

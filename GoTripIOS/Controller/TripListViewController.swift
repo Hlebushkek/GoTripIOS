@@ -32,8 +32,8 @@ class TripListViewController: UIViewController {
         typeImage?.image = tripType.image()
         
         tableView?.alpha = 0
-        dbManager.getTrips(with: tripType) { [weak self] infos in
-            self?.trips = infos
+        dbManager.fetchTrips { [weak self] infos in
+            self?.trips = infos.filter { $0.type == self?.tripType }
             UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
                 self?.tableView?.alpha = 1
             }, completion: nil)

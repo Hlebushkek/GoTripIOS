@@ -9,32 +9,19 @@ import RealmSwift
 
 class TripPriceModel: Object, Codable {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted private var integerPart = 0
-    @Persisted private var fractionalPart = 0
+    @Persisted var integerPart = 0
+    @Persisted var fractionalPart = 0
     @Persisted var currencyType: CurrencyType = .EUR
     
-    override var description: String {
-        return "\(integerPart).\(fractionalPart)\(currencyType.rawValue)"
-    }
-    
-    convenience init(_ value: Float) {
-        self.init()
-        
+    init(_ value: Float) {
+        super.init()
         self.integerPart = Int(value)
         self.fractionalPart = Int((value - Float(self.integerPart)) * 100)
     }
     
-    func getAsFloat() -> Float {
-        return Float(integerPart) + Float(fractionalPart) / 100
-    }
-    
-    static func free() -> TripPriceModel {
-        return TripPriceModel(0.0)
+    override var description: String {
+        return "\(integerPart).\(fractionalPart)\(currencyType.rawValue)"
     }
 }
 
-enum CurrencyType: String, PersistableEnum, Codable, CaseIterable {
-    case USD = "$"
-    case EUR = "€"
-    case UAH = "₴"
-}
+extension CurrencyType: PersistableEnum {}

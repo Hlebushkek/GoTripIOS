@@ -13,7 +13,7 @@
         <!--Home-->
         <scene sceneID="OSB-W7-FFi">
             <objects>
-                <viewController id="QiM-UL-7GL" customClass="HomeViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QiM-UL-7GL" customClass="HomeViewController" customModule="GoTripIOSFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T8c-Vn-YkE"/>
                         <viewControllerLayoutGuide type="bottom" id="VSg-QZ-ihp"/>
@@ -120,7 +120,7 @@
         <!--Add Block View Controller-->
         <scene sceneID="SYa-Ur-0Ny">
             <objects>
-                <viewController title="Add Block View Controller" id="mCT-7x-ghx" customClass="AddBlockViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Block View Controller" id="mCT-7x-ghx" customClass="AddBlockViewController" customModule="GoTripIOSFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2zL-Jp-8wr"/>
                         <viewControllerLayoutGuide type="bottom" id="Ufq-oD-1dg"/>
@@ -248,7 +248,7 @@
         <!--Map View Controller-->
         <scene sceneID="82e-4I-qIX">
             <objects>
-                <viewController id="Gf7-av-Kc9" customClass="MapViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Gf7-av-Kc9" customClass="MapViewController" customModule="GoTripIOSFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k7c-HC-FxL"/>
                         <viewControllerLayoutGuide type="bottom" id="xUU-Fk-Rjb"/>
@@ -295,7 +295,7 @@
         <!--Location Search Table-->
         <scene sceneID="4o7-3o-ruQ">
             <objects>
-                <viewController storyboardIdentifier="LocationSearchTable" id="fiv-fA-yz7" customClass="LocationSearchTable" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationSearchTable" id="fiv-fA-yz7" customClass="LocationSearchTable" customModule="GoTripIOSFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6MF-CI-fkJ"/>
                         <viewControllerLayoutGuide type="bottom" id="aRH-aM-Pun"/>
@@ -313,7 +313,7 @@
         <!--Profile-->
         <scene sceneID="XOi-Hq-qqr">
             <objects>
-                <viewController title="Profile" id="Urc-Mt-dnj" customClass="ProfileViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Profile" id="Urc-Mt-dnj" customClass="ProfileViewController" customModule="GoTripIOSFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FFe-eV-2Fl"/>
                         <viewControllerLayoutGuide type="bottom" id="o4R-ff-4pN"/>
@@ -335,14 +335,28 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXi-Wh-Da0">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPS-5A-8kv">
                                         <rect key="frame" x="0.0" y="115.99999999999999" width="294" height="34.333333333333329"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Sign In / Sign Up"/>
-                                        <connections>
-                                            <action selector="SignInUpButton:" destination="Urc-Mt-dnj" eventType="touchUpInside" id="PUY-v2-6JK"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXi-Wh-Da0">
+                                                <rect key="frame" x="0.0" y="0.0" width="147" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign In"/>
+                                                <connections>
+                                                    <action selector="SignInUpButton:" destination="Urc-Mt-dnj" eventType="touchUpInside" id="imL-7W-ETh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="dwL-Qt-7M7">
+                                                <rect key="frame" x="147" y="0.0" width="147" height="34.333333333333336"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
+                                                <connections>
+                                                    <action selector="signUp:" destination="Urc-Mt-dnj" eventType="touchUpInside" id="qbz-KP-e8e"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BWQ-FW-bXV" userLabel="ProfileInfoStack">
@@ -411,7 +425,7 @@
         <!--Settings-->
         <scene sceneID="uTN-fy-1Vx">
             <objects>
-                <viewController title="Settings" id="DmS-Al-vXp" customClass="SettingViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" id="DmS-Al-vXp" customClass="SettingViewController" customModule="GoTripIOSFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ozj-ko-NwF"/>
                         <viewControllerLayoutGuide type="bottom" id="gJm-xt-JdB"/>
@@ -479,7 +493,7 @@
         <!--Preferences-->
         <scene sceneID="NG0-tV-Ye0">
             <objects>
-                <tabBarController storyboardIdentifier="profileTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fhZ-ca-kgY" customClass="ProfileTabBarController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="profileTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fhZ-ca-kgY" customClass="ProfileTabBarController" customModule="GoTripIOSFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Preferences" id="c2R-4d-Y3c"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vax-4z-8gM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -499,7 +513,7 @@
         <!--Statistic-->
         <scene sceneID="0Ke-BQ-nLI">
             <objects>
-                <viewController title="Statistic" id="YRg-CR-e5L" customClass="StatisticViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Statistic" id="YRg-CR-e5L" customClass="StatisticViewController" customModule="GoTripIOSFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xqg-FX-xrQ"/>
                         <viewControllerLayoutGuide type="bottom" id="3OR-JO-UL1"/>
@@ -1297,7 +1311,7 @@
         <!--Trip List View Controller-->
         <scene sceneID="FkQ-bl-7sz">
             <objects>
-                <viewController storyboardIdentifier="tripListController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Knc-Dl-8lJ" customClass="TripListViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tripListController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Knc-Dl-8lJ" customClass="TripListViewController" customModule="GoTripIOSFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M2q-ry-390"/>
                         <viewControllerLayoutGuide type="bottom" id="dGk-iy-o3E"/>
@@ -1310,7 +1324,7 @@
                                 <rect key="frame" x="16" y="98" width="358" height="746"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripsByTypeTableCell" id="0Wq-Pu-JAC" customClass="TripTableViewCell" customModule="GoTripIOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripsByTypeTableCell" id="0Wq-Pu-JAC" customClass="TripTableViewCell" customModule="GoTripIOSFirebase" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.333332061767578" width="318" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Wq-Pu-JAC" id="aR0-Ik-M4Q">
@@ -1423,7 +1437,7 @@
         <!--Trip Detailed View Controller-->
         <scene sceneID="jcC-U1-4Gq">
             <objects>
-                <viewController storyboardIdentifier="tripDetailedController" modalPresentationStyle="formSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u5t-4I-mjz" customClass="TripDetailedViewController" customModule="GoTripIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tripDetailedController" modalPresentationStyle="formSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u5t-4I-mjz" customClass="TripDetailedViewController" customModule="GoTripIOSFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r7T-gi-WYQ"/>
                         <viewControllerLayoutGuide type="bottom" id="9is-hC-ZMS"/>
@@ -1472,7 +1486,7 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Kz-E3-ki3" customClass="TripDotsView" customModule="GoTripIOS" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Kz-E3-ki3" customClass="TripDotsView" customModule="GoTripIOSFirebase" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="26.333333333333329" width="374" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="U9b-9N-rt8"/>
@@ -1639,19 +1653,19 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

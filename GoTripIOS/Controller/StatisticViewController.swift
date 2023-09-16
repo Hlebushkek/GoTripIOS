@@ -82,15 +82,19 @@ class StatisticViewController: UIViewController {
             }
         }
     }
+    
     func getCountByType() -> [Int] {
-        return dbManager.getTripCountByTrip()
+//        return dbManager.getTripCountByTrip()
+        return [0, 0, 0, 0]
     }
+    
     func recalcHeight() {
         counts.removeAll()
         counts.append(getCountByType())
         counts.append([3, 12, 4, 3, 1])
         counts.append([6, 7, 2, 11])
     }
+    
     func getHeightConstraint() {
         for i in 0...stacksHeightConstraint.count - 1 {
             for j in 0...stackContainer[i].count - 1 {
@@ -152,6 +156,7 @@ class StatisticViewController: UIViewController {
             self.priceView.alpha = 0
         })
     }
+    
     @IBAction func typeButtonAction(_ sender: Any?) {
         if currentlySelectedWindow == .TripType {return}
         
@@ -163,6 +168,7 @@ class StatisticViewController: UIViewController {
                 self.calcHeight()
             })
     }
+    
     @IBAction func durationButtonAction(_ sender: Any?) {
         if currentlySelectedWindow == .Duration {return}
         
@@ -174,6 +180,7 @@ class StatisticViewController: UIViewController {
                 self.calcHeight()
             })
     }
+    
     @IBAction func priceButtonAction(_ sender: Any?) {
         if currentlySelectedWindow == .Price {return}
         
