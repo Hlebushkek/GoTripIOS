@@ -3,4 +3,134 @@
    uuid = "2659F64E-8F2C-42C2-BF9F-C51BFABF38CF"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6424990A-930D-41E6-80FB-B986AC2ADD8D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoTripIOS/Controller/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6424990A-930D-41E6-80FB-B986AC2ADD8D - 2b45047c5f8525e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GoTripIOSVapore.HomeViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "GoTripIOSVapore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/glebsobolevsky/Documents/SwiftProjects/GoTrip/GoTripIOS/GoTripIOS/Controller/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "6424990A-930D-41E6-80FB-B986AC2ADD8D - 106676793695d571"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;GoTripIOSVapore.TripInfoModel&gt;) -&gt; () in GoTripIOSVapore.HomeViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "GoTripIOSVapore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/glebsobolevsky/Documents/SwiftProjects/GoTrip/GoTripIOS/GoTripIOS/Controller/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "832780C0-3279-43FA-A505-355479FE90E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoTripIOS/Model/VaporeModel/DBManagerVapore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "fetchTrips(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "36C47971-957E-4FBE-A08C-2F2441338919"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoTripIOS/Model/VaporeModel/ResourceRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "getAll(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37E80597-D589-4E11-B4D1-00CB40E12D28"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoTripIOS/Model/VaporeModel/ResourceRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "getAll(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "37E80597-D589-4E11-B4D1-00CB40E12D28 - 69f39b3aa8c030fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GoTripIOSVapore.ResourceRequest.getAll(completion: (Swift.Result&lt;Swift.Array&lt;&#x3c4;_0_0&gt;, GoTripIOSVapore.ResourceRequestError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GoTripIOSVapore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/glebsobolevsky/Documents/SwiftProjects/GoTrip/GoTripIOS/GoTripIOS/Model/VaporeModel/ResourceRequest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "37E80597-D589-4E11-B4D1-00CB40E12D28 - 359aa733f5f87154"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GoTripIOSVapore.ResourceRequest.getAll(completion: (Swift.Result&lt;Swift.Array&lt;&#x3c4;_0_0&gt;, GoTripIOSVapore.ResourceRequestError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GoTripIOSVapore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/glebsobolevsky/Documents/SwiftProjects/GoTrip/GoTripIOS/GoTripIOS/Model/VaporeModel/ResourceRequest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

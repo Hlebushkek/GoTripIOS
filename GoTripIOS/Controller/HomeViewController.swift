@@ -60,6 +60,10 @@ class HomeViewController: UIViewController, ObservingProtocol {
         
         dbManager.addListener(self)
         
+        dbManager.fetchTrips { trips in
+            print(trips)
+        }
+        
         hideKeyboardWhenTappedAround()
         
         let appearance = UINavigationBarAppearance()
